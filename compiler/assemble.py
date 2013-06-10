@@ -210,20 +210,21 @@ def assemble(INFILE, OUTFILE):
                     valC =  int(registers[0].replace('$', ''), 0)
                 binline =  instr[ins_s] +  regs["rnone"] + regs[registers[1]] + str(valC)
             elif ins_s == 'rmmovl':
+                string = str(reg_s[reg_s.find('(')-1:reg_s.find('(')])
+                if reg_s.find('-') != -1:
+                    string = '-'+ string
                 binline =  instr[ins_s] +  regs[reg_s.split(',')[0]] + \
-                          regs[reg_s[reg_s.find('(')+1:reg_s.find(')')]] + \
-                          str(reg_s[reg_s.find('(')-1:reg_s.find('(')])
+                          regs[reg_s[reg_s.find('(')+1:reg_s.find(')')]] + string   
             elif ins_s == 'mrmovl':
+                string = str(reg_s[reg_s.find('(')-1:reg_s.find('(')])
+                if reg_s.find('-') != -1:
+                    string = '-'+ string
                 binline =  instr[ins_s] +  regs[reg_s.split(',')[1]] + \
-                          regs[reg_s[reg_s.find('(')+1:reg_s.find(')')]] + \
-                          str(reg_s[reg_s.find('(')-1:reg_s.find('(')])
+                          regs[reg_s[reg_s.find('(')+1:reg_s.find(')')]] + string
 
             else:
                 error += 'Line %d: Instruction "%s" not defined.\n' % (linepos, ins_s)
-                continue  
-        
-        
-        
+                continue         
         allbinline[linepos] = binline
         
     #write
