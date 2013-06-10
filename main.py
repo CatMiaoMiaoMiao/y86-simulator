@@ -30,7 +30,7 @@ Options:
   -p, --print           print log on screen
   -l, --logfile=LOGFILE customize a new logfile. (default using input name
                         with .txt suffix)
-  -d, --debug           begin debug mode
+  -d, --debug           begin debug mode (not done yet) 
 ''' % os.path.basename(sys.argv[0]))
     sys.exit(1)
   
