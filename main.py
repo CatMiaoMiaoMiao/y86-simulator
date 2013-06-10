@@ -3,6 +3,7 @@ Created on 2013-6-9
 
 @author: rockyRocky
 '''
+from compiler.ast import Return
 
 __ver__ = '1.0.1'
 
@@ -26,18 +27,40 @@ Options:
   -g, --guimode         set log output syntax for GUI. (default is disabled)
   -n, --nologfile       print log to stdout instead of writing to file.
                         (default is disabled)
+  -p, --print           print log on screen
+  -l, --logfile=LOGFILE customize a new logfile. (default using input name
+                        with .txt suffix)
+  -d, --debug           begin debug mode (not done yet) 
 ''' % os.path.basename(sys.argv[0]))
     sys.exit(1)
-    
+  
+def showDebugUsage():  
+  print ('''[command]
+  
+Command:
+    c, continue         run till the end/breakpoint
+    s, step, n, next    step into next cycle
+    b, back             back to last cycle
+    h, help             show this help
+    q, quit             quit
+''')
+  
 def main():
     simulator = Simulator()
-    print('Y86-Simulator ics course pj %s\nCopyright (c) 2013 CatMiaoMiaoMiao' % __ver__)
-    print ('Kernel version: %s\n' % simulator.__ver__)
+    isDebugMode = False
+    print ('='*51)
+    print '|'+' '*49+' '+'|'
+    print '|'+('  Y86-Simulator ics course pj %s  ' % __ver__).center(50)+'|'
+    print '|'+('  Copyright(c) 2013 CatMiaoMiaoMiao  ').center(50)+'|'    
+    print '|'+('  Kernel version: %s  ' % simulator.__ver__).center(50)+'|'
+    print '|'+' '*49+' '+'|'
+    print ('='*51)
     
 # parse opts
     try:
-        opts, args = getopt.getopt(sys.argv[1:], 'bsm:gnh', \
-                ['bigendian', 'second', 'maxcycle', 'guimode', 'nologfile', 'help'])
+        opts, args = getopt.getopt(sys.argv[1:], 'bsm:gnpl:dh', \
+                ['bigendian', 'second', 'maxcycle', 'guimode', 'nologfile', \
+                 'print', 'logfile', 'debug', 'help'])
         if len(opts) == 0 and len(args) != 1:
             if len(args) == 0:
                 print("Error: missing input file")
@@ -59,30 +82,75 @@ def main():
             if o in ("-g", "--guimode"):
                 simulator.isGuimode = True
             if o in ("-n", "--nologfile"):
+                if simulator.logfile!=None:
+                    print ('Switch conflict: want a logfile or not?')
+                    sys.exit(1)
                 simulator.isNoLogFile = True
+            if o in ("-p", "--print"):
+                simulator.isOnScreen = True
+            if o in ("-l", "--logfile="):
+                if simulator.isNoLogFile:
+                    print ('Switch conflict: want a logfile or not?')
+                    sys.exit(1)
+                try:
+                    simulator.logfile = open(a, 'w')
+                except:
+                    print ('Error: cannot open a logfile to write')
+                    sys.exit(1)
+            if o in ('-d', '--debug'):
+                isDebugMode = True
             if o in ('-h', '--help'):
                 showUsage()
     except getopt.GetoptError:
         print("Error: illegal option")
         showUsage()
+    
+    # prepare simulator input/output file
     inputName = args[0]
-# accept both binary and non-binary
+    # TODO: accept both binary and non-binary
     try:
         fin = open(inputName, 'r')
     except:
         print('Error: cannot open binary: %s' % inputName)
         sys.exit(1)
-        
-    # Automatic pipeline run
-    try:
-        simulator.run(fin)
-        fin.close()
-    except IOError:
-        print('Warning: cannot create log file')
-    except:
-        print('Error: cannot identify binary: %s' % (inputName))
-        
-    print('Simulation finished')
+    simulator.load(fin, simulator.logfile)
+    
+    # to check if it is run under debug mode
+    if isDebugMode:
+        simulator.isOnScreen = True
+        cmd = ''
+        while True:
+            tmp = raw_input("(ydb) ")
+            cmd = tmp if tmp!='' else cmd
+            if (cmd=='c' or cmd=='continue'):
+                simulator.run()
+                break
+            elif (cmd=='b' or cmd=='back'):
+                simulator.back()
+            elif (cmd=='s' or cmd=='step' or cmd=='n' or cmd=='step'):
+                if not simulator.step():
+                    break
+            elif (cmd=='h' or cmd=='help'):
+                showDebugUsage()
+            elif (cmd=='q' or cmd=='quit'):
+                print ('bye')
+                sys.exit(1)
+            else:
+                print ('no such command')
+                print ('type \'help\' or \'h\' for help')
+    else:
+        # Automatic pipeline run
+        try:         
+            simulator.run()
+            fin.close()
+        except IOError:
+            print('Warning: cannot create logfile')
+        except Exception, e:
+            print e
+            print('Error: cannot identify binary: %s' % (inputName))
+    
+    # finish    
+    print('Simulation finished\n')
      
 if __name__ == '__main__':
     main()

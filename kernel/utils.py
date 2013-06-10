@@ -14,8 +14,11 @@ def str_to_bytes(s):
 def int_to_4_bytes(v):
     return [ (v>>(8*i))%(1<<8) for i in range(0,4) ]
 
-def bytes_to_int(bytes): # already little endian
-    r = sum( bytes[i]<<(8*i) for i in range(len(bytes)) )
+def bytes_to_int(bytes, isBigEndian=False): # already little endian
+    if not isBigEndian:
+        r = sum( bytes[i]<<(8*i) for i in range(len(bytes)) )
+    else:
+        r = sum( bytes[4-i]<<(8*i) for i in range(len(bytes)) )
     if (r >= 1<<31):
         return r-(1<<32)
     else:

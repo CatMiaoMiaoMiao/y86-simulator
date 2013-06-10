@@ -3,10 +3,12 @@ __author__ = 'rockyRocky'
 import os
 import re
 import binascii
+import copy
 
 from utils import *
 from constants import *
 from Memory import *
+from History import *
 
 class Simulator:
     def __init__(self):
@@ -113,6 +115,8 @@ class Simulator:
         }
     # memory
         self.memory = Memory()
+    # history
+        self.history = History()
 
     # Global variables
         self.isBigEndian = False
@@ -127,17 +131,112 @@ class Simulator:
         self.binlen = 0
         self.addrlen = 3
         self.logfile = None
-    
+        self.isOnScreen = False
+        
+    def copy(self, tmp):
+            # Pipeline self.register F
+        self.F_predPC = tmp.F_predPC
+        self.F_stat = tmp.F_stat
+        self.F_stall = tmp.F_stall
+
+    # Intermediate Values in Fetch Stage
+        self.f_icode = tmp.f_icode
+        self.f_ifun = tmp.f_ifun
+        self.f_valC = tmp.f_valC
+        self.f_valP = tmp.f_valP
+        self.f_rA = tmp.f_rA
+        self.f_rB = tmp.f_rB
+        self.f_predPC = tmp.f_predPC
+        self.f_stat = tmp.f_stat
+
+    # Pipeline self.register D
+        self.D_stat = tmp.D_stat
+        self.D_icode = tmp.D_icode
+        self.D_ifun = tmp.D_ifun
+        self.D_rA = tmp.D_rA
+        self.D_rB = tmp.D_rB
+        self.D_valP = tmp.D_valP
+        self.D_valC = tmp.D_valC
+        self.D_bub = tmp.D_bub
+        self.D_stall = tmp.D_stall
+
+    # Intermediate Values in Decode Stage
+        self.d_srcA = tmp.d_srcA
+        self.d_srcB = tmp.d_srcB
+        self.d_dstE = tmp.d_dstE
+        self.d_dstM = tmp.d_dstM
+        self.d_valA = tmp.d_valA
+        self.d_valB = tmp.d_valB
+
+    # Pipeline self.register E
+        self.E_stat = tmp.E_stat
+        self.E_icode = tmp.E_icode
+        self.E_ifun = tmp.E_ifun
+        self.E_valC = tmp.E_valC
+        self.E_srcA = tmp.E_srcA
+        self.E_valA = tmp.E_valA
+        self.E_srcB = tmp.E_srcB
+        self.E_valB = tmp.E_valB
+        self.E_dstE = tmp.E_dstE
+        self.E_dstM = tmp.E_dstM
+        self.E_bub = tmp.E_bub
+
+    # Intermediate Values in Execute Stage
+        self.e_valE = tmp.e_valE
+        self.e_dstE = tmp.e_dstE
+        self.e_Cnd = tmp.e_Cnd
+        self.e_setcc = tmp.e_setcc
+
+    # Pipeline self.register M
+        self.M_stat = tmp.M_stat
+        self.M_icode = tmp.M_icode
+        self.M_ifun = tmp.M_ifun
+        self.M_valA = tmp.M_valA
+        self.M_dstE = tmp.M_dstE
+        self.M_valE = tmp.M_valE
+        self.M_dstM = tmp.M_dstM
+        self.M_Cnd = tmp.M_Cnd
+
+    # Intermediate Values in Memory Stage
+        self.m_valM = tmp.m_valM
+        self.m_stat = tmp.m_stat
+        self.mem_addr = tmp.mem_addr
+        self.m_read = tmp.m_read
+        self.dmem_error = tmp.dmem_error
+
+    # Pipeline self.register W
+        self.W_stat = tmp.W_stat
+        self.W_icode = tmp.W_icode
+        self.W_ifun = tmp.W_ifun
+        self.W_dstE = tmp.W_dstE
+        self.W_valE = tmp.W_valE
+        self.W_dstM = tmp.W_dstM
+        self.W_valM = tmp.W_valM
+
+    # self.registers
+        self.register = copy.copy(tmp.register)
+
+    # CC code
+        self.condcode = copy.copy(tmp.condcode)
+    # memory
+        self.memory = copy.copy(tmp.memory)
+    # history
+    #    self.history = History()
+
+    # Global variables
+        self.cycle = tmp.cycle
+                    
     def handleErr(self, desc): # TODO:
         return
     
-    def simLog(self, s, onscreen = False):
+    def simLog(self, s):
         if self.isGuimode:
             return
         if self.logfile != None:
             self.logfile.write("%s\n" % (s))
-        if onscreen or self.logfile == None:
+        if self.isOnScreen or self.logfile == None:
             print s
+            return
 
     def showStatTitle(self):
         if self.isGuimode:
@@ -511,7 +610,6 @@ class Simulator:
             self.cpustat = 'HLT'
             return       
         self.showStatTitle()
-        
         self.pipeCtr()
         
         self.writeW() # take care of orders if u wanna save some intermediate vals
@@ -527,50 +625,46 @@ class Simulator:
         self.stageF()
         
         self.showStat()
+        self.history.record(self)
         self.cycle += 1
         
-    def run(self, fin):
+        if self.cpustat != 'AOK' and self.cpustat != 'BUB':
+            return False
+        else: 
+            return True
+    
+    def back(self):
+        tmp = self.history.back(self.cycle-1)
+        if tmp==False:
+            self.simLog('out of history\'s reach')
+            return
+        else:
+            self.copy(tmp)
+            self.showStatTitle()
+            self.showStat()
+            self.cycle += 1
+            
+        
+    def load(self, fin, fout=None):
+        # prepare    
+        self.cycle = 0
         self.yasbin = ''
-        self.prepareLogfile(fin)
-        self.getYasbin(fin)
-        try:
-            while True:
-                if self.cpustat != 'AOK' and self.cpustat != 'BUB':
-                    break
-                self.step()
-            self.logfile.close()
-        except:
-            self.simLog('Error: bad input binary file')
-            self.logfile.close()
-            raise
-
-    def prepareLogfile(self, fin):
         inputName = fin.name
         prefixName = os.path.splitext(inputName)[0]
-        if self.isNoLogFile:
-            self.logfile = None
-        else:
+        if fout==None and not self.isNoLogFile:
             outputName = prefixName + '.txt'
             try:
                 self.logfile = open(outputName, 'w')
             except IOError:
-                raise         
+                self.handleErr({'what':'cannot open a logfile to write'})
+                raise
+        else:
+            outputName = fout.name
         if not self.isNoLogFile and not self.isGuimode:
             print('Log file: %s' % (outputName))
-        
-    def getYasbin(self, fin):
-        ''' TODO: how to read bin or normal .yo simultaneously
-        try:
-            self.yasbin = binascii.b2a_hex(fin.read())    
-        except:
-        '''
-        self.loadyo(fin)
-        self.binlen = len(self.yasbin) / 2
-        addrlen = len("%x" % (self.binlen))
-        if addrlen < 3:
-            addrlen = 3
             
-    def loadyo(self, fin):
+        # load    
+        # TODO: how to load both bin and non-bin
         for str_line in fin.readlines():
             str_valid = str_line
             str_valid = re.sub(r'\|.*','',str_valid)
@@ -585,11 +679,20 @@ class Simulator:
             self.yasbin += content_str
             content_bytes = str_to_bytes(content_str)
             self.memory.setBytes( addr, content_bytes)
+        self.binlen = len(self.yasbin)   
+        
+    def run(self):
+        try:       
+            while self.step():
+                pass
+            self.logfile.close()
+        except:
+            self.simLog('Error: bad input binary file')
+            self.logfile.close()
+            raise
 
     '''''''''''''''''
     '    trivial    '
     '''''''''''''''''        
-    def getCCStr(self):
-        return 'Z=%d S=%d O=%d' % \
-            (self.condcode['ZF'], self.condcode['SF'], self.condcode['OF'])
+
         
