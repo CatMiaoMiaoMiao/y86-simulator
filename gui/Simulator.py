@@ -4,11 +4,14 @@ import os
 import re
 import binascii
 import copy
+import time
 
 from utils import *
 from constants import *
 from Memory import *
 from History import *
+
+count = 0
 
 class Simulator:
     def __init__(self):
@@ -132,6 +135,10 @@ class Simulator:
         self.addrlen = 3
         self.logfile = None
         self.isOnScreen = False
+        
+        self.isGoing = True
+        self.interval = 0.1
+        self.isTerminated = False
         
     def copy(self, tmp):
             # Pipeline self.register F
@@ -627,8 +634,10 @@ class Simulator:
         self.showStat()
         self.history.record(self)
         self.cycle += 1
+        print self.cycle
         
         if self.cpustat != 'AOK' and self.cpustat != 'BUB':
+            self.isTerminated = True
             return False
         else: 
             return True
@@ -659,7 +668,7 @@ class Simulator:
                 self.handleErr({'what':'cannot open a logfile to write'})
                 raise
         else:
-            #self.logfile = fout
+            self.logfile = fout
             outputName = fout.name
         if not self.isNoLogFile and not self.isGuimode:
             print('Log file: %s' % (outputName))
@@ -684,8 +693,11 @@ class Simulator:
         
     def run(self):
         try:       
-            while self.step():
-                pass
+            while True:
+                if self.isGoing:
+                    if not self.step():
+                        break
+                    time.sleep(self.interval)
             self.logfile.close()
         except:
             self.simLog('Error: bad input binary file')

@@ -47,8 +47,8 @@ p, li { white-space: pre-wrap; }
   <widget class="QWidget" name="layoutWidget_2">
    <property name="geometry">
     <rect>
-     <x>40</x>
-     <y>540</y>
+     <x>30</x>
+     <y>530</y>
      <width>482</width>
      <height>25</height>
     </rect>
@@ -56,15 +56,18 @@ p, li { white-space: pre-wrap; }
    <layout class="QHBoxLayout" name="horizontalLayout">
     <item>
      <widget class="QPushButton" name="runButton">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
       <property name="text">
        <string>Run</string>
       </property>
      </widget>
     </item>
     <item>
-     <widget class="QPushButton" name="stopButton">
+     <widget class="QPushButton" name="pauseButton">
       <property name="text">
-       <string>Stop</string>
+       <string>Pause</string>
       </property>
      </widget>
     </item>
@@ -119,309 +122,19 @@ p, li { white-space: pre-wrap; }
     <rect>
      <x>30</x>
      <y>290</y>
-     <width>610</width>
-     <height>74</height>
+     <width>685</width>
+     <height>81</height>
     </rect>
    </property>
    <layout class="QGridLayout" name="gridLayout_5">
-    <item row="1" column="7" alignment="Qt::AlignHCenter">
-     <widget class="QTextBrowser" name="textBrowser_42">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-        <horstretch>70</horstretch>
-        <verstretch>20</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="minimumSize">
-       <size>
-        <width>0</width>
-        <height>20</height>
-       </size>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>20</width>
-        <height>24</height>
-       </size>
-      </property>
-      <property name="baseSize">
-       <size>
-        <width>70</width>
-        <height>20</height>
-       </size>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background:rgb(243, 221, 255)</string>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="0" alignment="Qt::AlignHCenter">
-     <widget class="QLabel" name="label_29">
+    <item row="0" column="9" alignment="Qt::AlignHCenter">
+     <widget class="QLabel" name="label_32">
       <property name="text">
-       <string>iCode</string>
+       <string>srcA</string>
       </property>
      </widget>
     </item>
-    <item row="1" column="0" alignment="Qt::AlignHCenter">
-     <widget class="QTextBrowser" name="textBrowser_43">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-        <horstretch>70</horstretch>
-        <verstretch>20</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="minimumSize">
-       <size>
-        <width>0</width>
-        <height>20</height>
-       </size>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>20</width>
-        <height>24</height>
-       </size>
-      </property>
-      <property name="baseSize">
-       <size>
-        <width>70</width>
-        <height>20</height>
-       </size>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background:rgb(243, 221, 255)</string>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="2" alignment="Qt::AlignHCenter">
-     <widget class="QLabel" name="label_30">
-      <property name="text">
-       <string>valC</string>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="3" alignment="Qt::AlignHCenter">
-     <widget class="QLabel" name="label_31">
-      <property name="text">
-       <string>valA</string>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="2">
-     <widget class="QTextBrowser" name="textBrowser_45">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-        <horstretch>70</horstretch>
-        <verstretch>20</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="minimumSize">
-       <size>
-        <width>70</width>
-        <height>20</height>
-       </size>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>70</width>
-        <height>24</height>
-       </size>
-      </property>
-      <property name="baseSize">
-       <size>
-        <width>70</width>
-        <height>20</height>
-       </size>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background:rgb(243, 221, 255)</string>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="7" alignment="Qt::AlignHCenter">
-     <widget class="QLabel" name="label_25">
-      <property name="text">
-       <string>dstM</string>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="1">
-     <widget class="QLabel" name="label_26">
-      <property name="text">
-       <string>iFun</string>
-      </property>
-     </widget>
-    </item>
-    <item row="2" column="0">
-     <widget class="QTextBrowser" name="textBrowser_37">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-        <horstretch>70</horstretch>
-        <verstretch>20</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="minimumSize">
-       <size>
-        <width>0</width>
-        <height>20</height>
-       </size>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>40</width>
-        <height>24</height>
-       </size>
-      </property>
-      <property name="baseSize">
-       <size>
-        <width>70</width>
-        <height>20</height>
-       </size>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background:rgb(243, 221, 255)</string>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="4" alignment="Qt::AlignHCenter">
-     <widget class="QLabel" name="label_27">
-      <property name="text">
-       <string>valB</string>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="6" alignment="Qt::AlignHCenter">
-     <widget class="QTextBrowser" name="textBrowser_38">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-        <horstretch>70</horstretch>
-        <verstretch>20</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="minimumSize">
-       <size>
-        <width>0</width>
-        <height>20</height>
-       </size>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>20</width>
-        <height>24</height>
-       </size>
-      </property>
-      <property name="baseSize">
-       <size>
-        <width>70</width>
-        <height>20</height>
-       </size>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background:rgb(243, 221, 255)</string>
-      </property>
-     </widget>
-    </item>
-    <item row="2" column="6">
-     <widget class="QTextBrowser" name="textBrowser_39">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-        <horstretch>70</horstretch>
-        <verstretch>20</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="minimumSize">
-       <size>
-        <width>70</width>
-        <height>20</height>
-       </size>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>70</width>
-        <height>24</height>
-       </size>
-      </property>
-      <property name="baseSize">
-       <size>
-        <width>70</width>
-        <height>20</height>
-       </size>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background:rgb(243, 221, 255)</string>
-      </property>
-     </widget>
-    </item>
-    <item row="2" column="7">
-     <widget class="QTextBrowser" name="textBrowser_40">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-        <horstretch>70</horstretch>
-        <verstretch>20</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="minimumSize">
-       <size>
-        <width>70</width>
-        <height>20</height>
-       </size>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>70</width>
-        <height>24</height>
-       </size>
-      </property>
-      <property name="baseSize">
-       <size>
-        <width>70</width>
-        <height>20</height>
-       </size>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background:rgb(243, 221, 255)</string>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="6" alignment="Qt::AlignHCenter">
-     <widget class="QLabel" name="label_28">
-      <property name="text">
-       <string>dstE</string>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="1">
-     <widget class="QTextBrowser" name="textBrowser_41">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-        <horstretch>70</horstretch>
-        <verstretch>20</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="minimumSize">
-       <size>
-        <width>0</width>
-        <height>20</height>
-       </size>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>20</width>
-        <height>24</height>
-       </size>
-      </property>
-      <property name="baseSize">
-       <size>
-        <width>70</width>
-        <height>20</height>
-       </size>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background:rgb(243, 221, 255)</string>
-      </property>
-     </widget>
-    </item>
-    <item row="2" column="8">
+    <item row="2" column="9">
      <widget class="QTextBrowser" name="textBrowser_47">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
@@ -452,14 +165,7 @@ p, li { white-space: pre-wrap; }
       </property>
      </widget>
     </item>
-    <item row="0" column="8" alignment="Qt::AlignHCenter">
-     <widget class="QLabel" name="label_32">
-      <property name="text">
-       <string>srcA</string>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="5">
+    <item row="1" column="6">
      <spacer name="horizontalSpacer_7">
       <property name="orientation">
        <enum>Qt::Horizontal</enum>
@@ -472,8 +178,22 @@ p, li { white-space: pre-wrap; }
       </property>
      </spacer>
     </item>
-    <item row="1" column="4">
-     <widget class="QTextBrowser" name="textBrowser_36">
+    <item row="0" column="4" alignment="Qt::AlignHCenter">
+     <widget class="QLabel" name="label_31">
+      <property name="text">
+       <string>valA</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="3" alignment="Qt::AlignHCenter">
+     <widget class="QLabel" name="label_30">
+      <property name="text">
+       <string>valC</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="1" alignment="Qt::AlignHCenter">
+     <widget class="QTextBrowser" name="E_icode">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
         <horstretch>70</horstretch>
@@ -482,13 +202,13 @@ p, li { white-space: pre-wrap; }
       </property>
       <property name="minimumSize">
        <size>
-        <width>70</width>
+        <width>0</width>
         <height>20</height>
        </size>
       </property>
       <property name="maximumSize">
        <size>
-        <width>70</width>
+        <width>20</width>
         <height>24</height>
        </size>
       </property>
@@ -504,7 +224,7 @@ p, li { white-space: pre-wrap; }
      </widget>
     </item>
     <item row="1" column="3">
-     <widget class="QTextBrowser" name="textBrowser_44">
+     <widget class="QTextBrowser" name="E_valC">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
         <horstretch>70</horstretch>
@@ -520,6 +240,189 @@ p, li { white-space: pre-wrap; }
       <property name="maximumSize">
        <size>
         <width>70</width>
+        <height>24</height>
+       </size>
+      </property>
+      <property name="baseSize">
+       <size>
+        <width>70</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background:rgb(243, 221, 255)</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="2">
+     <widget class="QLabel" name="label_26">
+      <property name="text">
+       <string>iFun</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="8" alignment="Qt::AlignHCenter">
+     <widget class="QLabel" name="label_25">
+      <property name="text">
+       <string>dstM</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="1">
+     <widget class="QTextBrowser" name="textBrowser_37">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>70</horstretch>
+        <verstretch>20</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>40</width>
+        <height>24</height>
+       </size>
+      </property>
+      <property name="baseSize">
+       <size>
+        <width>70</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background:rgb(243, 221, 255)</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="5" alignment="Qt::AlignHCenter">
+     <widget class="QLabel" name="label_27">
+      <property name="text">
+       <string>valB</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="7" alignment="Qt::AlignHCenter">
+     <widget class="QTextBrowser" name="E_dstE">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>70</horstretch>
+        <verstretch>20</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>20</width>
+        <height>24</height>
+       </size>
+      </property>
+      <property name="baseSize">
+       <size>
+        <width>70</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background:rgb(243, 221, 255)</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="7">
+     <widget class="QTextBrowser" name="textBrowser_39">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>70</horstretch>
+        <verstretch>20</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>70</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>70</width>
+        <height>24</height>
+       </size>
+      </property>
+      <property name="baseSize">
+       <size>
+        <width>70</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background:rgb(243, 221, 255)</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="7" alignment="Qt::AlignHCenter">
+     <widget class="QLabel" name="label_28">
+      <property name="text">
+       <string>dstE</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="8">
+     <widget class="QTextBrowser" name="textBrowser_40">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>70</horstretch>
+        <verstretch>20</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>70</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>70</width>
+        <height>24</height>
+       </size>
+      </property>
+      <property name="baseSize">
+       <size>
+        <width>70</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background:rgb(243, 221, 255)</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="2">
+     <widget class="QTextBrowser" name="E_ifun">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>70</horstretch>
+        <verstretch>20</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>20</width>
         <height>24</height>
        </size>
       </property>
@@ -535,7 +438,7 @@ p, li { white-space: pre-wrap; }
      </widget>
     </item>
     <item row="1" column="8" alignment="Qt::AlignHCenter">
-     <widget class="QTextBrowser" name="textBrowser_46">
+     <widget class="QTextBrowser" name="E_dstM">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
         <horstretch>70</horstretch>
@@ -551,6 +454,75 @@ p, li { white-space: pre-wrap; }
       <property name="maximumSize">
        <size>
         <width>20</width>
+        <height>24</height>
+       </size>
+      </property>
+      <property name="baseSize">
+       <size>
+        <width>70</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background:rgb(243, 221, 255)</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="1" alignment="Qt::AlignHCenter">
+     <widget class="QLabel" name="label_29">
+      <property name="text">
+       <string>iCode</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="5">
+     <widget class="QTextBrowser" name="E_valB">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>70</horstretch>
+        <verstretch>20</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>70</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>70</width>
+        <height>24</height>
+       </size>
+      </property>
+      <property name="baseSize">
+       <size>
+        <width>70</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background:rgb(243, 221, 255)</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="4">
+     <widget class="QTextBrowser" name="E_valA">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>70</horstretch>
+        <verstretch>20</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>70</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>70</width>
         <height>24</height>
        </size>
       </property>
@@ -566,7 +538,7 @@ p, li { white-space: pre-wrap; }
      </widget>
     </item>
     <item row="1" column="9" alignment="Qt::AlignHCenter">
-     <widget class="QTextBrowser" name="textBrowser_48">
+     <widget class="QTextBrowser" name="E_srcA">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
         <horstretch>70</horstretch>
@@ -596,7 +568,45 @@ p, li { white-space: pre-wrap; }
       </property>
      </widget>
     </item>
-    <item row="2" column="9">
+    <item row="1" column="10" alignment="Qt::AlignHCenter">
+     <widget class="QTextBrowser" name="E_srcB">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>70</horstretch>
+        <verstretch>20</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>20</width>
+        <height>24</height>
+       </size>
+      </property>
+      <property name="baseSize">
+       <size>
+        <width>70</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background:rgb(243, 221, 255)</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="10" alignment="Qt::AlignHCenter">
+     <widget class="QLabel" name="label_33">
+      <property name="text">
+       <string>srcB</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="10">
      <widget class="QTextBrowser" name="textBrowser_49">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
@@ -627,10 +637,41 @@ p, li { white-space: pre-wrap; }
       </property>
      </widget>
     </item>
-    <item row="0" column="9" alignment="Qt::AlignHCenter">
-     <widget class="QLabel" name="label_33">
+    <item row="0" column="0" alignment="Qt::AlignHCenter">
+     <widget class="QLabel" name="label_44">
       <property name="text">
-       <string>srcB</string>
+       <string>E_stat</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0" alignment="Qt::AlignHCenter">
+     <widget class="QTextBrowser" name="E_stat">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>70</horstretch>
+        <verstretch>20</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>40</width>
+        <height>24</height>
+       </size>
+      </property>
+      <property name="baseSize">
+       <size>
+        <width>70</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background:rgb(243, 221, 255)</string>
       </property>
      </widget>
     </item>
@@ -660,13 +701,13 @@ p, li { white-space: pre-wrap; }
     <rect>
      <x>30</x>
      <y>380</y>
-     <width>411</width>
+     <width>431</width>
      <height>75</height>
     </rect>
    </property>
    <layout class="QGridLayout" name="gridLayout_6">
-    <item row="1" column="3" alignment="Qt::AlignHCenter">
-     <widget class="QTextBrowser" name="textBrowser_58">
+    <item row="1" column="8">
+     <widget class="QTextBrowser" name="D_valP">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
         <horstretch>70</horstretch>
@@ -675,13 +716,13 @@ p, li { white-space: pre-wrap; }
       </property>
       <property name="minimumSize">
        <size>
-        <width>0</width>
+        <width>70</width>
         <height>20</height>
        </size>
       </property>
       <property name="maximumSize">
        <size>
-        <width>20</width>
+        <width>70</width>
         <height>24</height>
        </size>
       </property>
@@ -695,9 +736,22 @@ p, li { white-space: pre-wrap; }
        <string notr="true">background:rgb(243, 221, 255)</string>
       </property>
      </widget>
+    </item>
+    <item row="1" column="6">
+     <spacer name="horizontalSpacer_9">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>58</width>
+        <height>21</height>
+       </size>
+      </property>
+     </spacer>
     </item>
     <item row="1" column="4" alignment="Qt::AlignHCenter">
-     <widget class="QTextBrowser" name="textBrowser_59">
+     <widget class="QTextBrowser" name="D_rA">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
         <horstretch>70</horstretch>
@@ -727,7 +781,38 @@ p, li { white-space: pre-wrap; }
       </property>
      </widget>
     </item>
-    <item row="1" column="2">
+    <item row="1" column="5" alignment="Qt::AlignHCenter">
+     <widget class="QTextBrowser" name="D_rB">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>70</horstretch>
+        <verstretch>20</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>20</width>
+        <height>24</height>
+       </size>
+      </property>
+      <property name="baseSize">
+       <size>
+        <width>70</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background:rgb(243, 221, 255)</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="3">
      <spacer name="horizontalSpacer_8">
       <property name="orientation">
        <enum>Qt::Horizontal</enum>
@@ -740,7 +825,7 @@ p, li { white-space: pre-wrap; }
       </property>
      </spacer>
     </item>
-    <item row="2" column="3">
+    <item row="2" column="4">
      <widget class="QTextBrowser" name="textBrowser_54">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
@@ -771,7 +856,7 @@ p, li { white-space: pre-wrap; }
       </property>
      </widget>
     </item>
-    <item row="2" column="4">
+    <item row="2" column="5">
      <widget class="QTextBrowser" name="textBrowser_55">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
@@ -802,29 +887,36 @@ p, li { white-space: pre-wrap; }
       </property>
      </widget>
     </item>
-    <item row="0" column="3" alignment="Qt::AlignHCenter">
-     <widget class="QLabel" name="label_39">
-      <property name="text">
-       <string>rA</string>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="4" alignment="Qt::AlignHCenter">
+    <item row="0" column="5" alignment="Qt::AlignHCenter">
      <widget class="QLabel" name="label_40">
       <property name="text">
        <string>rB</string>
       </property>
      </widget>
     </item>
-    <item row="0" column="0" alignment="Qt::AlignHCenter">
+    <item row="0" column="1" alignment="Qt::AlignHCenter">
      <widget class="QLabel" name="label_34">
       <property name="text">
        <string>iCode</string>
       </property>
      </widget>
     </item>
-    <item row="1" column="0" alignment="Qt::AlignHCenter">
-     <widget class="QTextBrowser" name="textBrowser_51">
+    <item row="0" column="4" alignment="Qt::AlignHCenter">
+     <widget class="QLabel" name="label_39">
+      <property name="text">
+       <string>rA</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="8" alignment="Qt::AlignHCenter">
+     <widget class="QLabel" name="label_36">
+      <property name="text">
+       <string>valP</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="1" alignment="Qt::AlignHCenter">
+     <widget class="QTextBrowser" name="D_icode">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
         <horstretch>70</horstretch>
@@ -855,21 +947,14 @@ p, li { white-space: pre-wrap; }
      </widget>
     </item>
     <item row="0" column="7" alignment="Qt::AlignHCenter">
-     <widget class="QLabel" name="label_36">
-      <property name="text">
-       <string>valP</string>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="6" alignment="Qt::AlignHCenter">
      <widget class="QLabel" name="label_35">
       <property name="text">
        <string>valC</string>
       </property>
      </widget>
     </item>
-    <item row="1" column="6">
-     <widget class="QTextBrowser" name="textBrowser_52">
+    <item row="1" column="7">
+     <widget class="QTextBrowser" name="D_valC">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
         <horstretch>70</horstretch>
@@ -899,14 +984,14 @@ p, li { white-space: pre-wrap; }
       </property>
      </widget>
     </item>
-    <item row="0" column="1">
+    <item row="0" column="2">
      <widget class="QLabel" name="label_38">
       <property name="text">
        <string>iFun</string>
       </property>
      </widget>
     </item>
-    <item row="2" column="0">
+    <item row="2" column="1">
      <widget class="QTextBrowser" name="textBrowser_53">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
@@ -937,8 +1022,8 @@ p, li { white-space: pre-wrap; }
       </property>
      </widget>
     </item>
-    <item row="1" column="1">
-     <widget class="QTextBrowser" name="textBrowser_57">
+    <item row="1" column="2">
+     <widget class="QTextBrowser" name="D_ifun">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
         <horstretch>70</horstretch>
@@ -968,8 +1053,65 @@ p, li { white-space: pre-wrap; }
       </property>
      </widget>
     </item>
-    <item row="1" column="7">
-     <widget class="QTextBrowser" name="textBrowser_60">
+    <item row="0" column="0" alignment="Qt::AlignHCenter">
+     <widget class="QLabel" name="label_45">
+      <property name="text">
+       <string>D_stat</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0" alignment="Qt::AlignHCenter">
+     <widget class="QTextBrowser" name="D_stat">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>70</horstretch>
+        <verstretch>20</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>40</width>
+        <height>24</height>
+       </size>
+      </property>
+      <property name="baseSize">
+       <size>
+        <width>70</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background:rgb(243, 221, 255)</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="layoutWidget_5">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>470</y>
+     <width>141</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <layout class="QGridLayout" name="gridLayout_7">
+    <item row="0" column="1" alignment="Qt::AlignHCenter">
+     <widget class="QLabel" name="label_43">
+      <property name="text">
+       <string>predPC</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="1">
+     <widget class="QTextBrowser" name="F_predPC">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
         <horstretch>70</horstretch>
@@ -999,40 +1141,15 @@ p, li { white-space: pre-wrap; }
       </property>
      </widget>
     </item>
-    <item row="1" column="5">
-     <spacer name="horizontalSpacer_9">
-      <property name="orientation">
-       <enum>Qt::Horizontal</enum>
-      </property>
-      <property name="sizeHint" stdset="0">
-       <size>
-        <width>58</width>
-        <height>21</height>
-       </size>
-      </property>
-     </spacer>
-    </item>
-   </layout>
-  </widget>
-  <widget class="QWidget" name="layoutWidget_5">
-   <property name="geometry">
-    <rect>
-     <x>30</x>
-     <y>470</y>
-     <width>81</width>
-     <height>51</height>
-    </rect>
-   </property>
-   <layout class="QGridLayout" name="gridLayout_7">
     <item row="0" column="0" alignment="Qt::AlignHCenter">
-     <widget class="QLabel" name="label_43">
+     <widget class="QLabel" name="label_46">
       <property name="text">
-       <string>predPC</string>
+       <string>F_stat</string>
       </property>
      </widget>
     </item>
     <item row="1" column="0">
-     <widget class="QTextBrowser" name="textBrowser_68">
+     <widget class="QTextBrowser" name="F_stat">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
         <horstretch>70</horstretch>
@@ -1041,13 +1158,13 @@ p, li { white-space: pre-wrap; }
       </property>
       <property name="minimumSize">
        <size>
-        <width>70</width>
+        <width>0</width>
         <height>20</height>
        </size>
       </property>
       <property name="maximumSize">
        <size>
-        <width>70</width>
+        <width>40</width>
         <height>24</height>
        </size>
       </property>
@@ -1105,14 +1222,14 @@ p, li { white-space: pre-wrap; }
   <widget class="QPushButton" name="loadButton">
    <property name="geometry">
     <rect>
-     <x>450</x>
+     <x>414</x>
      <y>20</y>
-     <width>75</width>
+     <width>111</width>
      <height>23</height>
     </rect>
    </property>
    <property name="text">
-    <string>Load</string>
+    <string>Choose Open File</string>
    </property>
    <property name="default">
     <bool>false</bool>
@@ -1134,7 +1251,7 @@ p, li { white-space: pre-wrap; }
   <widget class="QTextBrowser" name="Code">
    <property name="geometry">
     <rect>
-     <x>520</x>
+     <x>570</x>
      <y>110</y>
      <width>351</width>
      <height>171</height>
@@ -1155,706 +1272,17 @@ p, li { white-space: pre-wrap; }
 </string>
    </property>
   </widget>
-  <widget class="QWidget" name="layoutWidget">
-   <property name="geometry">
-    <rect>
-     <x>31</x>
-     <y>111</y>
-     <width>484</width>
-     <height>165</height>
-    </rect>
-   </property>
-   <layout class="QVBoxLayout" name="verticalLayout">
-    <item>
-     <layout class="QGridLayout" name="gridLayout">
-      <item row="1" column="6" alignment="Qt::AlignHCenter">
-       <widget class="QTextBrowser" name="textBrowser_7">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-          <horstretch>70</horstretch>
-          <verstretch>20</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="minimumSize">
-         <size>
-          <width>0</width>
-          <height>20</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>20</width>
-          <height>24</height>
-         </size>
-        </property>
-        <property name="baseSize">
-         <size>
-          <width>70</width>
-          <height>20</height>
-         </size>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background:rgb(243, 221, 255)</string>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="6">
-       <widget class="QTextBrowser" name="textBrowser_5">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-          <horstretch>70</horstretch>
-          <verstretch>20</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="minimumSize">
-         <size>
-          <width>70</width>
-          <height>20</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>70</width>
-          <height>24</height>
-         </size>
-        </property>
-        <property name="baseSize">
-         <size>
-          <width>70</width>
-          <height>20</height>
-         </size>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background:rgb(243, 221, 255)</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="5" alignment="Qt::AlignHCenter">
-       <widget class="QTextBrowser" name="textBrowser_6">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-          <horstretch>70</horstretch>
-          <verstretch>20</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="minimumSize">
-         <size>
-          <width>0</width>
-          <height>20</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>20</width>
-          <height>24</height>
-         </size>
-        </property>
-        <property name="baseSize">
-         <size>
-          <width>70</width>
-          <height>20</height>
-         </size>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background:rgb(243, 221, 255)</string>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="5">
-       <widget class="QTextBrowser" name="textBrowser_4">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-          <horstretch>70</horstretch>
-          <verstretch>20</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="minimumSize">
-         <size>
-          <width>70</width>
-          <height>20</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>70</width>
-          <height>24</height>
-         </size>
-        </property>
-        <property name="baseSize">
-         <size>
-          <width>70</width>
-          <height>20</height>
-         </size>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background:rgb(243, 221, 255)</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="0" alignment="Qt::AlignHCenter">
-       <widget class="QTextBrowser" name="W_icode">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-          <horstretch>70</horstretch>
-          <verstretch>20</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="minimumSize">
-         <size>
-          <width>0</width>
-          <height>20</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>20</width>
-          <height>24</height>
-         </size>
-        </property>
-        <property name="baseSize">
-         <size>
-          <width>70</width>
-          <height>20</height>
-         </size>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background:rgb(243, 221, 255)</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="3">
-       <widget class="QTextBrowser" name="textBrowser_3">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-          <horstretch>70</horstretch>
-          <verstretch>20</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="minimumSize">
-         <size>
-          <width>70</width>
-          <height>20</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>70</width>
-          <height>24</height>
-         </size>
-        </property>
-        <property name="baseSize">
-         <size>
-          <width>70</width>
-          <height>20</height>
-         </size>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background:rgb(243, 221, 255)</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="2">
-       <widget class="QTextBrowser" name="textBrowser_2">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-          <horstretch>70</horstretch>
-          <verstretch>20</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="minimumSize">
-         <size>
-          <width>70</width>
-          <height>20</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>70</width>
-          <height>24</height>
-         </size>
-        </property>
-        <property name="baseSize">
-         <size>
-          <width>70</width>
-          <height>20</height>
-         </size>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background:rgb(243, 221, 255)</string>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="0" alignment="Qt::AlignHCenter">
-       <widget class="QLabel" name="label_2">
-        <property name="text">
-         <string>iCode</string>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="5" alignment="Qt::AlignHCenter">
-       <widget class="QLabel" name="label_5">
-        <property name="text">
-         <string>dstE</string>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="3" alignment="Qt::AlignHCenter">
-       <widget class="QLabel" name="label_4">
-        <property name="text">
-         <string>valM</string>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="2" alignment="Qt::AlignHCenter">
-       <widget class="QLabel" name="label_3">
-        <property name="text">
-         <string>valE</string>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="6" alignment="Qt::AlignHCenter">
-       <widget class="QLabel" name="label_6">
-        <property name="text">
-         <string>dstM</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="4">
-       <spacer name="horizontalSpacer_2">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>40</width>
-          <height>20</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item row="1" column="1">
-       <spacer name="horizontalSpacer">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>78</width>
-          <height>21</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item row="2" column="0">
-       <widget class="QTextBrowser" name="textBrowser_23">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-          <horstretch>70</horstretch>
-          <verstretch>20</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="minimumSize">
-         <size>
-          <width>0</width>
-          <height>20</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>40</width>
-          <height>24</height>
-         </size>
-        </property>
-        <property name="baseSize">
-         <size>
-          <width>70</width>
-          <height>20</height>
-         </size>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background:rgb(243, 221, 255)</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </item>
-    <item>
-     <widget class="QTextBrowser" name="textBrowser_26">
-      <property name="maximumSize">
-       <size>
-        <width>16777215</width>
-        <height>3</height>
-       </size>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background:rgb(0, 0, 0)</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <layout class="QGridLayout" name="gridLayout_3">
-      <item row="0" column="3" alignment="Qt::AlignHCenter">
-       <widget class="QLabel" name="label_16">
-        <property name="text">
-         <string>valE</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="5">
-       <spacer name="horizontalSpacer_4">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>40</width>
-          <height>17</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item row="1" column="3">
-       <widget class="QTextBrowser" name="textBrowser_20">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-          <horstretch>70</horstretch>
-          <verstretch>20</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="minimumSize">
-         <size>
-          <width>70</width>
-          <height>20</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>70</width>
-          <height>24</height>
-         </size>
-        </property>
-        <property name="baseSize">
-         <size>
-          <width>70</width>
-          <height>20</height>
-         </size>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background:rgb(243, 221, 255)</string>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="7" alignment="Qt::AlignHCenter">
-       <widget class="QLabel" name="label_15">
-        <property name="text">
-         <string>dstM</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="4">
-       <widget class="QTextBrowser" name="textBrowser_19">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-          <horstretch>70</horstretch>
-          <verstretch>20</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="minimumSize">
-         <size>
-          <width>70</width>
-          <height>20</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>70</width>
-          <height>24</height>
-         </size>
-        </property>
-        <property name="baseSize">
-         <size>
-          <width>70</width>
-          <height>20</height>
-         </size>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background:rgb(243, 221, 255)</string>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="1">
-       <widget class="QLabel" name="label_17">
-        <property name="text">
-         <string>Bch</string>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="0">
-       <widget class="QTextBrowser" name="textBrowser_24">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-          <horstretch>70</horstretch>
-          <verstretch>20</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="minimumSize">
-         <size>
-          <width>0</width>
-          <height>20</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>40</width>
-          <height>24</height>
-         </size>
-        </property>
-        <property name="baseSize">
-         <size>
-          <width>70</width>
-          <height>20</height>
-         </size>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background:rgb(243, 221, 255)</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="6" alignment="Qt::AlignHCenter">
-       <widget class="QTextBrowser" name="textBrowser_17">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-          <horstretch>70</horstretch>
-          <verstretch>20</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="minimumSize">
-         <size>
-          <width>0</width>
-          <height>20</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>20</width>
-          <height>24</height>
-         </size>
-        </property>
-        <property name="baseSize">
-         <size>
-          <width>70</width>
-          <height>20</height>
-         </size>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background:rgb(243, 221, 255)</string>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="4" alignment="Qt::AlignHCenter">
-       <widget class="QLabel" name="label_12">
-        <property name="text">
-         <string>valM</string>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="6">
-       <widget class="QTextBrowser" name="textBrowser_18">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-          <horstretch>70</horstretch>
-          <verstretch>20</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="minimumSize">
-         <size>
-          <width>70</width>
-          <height>20</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>70</width>
-          <height>24</height>
-         </size>
-        </property>
-        <property name="baseSize">
-         <size>
-          <width>70</width>
-          <height>20</height>
-         </size>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background:rgb(243, 221, 255)</string>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="7">
-       <widget class="QTextBrowser" name="textBrowser_15">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-          <horstretch>70</horstretch>
-          <verstretch>20</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="minimumSize">
-         <size>
-          <width>70</width>
-          <height>20</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>70</width>
-          <height>24</height>
-         </size>
-        </property>
-        <property name="baseSize">
-         <size>
-          <width>70</width>
-          <height>20</height>
-         </size>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background:rgb(243, 221, 255)</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="1">
-       <widget class="QTextBrowser" name="textBrowser_22">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-          <horstretch>70</horstretch>
-          <verstretch>20</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="minimumSize">
-         <size>
-          <width>0</width>
-          <height>20</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>20</width>
-          <height>24</height>
-         </size>
-        </property>
-        <property name="baseSize">
-         <size>
-          <width>70</width>
-          <height>20</height>
-         </size>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background:rgb(243, 221, 255)</string>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="6" alignment="Qt::AlignHCenter">
-       <widget class="QLabel" name="label_14">
-        <property name="text">
-         <string>dstE</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="7" alignment="Qt::AlignHCenter">
-       <widget class="QTextBrowser" name="textBrowser_16">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-          <horstretch>70</horstretch>
-          <verstretch>20</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="minimumSize">
-         <size>
-          <width>0</width>
-          <height>20</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>20</width>
-          <height>24</height>
-         </size>
-        </property>
-        <property name="baseSize">
-         <size>
-          <width>70</width>
-          <height>20</height>
-         </size>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background:rgb(243, 221, 255)</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="2">
-       <spacer name="horizontalSpacer_3">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>58</width>
-          <height>21</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item row="0" column="0" alignment="Qt::AlignHCenter">
-       <widget class="QLabel" name="label_13">
-        <property name="text">
-         <string>iCode</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="0" alignment="Qt::AlignHCenter">
-       <widget class="QTextBrowser" name="textBrowser_21">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-          <horstretch>70</horstretch>
-          <verstretch>20</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="minimumSize">
-         <size>
-          <width>0</width>
-          <height>20</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>20</width>
-          <height>24</height>
-         </size>
-        </property>
-        <property name="baseSize">
-         <size>
-          <width>70</width>
-          <height>20</height>
-         </size>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background:rgb(243, 221, 255)</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </item>
-   </layout>
-  </widget>
   <widget class="QPushButton" name="saveButton">
    <property name="geometry">
     <rect>
-     <x>450</x>
+     <x>414</x>
      <y>60</y>
-     <width>75</width>
+     <width>111</width>
      <height>23</height>
     </rect>
    </property>
    <property name="text">
-    <string>Save</string>
+    <string>Choose Save File</string>
    </property>
   </widget>
   <widget class="QLineEdit" name="saveAdd">
@@ -1866,6 +1294,1070 @@ p, li { white-space: pre-wrap; }
      <height>21</height>
     </rect>
    </property>
+  </widget>
+  <widget class="QPushButton" name="begin">
+   <property name="geometry">
+    <rect>
+     <x>330</x>
+     <y>20</y>
+     <width>75</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Load</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_8">
+   <property name="geometry">
+    <rect>
+     <x>570</x>
+     <y>380</y>
+     <width>54</width>
+     <height>12</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>%eax</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_9">
+   <property name="geometry">
+    <rect>
+     <x>570</x>
+     <y>410</y>
+     <width>54</width>
+     <height>12</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>%ebx</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_10">
+   <property name="geometry">
+    <rect>
+     <x>570</x>
+     <y>440</y>
+     <width>54</width>
+     <height>12</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>%ecx</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_11">
+   <property name="geometry">
+    <rect>
+     <x>570</x>
+     <y>470</y>
+     <width>54</width>
+     <height>12</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>%edx</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_18">
+   <property name="geometry">
+    <rect>
+     <x>730</x>
+     <y>380</y>
+     <width>54</width>
+     <height>12</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>%esi</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_19">
+   <property name="geometry">
+    <rect>
+     <x>730</x>
+     <y>410</y>
+     <width>54</width>
+     <height>12</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>%edi</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_20">
+   <property name="geometry">
+    <rect>
+     <x>730</x>
+     <y>440</y>
+     <width>54</width>
+     <height>12</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>%esp</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_21">
+   <property name="geometry">
+    <rect>
+     <x>730</x>
+     <y>470</y>
+     <width>54</width>
+     <height>12</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>%ebp</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="eax">
+   <property name="geometry">
+    <rect>
+     <x>600</x>
+     <y>380</y>
+     <width>113</width>
+     <height>20</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="ebx">
+   <property name="geometry">
+    <rect>
+     <x>600</x>
+     <y>410</y>
+     <width>113</width>
+     <height>20</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="ecx">
+   <property name="geometry">
+    <rect>
+     <x>600</x>
+     <y>440</y>
+     <width>113</width>
+     <height>20</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="edx">
+   <property name="geometry">
+    <rect>
+     <x>600</x>
+     <y>470</y>
+     <width>113</width>
+     <height>20</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="esi">
+   <property name="geometry">
+    <rect>
+     <x>760</x>
+     <y>380</y>
+     <width>113</width>
+     <height>20</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="edi">
+   <property name="geometry">
+    <rect>
+     <x>760</x>
+     <y>410</y>
+     <width>113</width>
+     <height>20</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="esp">
+   <property name="geometry">
+    <rect>
+     <x>760</x>
+     <y>440</y>
+     <width>113</width>
+     <height>20</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="ebp">
+   <property name="geometry">
+    <rect>
+     <x>760</x>
+     <y>470</y>
+     <width>113</width>
+     <height>20</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_22">
+   <property name="geometry">
+    <rect>
+     <x>720</x>
+     <y>330</y>
+     <width>54</width>
+     <height>12</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>cycles</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="cycle">
+   <property name="geometry">
+    <rect>
+     <x>790</x>
+     <y>330</y>
+     <width>113</width>
+     <height>20</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_23">
+   <property name="geometry">
+    <rect>
+     <x>570</x>
+     <y>520</y>
+     <width>54</width>
+     <height>12</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>ZF</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="ZF">
+   <property name="geometry">
+    <rect>
+     <x>590</x>
+     <y>520</y>
+     <width>41</width>
+     <height>20</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_24">
+   <property name="geometry">
+    <rect>
+     <x>640</x>
+     <y>520</y>
+     <width>54</width>
+     <height>12</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>SF</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="SF">
+   <property name="geometry">
+    <rect>
+     <x>660</x>
+     <y>520</y>
+     <width>41</width>
+     <height>20</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_37">
+   <property name="geometry">
+    <rect>
+     <x>710</x>
+     <y>520</y>
+     <width>54</width>
+     <height>12</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>OF</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="OF">
+   <property name="geometry">
+    <rect>
+     <x>730</x>
+     <y>520</y>
+     <width>41</width>
+     <height>20</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QTextBrowser" name="textBrowser_26">
+   <property name="geometry">
+    <rect>
+     <x>32</x>
+     <y>192</y>
+     <width>482</width>
+     <height>3</height>
+    </rect>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>16777215</width>
+     <height>3</height>
+    </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background:rgb(0, 0, 0)</string>
+   </property>
+  </widget>
+  <widget class="QWidget" name="">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>200</y>
+     <width>501</width>
+     <height>74</height>
+    </rect>
+   </property>
+   <layout class="QGridLayout" name="gridLayout_3">
+    <item row="1" column="6">
+     <spacer name="horizontalSpacer_4">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>40</width>
+        <height>17</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="0" column="4" alignment="Qt::AlignHCenter">
+     <widget class="QLabel" name="label_16">
+      <property name="text">
+       <string>valE</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="4">
+     <widget class="QTextBrowser" name="M_valE">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>70</horstretch>
+        <verstretch>20</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>70</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>70</width>
+        <height>24</height>
+       </size>
+      </property>
+      <property name="baseSize">
+       <size>
+        <width>70</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background:rgb(243, 221, 255)</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="8" alignment="Qt::AlignHCenter">
+     <widget class="QLabel" name="label_15">
+      <property name="text">
+       <string>dstM</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="5">
+     <widget class="QTextBrowser" name="M_valA">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>70</horstretch>
+        <verstretch>20</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>70</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>70</width>
+        <height>24</height>
+       </size>
+      </property>
+      <property name="baseSize">
+       <size>
+        <width>70</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background:rgb(243, 221, 255)</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="2">
+     <widget class="QLabel" name="label_17">
+      <property name="text">
+       <string>Bch</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="1">
+     <widget class="QTextBrowser" name="textBrowser_24">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>70</horstretch>
+        <verstretch>20</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>40</width>
+        <height>24</height>
+       </size>
+      </property>
+      <property name="baseSize">
+       <size>
+        <width>70</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background:rgb(243, 221, 255)</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="5" alignment="Qt::AlignHCenter">
+     <widget class="QLabel" name="label_12">
+      <property name="text">
+       <string>valA</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="7" alignment="Qt::AlignHCenter">
+     <widget class="QTextBrowser" name="M_dstE">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>70</horstretch>
+        <verstretch>20</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>20</width>
+        <height>24</height>
+       </size>
+      </property>
+      <property name="baseSize">
+       <size>
+        <width>70</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background:rgb(243, 221, 255)</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="7">
+     <widget class="QTextBrowser" name="textBrowser_18">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>70</horstretch>
+        <verstretch>20</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>70</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>70</width>
+        <height>24</height>
+       </size>
+      </property>
+      <property name="baseSize">
+       <size>
+        <width>70</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background:rgb(243, 221, 255)</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="8">
+     <widget class="QTextBrowser" name="textBrowser_15">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>70</horstretch>
+        <verstretch>20</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>70</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>70</width>
+        <height>24</height>
+       </size>
+      </property>
+      <property name="baseSize">
+       <size>
+        <width>70</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background:rgb(243, 221, 255)</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="2">
+     <widget class="QTextBrowser" name="M_bch">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>70</horstretch>
+        <verstretch>20</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>20</width>
+        <height>24</height>
+       </size>
+      </property>
+      <property name="baseSize">
+       <size>
+        <width>70</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background:rgb(243, 221, 255)</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="7" alignment="Qt::AlignHCenter">
+     <widget class="QLabel" name="label_14">
+      <property name="text">
+       <string>dstE</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="1" alignment="Qt::AlignHCenter">
+     <widget class="QLabel" name="label_13">
+      <property name="text">
+       <string>iCode</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="8" alignment="Qt::AlignHCenter">
+     <widget class="QTextBrowser" name="M_dstM">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>70</horstretch>
+        <verstretch>20</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>20</width>
+        <height>24</height>
+       </size>
+      </property>
+      <property name="baseSize">
+       <size>
+        <width>70</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background:rgb(243, 221, 255)</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="3">
+     <spacer name="horizontalSpacer_3">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>58</width>
+        <height>21</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="1" column="1" alignment="Qt::AlignHCenter">
+     <widget class="QTextBrowser" name="M_icode">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>70</horstretch>
+        <verstretch>20</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>20</width>
+        <height>24</height>
+       </size>
+      </property>
+      <property name="baseSize">
+       <size>
+        <width>70</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background:rgb(243, 221, 255)</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="0" alignment="Qt::AlignHCenter">
+     <widget class="QLabel" name="label_42">
+      <property name="text">
+       <string>M_stat</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0" alignment="Qt::AlignHCenter">
+     <widget class="QTextBrowser" name="M_stat">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>70</horstretch>
+        <verstretch>20</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>40</width>
+        <height>24</height>
+       </size>
+      </property>
+      <property name="baseSize">
+       <size>
+        <width>70</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background:rgb(243, 221, 255)</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>110</y>
+     <width>501</width>
+     <height>74</height>
+    </rect>
+   </property>
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="1" column="1" alignment="Qt::AlignHCenter">
+     <widget class="QTextBrowser" name="W_icode">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>70</horstretch>
+        <verstretch>20</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>20</width>
+        <height>24</height>
+       </size>
+      </property>
+      <property name="baseSize">
+       <size>
+        <width>70</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background:rgb(243, 221, 255)</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="4">
+     <widget class="QTextBrowser" name="W_valM">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>70</horstretch>
+        <verstretch>20</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>70</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>70</width>
+        <height>24</height>
+       </size>
+      </property>
+      <property name="baseSize">
+       <size>
+        <width>70</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background:rgb(243, 221, 255)</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="3">
+     <widget class="QTextBrowser" name="W_valE">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>70</horstretch>
+        <verstretch>20</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>70</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>70</width>
+        <height>24</height>
+       </size>
+      </property>
+      <property name="baseSize">
+       <size>
+        <width>70</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background:rgb(243, 221, 255)</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="1" alignment="Qt::AlignHCenter">
+     <widget class="QLabel" name="label_2">
+      <property name="text">
+       <string>iCode</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="4" alignment="Qt::AlignHCenter">
+     <widget class="QLabel" name="label_4">
+      <property name="text">
+       <string>valM</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="6" alignment="Qt::AlignHCenter">
+     <widget class="QLabel" name="label_5">
+      <property name="text">
+       <string>dstE</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="7" alignment="Qt::AlignHCenter">
+     <widget class="QLabel" name="label_6">
+      <property name="text">
+       <string>dstM</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="5">
+     <spacer name="horizontalSpacer_2">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>40</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="0" column="3" alignment="Qt::AlignHCenter">
+     <widget class="QLabel" name="label_3">
+      <property name="text">
+       <string>valE</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="2">
+     <spacer name="horizontalSpacer">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>78</width>
+        <height>21</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="1" column="7" alignment="Qt::AlignHCenter">
+     <widget class="QTextBrowser" name="W_dstM">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>70</horstretch>
+        <verstretch>20</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>20</width>
+        <height>24</height>
+       </size>
+      </property>
+      <property name="baseSize">
+       <size>
+        <width>70</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background:rgb(243, 221, 255)</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="7">
+     <widget class="QTextBrowser" name="textBrowser_5">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>70</horstretch>
+        <verstretch>20</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>70</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>70</width>
+        <height>24</height>
+       </size>
+      </property>
+      <property name="baseSize">
+       <size>
+        <width>70</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background:rgb(243, 221, 255)</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="6" alignment="Qt::AlignHCenter">
+     <widget class="QTextBrowser" name="W_dstE">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>70</horstretch>
+        <verstretch>20</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>20</width>
+        <height>24</height>
+       </size>
+      </property>
+      <property name="baseSize">
+       <size>
+        <width>70</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background:rgb(243, 221, 255)</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="6">
+     <widget class="QTextBrowser" name="textBrowser_4">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>70</horstretch>
+        <verstretch>20</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>70</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>70</width>
+        <height>24</height>
+       </size>
+      </property>
+      <property name="baseSize">
+       <size>
+        <width>70</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background:rgb(243, 221, 255)</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="0" alignment="Qt::AlignHCenter">
+     <widget class="QLabel" name="label_41">
+      <property name="text">
+       <string>W_stat</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0" alignment="Qt::AlignHCenter">
+     <widget class="QTextBrowser" name="W_stat">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>70</horstretch>
+        <verstretch>20</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>40</width>
+        <height>24</height>
+       </size>
+      </property>
+      <property name="baseSize">
+       <size>
+        <width>70</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background:rgb(243, 221, 255)</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="1">
+     <widget class="QTextBrowser" name="textBrowser_25">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>70</horstretch>
+        <verstretch>20</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>40</width>
+        <height>24</height>
+       </size>
+      </property>
+      <property name="baseSize">
+       <size>
+        <width>70</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background:rgb(243, 221, 255)</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
   </widget>
   <zorder>layoutWidget</zorder>
   <zorder>label</zorder>
@@ -1884,6 +2376,31 @@ p, li { white-space: pre-wrap; }
   <zorder>frequency</zorder>
   <zorder>saveButton</zorder>
   <zorder>saveAdd</zorder>
+  <zorder>begin</zorder>
+  <zorder>label_8</zorder>
+  <zorder>label_9</zorder>
+  <zorder>label_10</zorder>
+  <zorder>label_11</zorder>
+  <zorder>label_18</zorder>
+  <zorder>label_19</zorder>
+  <zorder>label_20</zorder>
+  <zorder>label_21</zorder>
+  <zorder>eax</zorder>
+  <zorder>ebx</zorder>
+  <zorder>ecx</zorder>
+  <zorder>edx</zorder>
+  <zorder>esi</zorder>
+  <zorder>edi</zorder>
+  <zorder>esp</zorder>
+  <zorder>ebp</zorder>
+  <zorder>label_22</zorder>
+  <zorder>cycle</zorder>
+  <zorder>label_23</zorder>
+  <zorder>ZF</zorder>
+  <zorder>label_24</zorder>
+  <zorder>SF</zorder>
+  <zorder>label_37</zorder>
+  <zorder>OF</zorder>
  </widget>
  <resources/>
  <connections/>
