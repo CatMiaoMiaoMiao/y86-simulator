@@ -4,6 +4,7 @@ import os
 import re
 import binascii
 import copy
+import time
 
 from utils import *
 from constants import *
@@ -132,6 +133,9 @@ class Simulator:
         self.addrlen = 3
         self.logfile = None
         self.isOnScreen = False
+        
+        self.isGoing = True
+        self.interval = 0.1
         
     def copy(self, tmp):
             # Pipeline self.register F
@@ -683,8 +687,11 @@ class Simulator:
         
     def run(self):
         try:       
-            while self.step():
-                pass
+            while True:
+                if self.isGoing:
+                    if not self.step():
+                        break
+                    time.sleep(self.interval)
             self.logfile.close()
         except:
             self.simLog('Error: bad input binary file')
