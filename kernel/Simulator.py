@@ -136,6 +136,7 @@ class Simulator:
         
         self.isGoing = True
         self.interval = 0.1
+        self.isTerminated = False
         
     def copy(self, tmp):
             # Pipeline self.register F
@@ -633,6 +634,7 @@ class Simulator:
         self.cycle += 1
         
         if self.cpustat != 'AOK' and self.cpustat != 'BUB':
+            self.isTerminated = True
             return False
         else: 
             return True
@@ -663,6 +665,7 @@ class Simulator:
                 self.handleErr({'what':'cannot open a logfile to write'})
                 raise
         else:
+            self.logfile = fout
             outputName = fout.name
         if not self.isNoLogFile and not self.isGuimode:
             print('Log file: %s' % (outputName))

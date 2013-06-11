@@ -11,6 +11,8 @@ import getopt
 import binascii
 import os
 import sys
+import thread
+import termios
 
 from kernel.Simulator import *
 
@@ -43,11 +45,19 @@ Command:
     b, back             back to last cycle
     h, help             show this help
     q, quit             quit
+while running:
+    p                   pause
+    c                   continue
+    +                   speed up
+    -                   slow down 
+    q                   quit running mode 
 ''')
   
 def main():
+    global simulator
     simulator = Simulator()
     isDebugMode = False
+    fout = None
     print ('='*51)
     print '|'+' '*49+' '+'|'
     print '|'+('  Y86-Simulator ics course pj %s  ' % __ver__).center(50)+'|'
@@ -93,7 +103,7 @@ def main():
                     print ('Switch conflict: want a logfile or not?')
                     sys.exit(1)
                 try:
-                    simulator.logfile = open(a, 'w')
+                    fout = open(a, 'w')
                 except:
                     print ('Error: cannot open a logfile to write')
                     sys.exit(1)
@@ -113,18 +123,20 @@ def main():
     except:
         print('Error: cannot open binary: %s' % inputName)
         sys.exit(1)
-    simulator.load(fin, simulator.logfile)
+    simulator.load(fin, fout)
+    fin.close()
     
     # to check if it is run under debug mode
     if isDebugMode:
         simulator.isOnScreen = True
+        simulator.isGoing = False
+        thread.start_new_thread(simulator.run, ())
         cmd = ''
-        while True:
+        while not simulator.isTerminated:
             tmp = raw_input("(ydb) ")
             cmd = tmp if tmp!='' else cmd
             if (cmd=='c' or cmd=='continue'):
-                simulator.run()
-                break
+                runSimulator()
             elif (cmd=='b' or cmd=='back'):
                 simulator.back()
             elif (cmd=='s' or cmd=='step' or cmd=='n' or cmd=='step'):
@@ -140,9 +152,11 @@ def main():
                 print ('type \'help\' or \'h\' for help')
     else:
         # Automatic pipeline run
-        try:         
+        try:       
+            simulator.interval = 0
+            simulator.isGoing = True
             simulator.run()
-            fin.close()
+            
         except IOError:
             print('Warning: cannot create logfile')
         except Exception, e:
@@ -151,6 +165,40 @@ def main():
     
     # finish    
     print('Simulation finished\n')
-     
+
+def runSimulator():
+    global simulator
+    simulator.isGoing = True
+    while (not simulator.isTerminated):
+        c = getkey()
+        if c=='+':
+            simulator.interval /= 2.0
+        elif c=='-':
+            simulator.interval *= 2.0
+        elif c=='p':
+            simulator.isGoing = False
+        elif c=='c':
+            simulator.isGoing = True
+        elif c=='q':
+            simulator.isGoing = False
+            time.sleep(0.1)
+            break
+        pass
+    
+def getkey():
+    term = open("/dev/tty", "r")
+    fd = term.fileno()
+    old = termios.tcgetattr(fd)
+    new = termios.tcgetattr(fd)
+    new[3] &= ~termios.ICANON & ~termios.ECHO
+    termios.tcsetattr(fd, termios.TCSANOW, new)
+    c = None
+    try:
+        c = os.read(fd, 1)
+    finally:
+        termios.tcsetattr(fd, termios.TCSAFLUSH, old)
+        term.close()
+    return c
+
 if __name__ == '__main__':
     main()
