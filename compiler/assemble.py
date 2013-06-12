@@ -54,7 +54,7 @@ instbyte = {
         "leave": 1
 			}
 bytelen = {'.long': 4,'.word': 2,'.byte': 1}
-    
+error = ''    
     
 def addconverthex(number):      #convert lineaddress to hex to display
     number = str(hex(number))
@@ -90,11 +90,12 @@ def noconverthex(instruction):  #convert jump/call address to hex to display
     return result
 
 def assemble(INFILE, OUTFILE):
+    global error
+    error=''
     binpos = 0
     linepos = 0
     alignment = 0
     labels = {}
-    error = ''
     strippedline = {}
     origline = []
     lineaddress = {}
@@ -160,7 +161,7 @@ def assemble(INFILE, OUTFILE):
         pass
     if error != '':
         print('Error: assembly failed:\n%s' % error)
-        sys.exit(1)
+        return
     
     #convert
     allbinline={}
@@ -171,60 +172,63 @@ def assemble(INFILE, OUTFILE):
         if not linecontent:
             allbinline[linepos] = []
             continue
-        if linecontent[0] not in instr:
-            label = linecontent[0]
-            align = linecontent[1]
-            if label == '.align':
-                alignment = int(align)
-            elif label in ('.long', '.word', '.byte'):
-                if alignment != 0:
-                    length = alignment
-                else:
-                    length = bytelen[label]                    
-            elif label != '.pos':
-                error += 'Line %d: invalid align label\n' % (linepos)
-        else:
-            ins_s = linecontent[0]
-            try:
-                reg_s = linecontent[1]
-            except:
-                pass
-            if ins_s in ('nop', 'halt', 'ret', 'leave'):
-                binline = instr[ins_s]
-            elif ins_s in ('addl', 'subl', 'andl', 'xorl', 'rrmovl'):
-                registers = reg_s.split(',')
-                binline =  instr[ins_s] +  regs[registers[0]] +  regs[registers[1]]
-            elif ins_s in ('pushl', 'popl'):
-                binline = instr[ins_s] + regs[reg_s] + regs["rnone"]
-            elif ins_s.startswith('j') or ins_s == 'call':
-                binline = instr[ins_s]
-                if reg_s in labels:
-                    binline +=  noconverthex(labels[reg_s])
-                else: 
-                    binline +=  noconverthex(reg_s)
-            elif ins_s in ('irmovl', 'iaddl'):
-                registers = reg_s.split(',')  
-                if registers[0] in labels:
-                    valC =  labels[registers[0]]
-                else:
-                    valC =  int(registers[0].replace('$', ''), 0)
-                binline =  instr[ins_s] +  regs["rnone"] + regs[registers[1]] + str(valC)
-            elif ins_s == 'rmmovl':
-                string = str(reg_s[reg_s.find('(')-1:reg_s.find('(')])
-                if reg_s.find('-') != -1:
-                    string = '-'+ string
-                binline =  instr[ins_s] +  regs[reg_s.split(',')[0]] + \
-                          regs[reg_s[reg_s.find('(')+1:reg_s.find(')')]] + string   
-            elif ins_s == 'mrmovl':
-                string = str(reg_s[reg_s.find('(')-1:reg_s.find('(')])
-                if reg_s.find('-') != -1:
-                    string = '-'+ string
-                binline =  instr[ins_s] +  regs[reg_s.split(',')[1]] + \
-                          regs[reg_s[reg_s.find('(')+1:reg_s.find(')')]] + string
-
+        try:
+            if linecontent[0] not in instr:
+                label = linecontent[0]
+                align = linecontent[1]
+                if label == '.align':
+                    alignment = int(align)
+                elif label in ('.long', '.word', '.byte'):
+                    if alignment != 0:
+                        length = alignment
+                    else:
+                        length = bytelen[label]                    
+                elif label != '.pos':
+                    error += 'Line %d: invalid align label\n' % (linepos)
             else:
-                error += 'Line %d: Instruction "%s" not defined.\n' % (linepos, ins_s)
-                continue         
+                ins_s = linecontent[0]
+                try:
+                    reg_s = linecontent[1]
+                except:
+                    pass
+                if ins_s in ('nop', 'halt', 'ret', 'leave'):
+                    binline = instr[ins_s]
+                elif ins_s in ('addl', 'subl', 'andl', 'xorl', 'rrmovl'):
+                    registers = reg_s.split(',')
+                    binline =  instr[ins_s] +  regs[registers[0]] +  regs[registers[1]]
+                elif ins_s in ('pushl', 'popl'):
+                    binline = instr[ins_s] + regs[reg_s] + regs["rnone"]
+                elif ins_s.startswith('j') or ins_s == 'call':
+                    binline = instr[ins_s]
+                    if reg_s in labels:
+                        binline +=  noconverthex(labels[reg_s])
+                    else: 
+                        binline +=  noconverthex(reg_s)
+                elif ins_s in ('irmovl', 'iaddl'):
+                    registers = reg_s.split(',')  
+                    if registers[0] in labels:
+                        valC =  labels[registers[0]]
+                    else:
+                        valC =  int(registers[0].replace('$', ''), 0)
+                    binline =  instr[ins_s] +  regs["rnone"] + regs[registers[1]] + str(valC)
+                elif ins_s == 'rmmovl':
+                    string = str(reg_s[reg_s.find('(')-1:reg_s.find('(')])
+                    if reg_s.find('-') != -1:
+                        string = '-'+ string
+                    binline =  instr[ins_s] +  regs[reg_s.split(',')[0]] + \
+                              regs[reg_s[reg_s.find('(')+1:reg_s.find(')')]] + string   
+                elif ins_s == 'mrmovl':
+                    string = str(reg_s[reg_s.find('(')-1:reg_s.find('(')])
+                    if reg_s.find('-') != -1:
+                        string = '-'+ string
+                    binline =  instr[ins_s] +  regs[reg_s.split(',')[1]] + \
+                              regs[reg_s[reg_s.find('(')+1:reg_s.find(')')]] + string
+
+                else:
+                    error += 'Line %d: Instruction "%s" not defined.\n' % (linepos, ins_s)
+                    continue         
+        except:
+            error += 'Line %d: Invalid syntax.\n' % (linepos)    
         allbinline[linepos] = binline
         
     #write

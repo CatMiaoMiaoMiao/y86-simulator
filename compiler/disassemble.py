@@ -53,7 +53,7 @@ instbyte = {
         "leave": 1
 			}
 bytelen = {'.long': 4,'.word': 2,'.byte': 1}
-
+error = ''
 def dictreverse(dict):
     d = {}
     for item in dict:
@@ -74,14 +74,20 @@ def hexreverse(number):
     value = int(str(value))
     return '-' + str(value)     
     
+def check(string):
+    if 2*instbyte[instr[string[:2]]] != len(string):
+        raise Exception("bad instuction")
+    return
     
 def disassemble(INFILE, OUTFILE):
     curraddress = 0
-    errors = []
-    global regs, instr
+    global regs, instr, error
+    error=''
     regs =  dictreverse(regs)
     instr = dictreverse(instr)
+    linepos = 0
     for reline in INFILE:
+        linepos += 1
         reline = re.sub(r'\|.*$', '', reline)      #comment like     |...
         reline = re.sub(r'\s*,\s*', ',', reline)  #explcit blanks  
         items = reline.split(':')
@@ -100,55 +106,67 @@ def disassemble(INFILE, OUTFILE):
             curraddress = add
         if ins == '':
             continue
-        if ins in ('00','10','90','d0'):
-            OUTFILE.write(instr[ins] + '\n')
-            curraddress += instbyte[instr[ins]]
-        elif ins[:2] in ('60', '61', '62', '63', '20'):
-            instruction = ins[:2]
-            register = ins[2:4]
-            string = instr[instruction] + ' ' + regs[register[0]] + ',' + regs[register[1]] + '\n'
-            OUTFILE.write(string)
-            curraddress += instbyte[instr[instruction]]
-        elif ins[:2] in ('a0', 'b0'):
-            instruction = ins[:2]
-            register = ins[2]
-            string = instr[instruction] + ' ' + regs[register] + '\n'
-            OUTFILE.write(string)
-            curraddress += instbyte[instr[instruction]]
-        elif ins[:2] == '80' or ins[0] == '7':
-            instruction = ins[:2]
-            valC = ins[2:10]
-            string = instr[instruction] + ' ' + hexreverse(valC) + '\n'
-            OUTFILE.write(string)
-            curraddress += instbyte[instr[instruction]]
-        elif ins[:2] in ('30', 'c0'):
-            instruction = ins[:2]
-            register = ins[3]
-            valC = ins[4:12]
-            string = instr[instruction] + ' ' + '$' + hexreverse(valC) + ',' + regs[register] + '\n'
-            OUTFILE.write(string)
-            curraddress += instbyte[instr[instruction]]
-        elif ins[:2] == '40':
-            instruction = ins[:2]
-            register = ins[2:4]
-            valC = ins[4:12]
-            string = instr[instruction] + ' ' + regs[register[0]] + ', ' + hexreverse(valC) + \
-                '(' + regs[register[1]] + ')'  + '\n'
-            OUTFILE.write(string)
-            curraddress += instbyte[instr[instruction]]
-        elif ins[:2] == '50':
-            instruction = ins[:2]
-            register = ins[2:4]
-            valC = ins[4:12]
-            string = instr[instruction] + ' ' + hexreverse(valC) + \
-                '(' + regs[register[1]] + '), ' + regs[register[0]]  + '\n'
-            OUTFILE.write(string)
-            curraddress += instbyte[instr[instruction]]
+        try: 
+            checkflag = False
+            if ins in ('00','10','90','d0'):
+                check(ins)
+                OUTFILE.write(instr[ins] + '\n')
+                curraddress += instbyte[instr[ins]]
+            elif ins[:2] in ('60', '61', '62', '63', '20'):
+                instruction = ins[:2]
+                register = ins[2:4]
+                string = instr[instruction] + ' ' + regs[register[0]] + ',' + regs[register[1]] + '\n'
+                OUTFILE.write(string)
+                curraddress += instbyte[instr[instruction]]
+            elif ins[:2] in ('a0', 'b0'):
+                instruction = ins[:2]
+                register = ins[2]
+                string = instr[instruction] + ' ' + regs[register] + '\n'
+                OUTFILE.write(string)
+                curraddress += instbyte[instr[instruction]]
+            elif ins[:2] == '80' or ins[0] == '7':
+                instruction = ins[:2]
+                valC = ins[2:10]
+                string = instr[instruction] + ' ' + hexreverse(valC) + '\n'
+                OUTFILE.write(string)
+                curraddress += instbyte[instr[instruction]]
+            elif ins[:2] in ('30', 'c0'):
+                instruction = ins[:2]
+                register = ins[3]
+                valC = ins[4:12]
+                string = instr[instruction] + ' ' + '$' + hexreverse(valC) + ',' + regs[register] + '\n'
+                OUTFILE.write(string)
+                curraddress += instbyte[instr[instruction]]
+            elif ins[:2] == '40':
+                instruction = ins[:2]
+                register = ins[2:4]
+                valC = ins[4:12]
+                string = instr[instruction] + ' ' + regs[register[0]] + ', ' + hexreverse(valC) + \
+                    '(' + regs[register[1]] + ')'  + '\n'
+                OUTFILE.write(string)
+                curraddress += instbyte[instr[instruction]]
+            elif ins[:2] == '50':
+                instruction = ins[:2]
+                register = ins[2:4]
+                valC = ins[4:12]
+                string = instr[instruction] + ' ' + hexreverse(valC) + \
+                    '(' + regs[register[1]] + '), ' + regs[register[0]]  + '\n'
+                OUTFILE.write(string)
+                curraddress += instbyte[instr[instruction]]
+            else:
+                error += 'Line %d: Invalid instruction %s\n' % (linepos,ins[:2])
+                checkflag = True
+            
+            check(ins)
+        except:
+            if not checkflag:
+                error += 'Line %d: Invalid syntax\n'% (linepos)
+                checkflag = True
 
 
 
 def main():
-    print('Y86 deassembler')
+    print('Y86 disassembler')
     print('Usage: inputfile [outputfile]')
     try:
         INFILE = open(sys.argv[1])
