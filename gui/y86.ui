@@ -1672,7 +1672,7 @@ p, li { white-space: pre-wrap; }
      </widget>
     </item>
     <item row="1" column="5">
-     <widget class="QTextBrowser" name="M_valA">
+     <widget class="QTextBrowser" name="M_valM">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
         <horstretch>70</horstretch>
