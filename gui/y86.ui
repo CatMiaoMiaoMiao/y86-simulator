@@ -1603,7 +1603,7 @@ p, li { white-space: pre-wrap; }
     <string notr="true">background:rgb(0, 0, 0)</string>
    </property>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>30</x>
@@ -1672,7 +1672,7 @@ p, li { white-space: pre-wrap; }
      </widget>
     </item>
     <item row="1" column="5">
-     <widget class="QTextBrowser" name="M_valM">
+     <widget class="QTextBrowser" name="M_valA">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
         <horstretch>70</horstretch>
@@ -2000,7 +2000,7 @@ p, li { white-space: pre-wrap; }
     </item>
    </layout>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>30</x>
@@ -2359,6 +2359,8 @@ p, li { white-space: pre-wrap; }
     </item>
    </layout>
   </widget>
+  <zorder>textBrowser_26</zorder>
+  <zorder>layoutWidget</zorder>
   <zorder>layoutWidget</zorder>
   <zorder>label</zorder>
   <zorder>layoutWidget_2</zorder>

@@ -98,13 +98,16 @@ class Dialog(QDialog, Ui_Y86Simulator):
     def step(self):
         if self.simulator.isTerminated == False:
             self.simulator.step()
-            #self.W_icode.setText(str(self.simulator.W_icode))
-            if self.simulator.M_Cnd:
-                self.M_bch.setText('1')
-            else:
-                self.M_bch.setText('0')
+            self.showtxt()
+
+
+    def showtxt(self):
+        if self.simulator.M_Cnd:
+            self.M_bch.setText('1')
+        else:
+            self.M_bch.setText('0')
             
-            my=[self.ZF, self.SF, self.OF, 
+        my=[self.ZF, self.SF, self.OF, 
                 self.F_stat, self.F_predPC, 
                 self.D_stat,self.D_icode,self.D_ifun, self.D_rA, self.D_rB, self.D_valC, self.D_valP, 
                 self.E_stat,self.E_icode, self.E_ifun,self.E_valC, self.E_valA, self.E_valB, self.E_srcA, self.E_srcB, self.E_dstE, self.E_dstM, 
@@ -112,18 +115,18 @@ class Dialog(QDialog, Ui_Y86Simulator):
                 self.W_stat, self.W_icode, self.W_valE, self.W_valM, self.W_dstE, self.W_dstM, 
                 self.eax, self.ecx, self.edx, self.ebx, self.esp, self.ebp, self.esi, self.edi, self.cycle]
             
-            his=[self.simulator.condcode['ZF'], self.simulator.condcode['SF'], self.simulator.condcode['OF'], 
+        his=[self.simulator.condcode['ZF'], self.simulator.condcode['SF'], self.simulator.condcode['OF'], 
                 self.simulator.F_stat, self.simulator.F_predPC, 
                 self.simulator.D_stat,self.simulator.D_icode,self.simulator.D_ifun, self.simulator.D_rA, self.simulator.D_rB, self.simulator.D_valC, self.simulator.D_valP, 
                 self.simulator.E_stat,self.simulator.E_icode, self.simulator.E_ifun,self.simulator.E_valC, self.simulator.E_valA, self.simulator.E_valB, self.simulator.E_srcA, self.simulator.E_srcB, self.simulator.E_dstE, self.simulator.E_dstM, 
                 self.simulator.M_stat,self.simulator.M_icode,self.simulator.M_valE, self.simulator.M_valA, self.simulator.M_dstE, self.simulator.M_dstM, 
                 self.simulator.W_stat, self.simulator.W_icode, self.simulator.W_valE, self.simulator.W_valM, self.simulator.W_dstE, self.simulator.W_dstM, 
                 self.simulator.register[0x0],  self.simulator.register[0x1],  self.simulator.register[0x2],  self.simulator.register[0x3], 
-                 self.simulator.register[0x4],  self.simulator.register[0x5],  self.simulator.register[0x6],  self.simulator.register[0x7], 
+                self.simulator.register[0x4],  self.simulator.register[0x5],  self.simulator.register[0x6],  self.simulator.register[0x7], 
                 self.simulator.cycle-1]
         
-            for (myname, hisname) in zip(my, his):
-                myname.setText(str(hisname))
+        for (myname, hisname) in zip(my, his):
+            myname.setText(str(hisname))
 
     def on_Slider_valueChanged(self):
         pos = self.Slider.value()/100.0
@@ -131,8 +134,7 @@ class Dialog(QDialog, Ui_Y86Simulator):
     
     def back(self):
         self.simulator.back()
-        self.simulator.back()
-        self.step()
+        self.showtxt()
         
     def reset(self):
         self.simulator=Simulator()
