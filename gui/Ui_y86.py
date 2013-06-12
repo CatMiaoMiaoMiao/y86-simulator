@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'E:\FDU\workspace\GUI\Y86\y86.ui'
+# Form implementation generated from reading ui file 'E:\github\y86-simulator\gui\y86.ui'
 #
-# Created: Wed Jun 12 12:00:46 2013
+# Created: Wed Jun 12 14:49:20 2013
 #      by: PyQt4 UI code generator 4.10.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -67,6 +67,11 @@ class Ui_Y86Simulator(object):
         self.loadAdd.setObjectName(_fromUtf8("loadAdd"))
         self.Slider = QtGui.QSlider(Y86Simulator)
         self.Slider.setGeometry(QtCore.QRect(130, 70, 160, 22))
+        self.Slider.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.Slider.setMinimum(1)
+        self.Slider.setMaximum(100)
+        self.Slider.setProperty("value", 100)
+        self.Slider.setSliderPosition(100)
         self.Slider.setOrientation(QtCore.Qt.Horizontal)
         self.Slider.setObjectName(_fromUtf8("Slider"))
         self.layoutWidget_3 = QtGui.QWidget(Y86Simulator)

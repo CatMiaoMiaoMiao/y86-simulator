@@ -7,6 +7,7 @@ from PyQt4 import QtCore
 from PyQt4.QtGui import *
 from PyQt4.QtCore import *
 import PyQt4, PyQt4.QtGui, sys
+from PyQt4 import QtGui
 from Simulator import *
 import time
 
@@ -52,11 +53,20 @@ class Dialog(QDialog, Ui_Y86Simulator):
         self.connect(self.stepButton,SIGNAL("clicked()"),self.step)
         self.connect(self.backButton,SIGNAL("clicked()"),self.back)
         self.connect(self.resetButton,SIGNAL("clicked()"),self.reset)
+        self.frequency.setText('1.0s')
+    
+    def showerror(self):
+        reply = QtGui.QMessageBox.question(self, 'Error',"invalid format input file", 'OK')
+        return
+
     
     def openFile(self):
         global opentxt
         opentxt=QFileDialog.getOpenFileName(self,"Open file","/")  
-        self.loadAdd.setText(str(opentxt))
+        try:
+            self.loadAdd.setText(str(opentxt))
+        except UnicodeEncodeError:
+            self.showerror()
         try:
             file=open(opentxt)
             data=file.read()
@@ -84,7 +94,11 @@ class Dialog(QDialog, Ui_Y86Simulator):
                 outfile = None
         except:
             pass
-        self.simulator.load(infile, outfile)
+        try:
+            self.simulator.load(infile, outfile)
+        except:
+            self.showerror()
+            self.openFile()
         
     def run(self):
         pos = self.Slider.value()/100.0
@@ -97,7 +111,10 @@ class Dialog(QDialog, Ui_Y86Simulator):
 
     def step(self):
         if self.simulator.isTerminated == False:
-            self.simulator.step()
+            try:
+                self.simulator.step()
+            except:
+                self.showerror()
             self.showtxt()
 
 
