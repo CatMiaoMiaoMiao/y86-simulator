@@ -1272,6 +1272,12 @@ p, li { white-space: pre-wrap; }
      <height>171</height>
     </rect>
    </property>
+   <property name="horizontalScrollBarPolicy">
+    <enum>Qt::ScrollBarAsNeeded</enum>
+   </property>
+   <property name="lineWrapMode">
+    <enum>QTextEdit::NoWrap</enum>
+   </property>
   </widget>
   <widget class="QLineEdit" name="frequency">
    <property name="geometry">

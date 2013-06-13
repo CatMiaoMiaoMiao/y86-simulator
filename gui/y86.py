@@ -9,9 +9,12 @@ from PyQt4.QtCore import *
 import PyQt4, PyQt4.QtGui, sys
 from PyQt4 import QtGui
 from Simulator import *
-import time
-
+import time, os
 from Ui_y86 import Ui_Y86Simulator
+
+
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__)))+'\\compiler')
+import assemble, start
 
 QTextCodec.setCodecForTr(QTextCodec.codecForName("utf8"))
 
@@ -31,20 +34,27 @@ class Thread(QtCore.QThread):
     def render(self,sim, interval=0.1):
         self.sim=sim
         self.interval=interval
+        
         self.start()
 
     def run(self):
         while self.sim.isTerminated == False:
             self.emit(QtCore.SIGNAL("next()"))
             time.sleep(self.interval)
+    
+    def setslide(self,thread1,  sim, interval = 0.1):
+        thread1.interval=interval
 
+    
 class Dialog(QDialog, Ui_Y86Simulator):
     def __init__(self, parent = None):
         QDialog.__init__(self, parent)
         self.setupUi(self)
         self.simulator=Simulator()
-        self.thread = Thread()
-        self.connect(self.thread, SIGNAL("next()"), self.step)
+        self.displaytext = ''
+        self.thread1 = Thread()
+        self.thread2 = Thread()
+        self.connect(self.thread1, SIGNAL("next()"), self.step)
         self.connect(self.loadButton,SIGNAL("clicked()"),self.openFile)
         self.connect(self.saveButton,SIGNAL("clicked()"),self.saveFile)
         self.connect(self.runButton,SIGNAL("clicked()"),self.run)
@@ -55,10 +65,37 @@ class Dialog(QDialog, Ui_Y86Simulator):
         self.connect(self.resetButton,SIGNAL("clicked()"),self.reset)
         self.frequency.setText('1.0s')
     
-    def showerror(self):
-        reply = QtGui.QMessageBox.question(self, 'Error',"invalid format input file", 'OK')
+    def showerror(self, string):
+        reply = QtGui.QMessageBox.warning(self, 'Error',string, QMessageBox.Ok)
+        if reply == QtGui.QMessageBox.Ok:
+            self.openFile()
         return
-
+        
+    def assemblefailure(self, assemblefilename):
+        reply = QtGui.QMessageBox.question(self, 'Compile failure','Do you want to modify the code in our compiler?', QMessageBox.Yes,QMessageBox.No )
+        if reply == QtGui.QMessageBox.Yes:
+            self.runassembleGUI(assemblefilename)
+        else:
+            pass
+        return
+    
+    def runassembleGUI(self, assemblefilename):
+        self.assemblewindow = QtGui.QMainWindow(self)
+        self.assemblewindow.ui = start.Start(self) # caller=self, just if you wanted to call main dialog from the sub-dialog.
+        self.assemblewindow.ui.create(assemblefilename)
+        self.assemblewindow.ui.compile()
+        self.assemblewindow.ui.show()
+     
+    def changedisplaytext(self):
+        text = self.displaytext.split('\n')
+        text[:] = [line for line in text]
+        
+        displaytext = ''
+        for line in text:
+            displaytext+=line
+            displaytext+='\n'
+        self.Code.setText(displaytext)    
+        
     
     def openFile(self):
         global opentxt
@@ -66,13 +103,35 @@ class Dialog(QDialog, Ui_Y86Simulator):
         try:
             self.loadAdd.setText(str(opentxt))
         except UnicodeEncodeError:
-            self.showerror()
+            self.showerror("invalid input file format")
+        path = os.path.splitext(str(opentxt))
         try:
-            file=open(opentxt)
-            data=file.read()
-            self.Code.setText(data)
+            prefix = path[0]
+            suffix = path[1]
+            if suffix not in ('.yo', '.ys', '.ybo'):
+                self.showerror("invalid input file format")
         except:
-            pass
+            self.showerror("invalid input file format")
+        
+        try:
+            file=open(str(opentxt))
+            if suffix == '.ys':
+                outputfilename = prefix+'.yo'
+                outputfile = open(outputfilename, 'w')
+                assemble.assemble(file,outputfile )
+                outputfile.close()
+                file = open(outputfilename, 'r')
+                if assemble.error != '':
+                    raise Exception('Assemble Failure')
+                
+            self.displaytext=file.read()
+            self.Code.setText(self.displaytext)
+            file.close()
+            opentxt = outputfilename
+        except IOError:
+            self.showerror("Cannot open file")
+        except:
+            self.assemblefailure(opentxt)
 
     def saveFile(self):
         global savetxt
@@ -85,7 +144,7 @@ class Dialog(QDialog, Ui_Y86Simulator):
         try:
             infile=open(str(opentxt))
         except:
-            self.openFile()
+            self.showerror('You must choose a input file')
             return
         try:
             if savetxt != None:
@@ -97,17 +156,20 @@ class Dialog(QDialog, Ui_Y86Simulator):
         try:
             self.simulator.load(infile, outfile)
         except:
-            self.showerror()
-            self.openFile()
+            self.showerror('Bad input file')
+            
+        
+        
         
     def run(self):
         pos = self.Slider.value()/100.0
-        self.thread.render(self.simulator, pos)
+        self.thread1.render(self.simulator, pos)
         self.runButton.setEnabled(False)
     
     def pause(self):
         self.runButton.setEnabled(True)
-        self.thread.terminate()
+        self.thread1.terminate()
+
 
     def step(self):
         if self.simulator.isTerminated == False:
@@ -116,7 +178,6 @@ class Dialog(QDialog, Ui_Y86Simulator):
             except:
                 self.showerror()
             self.showtxt()
-
 
     def showtxt(self):
         if self.simulator.M_Cnd:
@@ -144,10 +205,13 @@ class Dialog(QDialog, Ui_Y86Simulator):
         
         for (myname, hisname) in zip(my, his):
             myname.setText(str(hisname))
+            
+        self.changedisplaytext()
 
-    def on_Slider_valueChanged(self):
+    def on_Slider_sliderMoved(self):
         pos = self.Slider.value()/100.0
         self.frequency.setText(str(pos) + 's')
+        self.thread2.setslide(self.thread1, self.simulator, pos)
     
     def back(self):
         self.simulator.back()
@@ -165,7 +229,7 @@ class Dialog(QDialog, Ui_Y86Simulator):
                 self.eax, self.ecx, self.edx, self.ebx, self.esp, self.ebp, self.esi, self.edi, self.cycle]:
             item.clear()
         
-            
+
 if __name__ == "__main__":    
     
     app = PyQt4.QtGui.QApplication(sys.argv)     

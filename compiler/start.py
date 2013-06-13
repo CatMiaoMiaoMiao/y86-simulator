@@ -4,7 +4,7 @@ from Ui_TextEditor import Ui_MainWindow
 from os.path import isfile
 import assemble, disassemble
 import codecs
-
+from highlighter import MyHighlighter1
 class Start(QtGui.QMainWindow):
     def __init__(self, parent=None):
         QtGui.QWidget.__init__(self, parent)
@@ -18,6 +18,18 @@ class Start(QtGui.QMainWindow):
         QtCore.QObject.connect(self.ui.pushButton_2, QtCore.SIGNAL("clicked()"), self.run)        
                 
         QtCore.QObject.connect(self.ui.codein,QtCore.SIGNAL("textChanged()"),self.enable_save)
+
+        MyHighlighter1( self.ui.codein, "Classic" )
+
+    def create(self, filename):
+        self.filename = filename
+        if(isfile(self.filename)):
+            #text=open(self.filename).read()
+            text=codecs.open(self.filename, 'r', 'utf-8').read()
+            self.ui.codein.setPlainText(text)
+            self.ui.saveButton.setEnabled(False)
+        
+        
     def file_dialog(self):
         fd=QtGui.QFileDialog(self)
         self.filename=fd.getOpenFileName()

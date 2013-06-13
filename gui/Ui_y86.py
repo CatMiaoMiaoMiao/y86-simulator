@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'E:\github\y86-simulator\gui\y86.ui'
 #
-# Created: Wed Jun 12 14:49:20 2013
+# Created: Thu Jun 13 22:30:08 2013
 #      by: PyQt4 UI code generator 4.10.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -503,6 +503,8 @@ class Ui_Y86Simulator(object):
         self.label_7.setObjectName(_fromUtf8("label_7"))
         self.Code = QtGui.QTextBrowser(Y86Simulator)
         self.Code.setGeometry(QtCore.QRect(570, 110, 351, 171))
+        self.Code.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAsNeeded)
+        self.Code.setLineWrapMode(QtGui.QTextEdit.NoWrap)
         self.Code.setObjectName(_fromUtf8("Code"))
         self.frequency = QtGui.QLineEdit(Y86Simulator)
         self.frequency.setGeometry(QtCore.QRect(300, 70, 113, 20))
