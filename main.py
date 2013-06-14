@@ -3,8 +3,6 @@ Created on 2013-6-9
 
 @author: rockyRocky
 '''
-from compiler.ast import Return
-
 __ver__ = '1.0.1'
 
 import getopt
