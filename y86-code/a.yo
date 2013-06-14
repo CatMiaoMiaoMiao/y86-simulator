@@ -1,22 +1,22 @@
-  0x000: 308400010000 | 	      irmovl stack, %esp
-  0x006: 308601000000 | 	      irmovl $1, %esi
-  0x00c: 308702000000 | 	      irmovl $2, %edi
-  0x012: 308504000000 | 	      irmovl $4, %ebp
-  0x018: 308040000000 | 	      irmovl $64, %eax
-  0x01e: 308220000000 | 	      irmovl $32, %edx
-  0x024: 6120         | 	      subl %edx,%eax
-  0x026: 7032000000   | 	      jmp target
-  0x02b: 6060         | 	      addl %esi,%eax
-  0x02d: 6070         | 	      addl %edi,%eax
-  0x02f: 6050         | 	      addl %ebp,%eax
-  0x031: 10           |               halt
-  0x032:              | target:
-  0x032: 6062         | 	      addl %esi,%edx
-  0x034: 6072         | 	      addl %edi,%edx
-  0x036: 6052         | 	      addl %ebp,%edx
-  0x038: 00           |               nop
-  0x039: 00           |               nop
-  0x03a: 10           | 	      halt
-  0x100:              | .pos 0x100
-  0x100:              | stack:
-                      | 
+0x00000000 : 308400010000     | irmovl stack, %esp
+0x00000006 : 308601000000     | irmovl $1, %esi
+0x0000000c : 308702000000     | irmovl $2, %edi
+0x00000012 : 308504000000     | irmovl $4, %ebp
+0x00000018 : 308040000000     | irmovl $64, %eax
+0x0000001e : 308220000000     | irmovl $32, %edx
+0x00000024 : 6120             | subl %edx,%eax
+0x00000026 : 7032000000       | jmp target
+0x0000002b : 6060             | addl %esi,%eax
+0x0000002d : 6070             | addl %edi,%eax
+0x0000002f : 6050             | addl %ebp,%eax
+0x00000031 : 10               | halt
+0x00000032 :                  | target:
+0x00000032 : 6062             | addl %esi,%edx
+0x00000034 : 6072             | addl %edi,%edx
+0x00000036 : 6052             | addl %ebp,%edx
+0x00000038 : 00               | nop
+0x00000039 : 00               | nop
+0x0000003a : 10               | halt
+0x00000100 :                  | .pos 0x100
+0x00000100 :                  | stack:
+                              | 

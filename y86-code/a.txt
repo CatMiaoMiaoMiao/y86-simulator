@@ -472,7 +472,7 @@ FETCH:
 	F_predPC 	= 0x00000039
 
 DECODE:
-	D_icode  	= 0x1
+	D_icode  	= 0x0
 	D_ifun   	= 0x0
 	D_rA     	= 0x8
 	D_rB     	= 0x8
@@ -511,7 +511,7 @@ FETCH:
 	F_predPC 	= 0x0000003a
 
 DECODE:
-	D_icode  	= 0x1
+	D_icode  	= 0x0
 	D_ifun   	= 0x0
 	D_rA     	= 0x8
 	D_rB     	= 0x8
@@ -519,7 +519,7 @@ DECODE:
 	D_valP   	= 0x0000003a
 
 EXECUTE:
-	E_icode  	= 0x1
+	E_icode  	= 0x0
 	E_ifun   	= 0x0
 	E_valC   	= 0x00000000
 	E_valA   	= 0x00000000
@@ -550,7 +550,7 @@ FETCH:
 	F_predPC 	= 0x0000003b
 
 DECODE:
-	D_icode  	= 0x0
+	D_icode  	= 0x1
 	D_ifun   	= 0x0
 	D_rA     	= 0x8
 	D_rB     	= 0x8
@@ -558,7 +558,7 @@ DECODE:
 	D_valP   	= 0x0000003b
 
 EXECUTE:
-	E_icode  	= 0x1
+	E_icode  	= 0x0
 	E_ifun   	= 0x0
 	E_valC   	= 0x00000000
 	E_valA   	= 0x00000000
@@ -569,7 +569,7 @@ EXECUTE:
 	E_srcB   	= 0x8
 
 MEMORY:
-	M_icode  	= 0x1
+	M_icode  	= 0x0
 	M_Bch    	= False
 	M_valE   	= 0x00000000
 	M_valA   	= 0x00000000
@@ -589,12 +589,90 @@ FETCH:
 	F_predPC 	= 0x0000003c
 
 DECODE:
-	D_icode  	= 0x1
+	D_icode  	= 0x0
 	D_ifun   	= 0x0
 	D_rA     	= 0x8
 	D_rB     	= 0x8
 	D_valC   	= 0x00000000
 	D_valP   	= 0x0000003c
+
+EXECUTE:
+	E_icode  	= 0x1
+	E_ifun   	= 0x0
+	E_valC   	= 0x00000000
+	E_valA   	= 0x00000000
+	E_valB   	= 0x00000000
+	E_dstE   	= 0x8
+	E_dstM   	= 0x8
+	E_srcA   	= 0x8
+	E_srcB   	= 0x8
+
+MEMORY:
+	M_icode  	= 0x0
+	M_Bch    	= False
+	M_valE   	= 0x00000000
+	M_valA   	= 0x00000000
+	M_dstE   	= 0x8
+	M_dstM   	= 0x8
+
+WRITE BACK:
+	W_icode  	= 0x0
+	W_valE   	= 0x00000000
+	W_valM   	= 0x00000000
+	W_dstE   	= 0x8
+	W_dstM   	= 0x8
+
+Cycle_16
+--------------------
+FETCH:
+	F_predPC 	= 0x0000003d
+
+DECODE:
+	D_icode  	= 0x0
+	D_ifun   	= 0x0
+	D_rA     	= 0x8
+	D_rB     	= 0x8
+	D_valC   	= 0x00000000
+	D_valP   	= 0x0000003d
+
+EXECUTE:
+	E_icode  	= 0x0
+	E_ifun   	= 0x0
+	E_valC   	= 0x00000000
+	E_valA   	= 0x00000000
+	E_valB   	= 0x00000000
+	E_dstE   	= 0x8
+	E_dstM   	= 0x8
+	E_srcA   	= 0x8
+	E_srcB   	= 0x8
+
+MEMORY:
+	M_icode  	= 0x1
+	M_Bch    	= False
+	M_valE   	= 0x00000000
+	M_valA   	= 0x00000000
+	M_dstE   	= 0x8
+	M_dstM   	= 0x8
+
+WRITE BACK:
+	W_icode  	= 0x0
+	W_valE   	= 0x00000000
+	W_valM   	= 0x00000000
+	W_dstE   	= 0x8
+	W_dstM   	= 0x8
+
+Cycle_17
+--------------------
+FETCH:
+	F_predPC 	= 0x0000003e
+
+DECODE:
+	D_icode  	= 0x0
+	D_ifun   	= 0x0
+	D_rA     	= 0x8
+	D_rB     	= 0x8
+	D_valC   	= 0x00000000
+	D_valP   	= 0x0000003e
 
 EXECUTE:
 	E_icode  	= 0x0
@@ -621,4 +699,613 @@ WRITE BACK:
 	W_valM   	= 0x00000000
 	W_dstE   	= 0x8
 	W_dstM   	= 0x8
+
+Cycle_16
+--------------------
+FETCH:
+	F_predPC 	= 0x0000003d
+
+DECODE:
+	D_icode  	= 0x0
+	D_ifun   	= 0x0
+	D_rA     	= 0x8
+	D_rB     	= 0x8
+	D_valC   	= 0x00000000
+	D_valP   	= 0x0000003d
+
+EXECUTE:
+	E_icode  	= 0x0
+	E_ifun   	= 0x0
+	E_valC   	= 0x00000000
+	E_valA   	= 0x00000000
+	E_valB   	= 0x00000000
+	E_dstE   	= 0x8
+	E_dstM   	= 0x8
+	E_srcA   	= 0x8
+	E_srcB   	= 0x8
+
+MEMORY:
+	M_icode  	= 0x1
+	M_Bch    	= False
+	M_valE   	= 0x00000000
+	M_valA   	= 0x00000000
+	M_dstE   	= 0x8
+	M_dstM   	= 0x8
+
+WRITE BACK:
+	W_icode  	= 0x0
+	W_valE   	= 0x00000000
+	W_valM   	= 0x00000000
+	W_dstE   	= 0x8
+	W_dstM   	= 0x8
+
+Cycle_15
+--------------------
+FETCH:
+	F_predPC 	= 0x0000003c
+
+DECODE:
+	D_icode  	= 0x0
+	D_ifun   	= 0x0
+	D_rA     	= 0x8
+	D_rB     	= 0x8
+	D_valC   	= 0x00000000
+	D_valP   	= 0x0000003c
+
+EXECUTE:
+	E_icode  	= 0x1
+	E_ifun   	= 0x0
+	E_valC   	= 0x00000000
+	E_valA   	= 0x00000000
+	E_valB   	= 0x00000000
+	E_dstE   	= 0x8
+	E_dstM   	= 0x8
+	E_srcA   	= 0x8
+	E_srcB   	= 0x8
+
+MEMORY:
+	M_icode  	= 0x0
+	M_Bch    	= False
+	M_valE   	= 0x00000000
+	M_valA   	= 0x00000000
+	M_dstE   	= 0x8
+	M_dstM   	= 0x8
+
+WRITE BACK:
+	W_icode  	= 0x0
+	W_valE   	= 0x00000000
+	W_valM   	= 0x00000000
+	W_dstE   	= 0x8
+	W_dstM   	= 0x8
+
+Cycle_14
+--------------------
+FETCH:
+	F_predPC 	= 0x0000003b
+
+DECODE:
+	D_icode  	= 0x1
+	D_ifun   	= 0x0
+	D_rA     	= 0x8
+	D_rB     	= 0x8
+	D_valC   	= 0x00000000
+	D_valP   	= 0x0000003b
+
+EXECUTE:
+	E_icode  	= 0x0
+	E_ifun   	= 0x0
+	E_valC   	= 0x00000000
+	E_valA   	= 0x00000000
+	E_valB   	= 0x00000000
+	E_dstE   	= 0x8
+	E_dstM   	= 0x8
+	E_srcA   	= 0x8
+	E_srcB   	= 0x8
+
+MEMORY:
+	M_icode  	= 0x0
+	M_Bch    	= False
+	M_valE   	= 0x00000000
+	M_valA   	= 0x00000000
+	M_dstE   	= 0x8
+	M_dstM   	= 0x8
+
+WRITE BACK:
+	W_icode  	= 0x6
+	W_valE   	= 0x00000027
+	W_valM   	= 0x00000000
+	W_dstE   	= 0x2
+	W_dstM   	= 0x8
+
+Cycle_13
+--------------------
+FETCH:
+	F_predPC 	= 0x0000003a
+
+DECODE:
+	D_icode  	= 0x0
+	D_ifun   	= 0x0
+	D_rA     	= 0x8
+	D_rB     	= 0x8
+	D_valC   	= 0x00000000
+	D_valP   	= 0x0000003a
+
+EXECUTE:
+	E_icode  	= 0x0
+	E_ifun   	= 0x0
+	E_valC   	= 0x00000000
+	E_valA   	= 0x00000000
+	E_valB   	= 0x00000000
+	E_dstE   	= 0x8
+	E_dstM   	= 0x8
+	E_srcA   	= 0x8
+	E_srcB   	= 0x8
+
+MEMORY:
+	M_icode  	= 0x6
+	M_Bch    	= False
+	M_valE   	= 0x00000027
+	M_valA   	= 0x00000004
+	M_dstE   	= 0x2
+	M_dstM   	= 0x8
+
+WRITE BACK:
+	W_icode  	= 0x6
+	W_valE   	= 0x00000023
+	W_valM   	= 0x00000000
+	W_dstE   	= 0x2
+	W_dstM   	= 0x8
+
+Cycle_12
+--------------------
+FETCH:
+	F_predPC 	= 0x00000039
+
+DECODE:
+	D_icode  	= 0x0
+	D_ifun   	= 0x0
+	D_rA     	= 0x8
+	D_rB     	= 0x8
+	D_valC   	= 0x00000000
+	D_valP   	= 0x00000039
+
+EXECUTE:
+	E_icode  	= 0x6
+	E_ifun   	= 0x0
+	E_valC   	= 0x00000000
+	E_valA   	= 0x00000004
+	E_valB   	= 0x00000023
+	E_dstE   	= 0x2
+	E_dstM   	= 0x8
+	E_srcA   	= 0x5
+	E_srcB   	= 0x2
+
+MEMORY:
+	M_icode  	= 0x6
+	M_Bch    	= False
+	M_valE   	= 0x00000023
+	M_valA   	= 0x00000002
+	M_dstE   	= 0x2
+	M_dstM   	= 0x8
+
+WRITE BACK:
+	W_icode  	= 0x6
+	W_valE   	= 0x00000021
+	W_valM   	= 0x00000000
+	W_dstE   	= 0x2
+	W_dstM   	= 0x8
+
+Cycle_11
+--------------------
+FETCH:
+	F_predPC 	= 0x00000038
+
+DECODE:
+	D_icode  	= 0x6
+	D_ifun   	= 0x0
+	D_rA     	= 0x5
+	D_rB     	= 0x2
+	D_valC   	= 0x00000000
+	D_valP   	= 0x00000038
+
+EXECUTE:
+	E_icode  	= 0x6
+	E_ifun   	= 0x0
+	E_valC   	= 0x00000000
+	E_valA   	= 0x00000002
+	E_valB   	= 0x00000021
+	E_dstE   	= 0x2
+	E_dstM   	= 0x8
+	E_srcA   	= 0x7
+	E_srcB   	= 0x2
+
+MEMORY:
+	M_icode  	= 0x6
+	M_Bch    	= False
+	M_valE   	= 0x00000021
+	M_valA   	= 0x00000001
+	M_dstE   	= 0x2
+	M_dstM   	= 0x8
+
+WRITE BACK:
+	W_icode  	= 0x7
+	W_valE   	= 0x00000000
+	W_valM   	= 0x00000000
+	W_dstE   	= 0x8
+	W_dstM   	= 0x8
+
+Cycle_10
+--------------------
+FETCH:
+	F_predPC 	= 0x00000036
+
+DECODE:
+	D_icode  	= 0x6
+	D_ifun   	= 0x0
+	D_rA     	= 0x7
+	D_rB     	= 0x2
+	D_valC   	= 0x00000000
+	D_valP   	= 0x00000036
+
+EXECUTE:
+	E_icode  	= 0x6
+	E_ifun   	= 0x0
+	E_valC   	= 0x00000000
+	E_valA   	= 0x00000001
+	E_valB   	= 0x00000020
+	E_dstE   	= 0x2
+	E_dstM   	= 0x8
+	E_srcA   	= 0x6
+	E_srcB   	= 0x2
+
+MEMORY:
+	M_icode  	= 0x7
+	M_Bch    	= True
+	M_valE   	= 0x00000000
+	M_valA   	= 0x0000002b
+	M_dstE   	= 0x8
+	M_dstM   	= 0x8
+
+WRITE BACK:
+	W_icode  	= 0x6
+	W_valE   	= 0x00000020
+	W_valM   	= 0x00000000
+	W_dstE   	= 0x0
+	W_dstM   	= 0x8
+
+Cycle_9
+--------------------
+FETCH:
+	F_predPC 	= 0x00000034
+
+DECODE:
+	D_icode  	= 0x6
+	D_ifun   	= 0x0
+	D_rA     	= 0x6
+	D_rB     	= 0x2
+	D_valC   	= 0x00000000
+	D_valP   	= 0x00000034
+
+EXECUTE:
+	E_icode  	= 0x7
+	E_ifun   	= 0x0
+	E_valC   	= 0x00000032
+	E_valA   	= 0x0000002b
+	E_valB   	= 0x00000000
+	E_dstE   	= 0x8
+	E_dstM   	= 0x8
+	E_srcA   	= 0x8
+	E_srcB   	= 0x8
+
+MEMORY:
+	M_icode  	= 0x6
+	M_Bch    	= False
+	M_valE   	= 0x00000020
+	M_valA   	= 0x00000020
+	M_dstE   	= 0x0
+	M_dstM   	= 0x8
+
+WRITE BACK:
+	W_icode  	= 0x3
+	W_valE   	= 0x00000020
+	W_valM   	= 0x00000000
+	W_dstE   	= 0x2
+	W_dstM   	= 0x8
+
+Cycle_8
+--------------------
+FETCH:
+	F_predPC 	= 0x00000032
+
+DECODE:
+	D_icode  	= 0x7
+	D_ifun   	= 0x0
+	D_rA     	= 0x8
+	D_rB     	= 0x8
+	D_valC   	= 0x00000032
+	D_valP   	= 0x0000002b
+
+EXECUTE:
+	E_icode  	= 0x6
+	E_ifun   	= 0x1
+	E_valC   	= 0x00000000
+	E_valA   	= 0x00000020
+	E_valB   	= 0x00000040
+	E_dstE   	= 0x0
+	E_dstM   	= 0x8
+	E_srcA   	= 0x2
+	E_srcB   	= 0x0
+
+MEMORY:
+	M_icode  	= 0x3
+	M_Bch    	= False
+	M_valE   	= 0x00000020
+	M_valA   	= 0x00000000
+	M_dstE   	= 0x2
+	M_dstM   	= 0x8
+
+WRITE BACK:
+	W_icode  	= 0x3
+	W_valE   	= 0x00000040
+	W_valM   	= 0x00000000
+	W_dstE   	= 0x0
+	W_dstM   	= 0x8
+
+Cycle_7
+--------------------
+FETCH:
+	F_predPC 	= 0x00000026
+
+DECODE:
+	D_icode  	= 0x6
+	D_ifun   	= 0x1
+	D_rA     	= 0x2
+	D_rB     	= 0x0
+	D_valC   	= 0x00000000
+	D_valP   	= 0x00000026
+
+EXECUTE:
+	E_icode  	= 0x3
+	E_ifun   	= 0x0
+	E_valC   	= 0x00000020
+	E_valA   	= 0x00000000
+	E_valB   	= 0x00000000
+	E_dstE   	= 0x2
+	E_dstM   	= 0x8
+	E_srcA   	= 0x8
+	E_srcB   	= 0x8
+
+MEMORY:
+	M_icode  	= 0x3
+	M_Bch    	= False
+	M_valE   	= 0x00000040
+	M_valA   	= 0x00000000
+	M_dstE   	= 0x0
+	M_dstM   	= 0x8
+
+WRITE BACK:
+	W_icode  	= 0x3
+	W_valE   	= 0x00000004
+	W_valM   	= 0x00000000
+	W_dstE   	= 0x5
+	W_dstM   	= 0x8
+
+Cycle_6
+--------------------
+FETCH:
+	F_predPC 	= 0x00000024
+
+DECODE:
+	D_icode  	= 0x3
+	D_ifun   	= 0x0
+	D_rA     	= 0x8
+	D_rB     	= 0x2
+	D_valC   	= 0x00000020
+	D_valP   	= 0x00000024
+
+EXECUTE:
+	E_icode  	= 0x3
+	E_ifun   	= 0x0
+	E_valC   	= 0x00000040
+	E_valA   	= 0x00000000
+	E_valB   	= 0x00000000
+	E_dstE   	= 0x0
+	E_dstM   	= 0x8
+	E_srcA   	= 0x8
+	E_srcB   	= 0x8
+
+MEMORY:
+	M_icode  	= 0x3
+	M_Bch    	= False
+	M_valE   	= 0x00000004
+	M_valA   	= 0x00000000
+	M_dstE   	= 0x5
+	M_dstM   	= 0x8
+
+WRITE BACK:
+	W_icode  	= 0x3
+	W_valE   	= 0x00000002
+	W_valM   	= 0x00000000
+	W_dstE   	= 0x7
+	W_dstM   	= 0x8
+
+Cycle_5
+--------------------
+FETCH:
+	F_predPC 	= 0x0000001e
+
+DECODE:
+	D_icode  	= 0x3
+	D_ifun   	= 0x0
+	D_rA     	= 0x8
+	D_rB     	= 0x0
+	D_valC   	= 0x00000040
+	D_valP   	= 0x0000001e
+
+EXECUTE:
+	E_icode  	= 0x3
+	E_ifun   	= 0x0
+	E_valC   	= 0x00000004
+	E_valA   	= 0x00000000
+	E_valB   	= 0x00000000
+	E_dstE   	= 0x5
+	E_dstM   	= 0x8
+	E_srcA   	= 0x8
+	E_srcB   	= 0x8
+
+MEMORY:
+	M_icode  	= 0x3
+	M_Bch    	= False
+	M_valE   	= 0x00000002
+	M_valA   	= 0x00000000
+	M_dstE   	= 0x7
+	M_dstM   	= 0x8
+
+WRITE BACK:
+	W_icode  	= 0x3
+	W_valE   	= 0x00000001
+	W_valM   	= 0x00000000
+	W_dstE   	= 0x6
+	W_dstM   	= 0x8
+
+Cycle_4
+--------------------
+FETCH:
+	F_predPC 	= 0x00000018
+
+DECODE:
+	D_icode  	= 0x3
+	D_ifun   	= 0x0
+	D_rA     	= 0x8
+	D_rB     	= 0x5
+	D_valC   	= 0x00000004
+	D_valP   	= 0x00000018
+
+EXECUTE:
+	E_icode  	= 0x3
+	E_ifun   	= 0x0
+	E_valC   	= 0x00000002
+	E_valA   	= 0x00000000
+	E_valB   	= 0x00000000
+	E_dstE   	= 0x7
+	E_dstM   	= 0x8
+	E_srcA   	= 0x8
+	E_srcB   	= 0x8
+
+MEMORY:
+	M_icode  	= 0x3
+	M_Bch    	= False
+	M_valE   	= 0x00000001
+	M_valA   	= 0x00000000
+	M_dstE   	= 0x6
+	M_dstM   	= 0x8
+
+WRITE BACK:
+	W_icode  	= 0x3
+	W_valE   	= 0x00000100
+	W_valM   	= 0x00000000
+	W_dstE   	= 0x4
+	W_dstM   	= 0x8
+
+Cycle_3
+--------------------
+FETCH:
+	F_predPC 	= 0x00000012
+
+DECODE:
+	D_icode  	= 0x3
+	D_ifun   	= 0x0
+	D_rA     	= 0x8
+	D_rB     	= 0x7
+	D_valC   	= 0x00000002
+	D_valP   	= 0x00000012
+
+EXECUTE:
+	E_icode  	= 0x3
+	E_ifun   	= 0x0
+	E_valC   	= 0x00000001
+	E_valA   	= 0x00000000
+	E_valB   	= 0x00000000
+	E_dstE   	= 0x6
+	E_dstM   	= 0x8
+	E_srcA   	= 0x8
+	E_srcB   	= 0x8
+
+MEMORY:
+	M_icode  	= 0x3
+	M_Bch    	= False
+	M_valE   	= 0x00000100
+	M_valA   	= 0x00000000
+	M_dstE   	= 0x4
+	M_dstM   	= 0x8
+
+WRITE BACK:
+	W_icode  	= 0x0
+	W_valE   	= 0x00000000
+	W_valM   	= 0x00000000
+	W_dstE   	= 0x8
+	W_dstM   	= 0x8
+
+Cycle_2
+--------------------
+FETCH:
+	F_predPC 	= 0x0000000c
+
+DECODE:
+	D_icode  	= 0x3
+	D_ifun   	= 0x0
+	D_rA     	= 0x8
+	D_rB     	= 0x6
+	D_valC   	= 0x00000001
+	D_valP   	= 0x0000000c
+
+EXECUTE:
+	E_icode  	= 0x3
+	E_ifun   	= 0x0
+	E_valC   	= 0x00000100
+	E_valA   	= 0x00000000
+	E_valB   	= 0x00000000
+	E_dstE   	= 0x4
+	E_dstM   	= 0x8
+	E_srcA   	= 0x8
+	E_srcB   	= 0x8
+
+MEMORY:
+	M_icode  	= 0x0
+	M_Bch    	= False
+	M_valE   	= 0x00000000
+	M_valA   	= 0x00000000
+	M_dstE   	= 0x8
+	M_dstM   	= 0x8
+
+WRITE BACK:
+	W_icode  	= 0x0
+	W_valE   	= 0x00000000
+	W_valM   	= 0x00000000
+	W_dstE   	= 0x8
+	W_dstM   	= 0x8
+
+Cycle_1
+--------------------
+FETCH:
+	F_predPC 	= 0x00000006
+
+DECODE:
+	D_icode  	= 0x3
+	D_ifun   	= 0x0
+	D_rA     	= 0x8
+	D_rB     	= 0x4
+	D_valC   	= 0x00000100
+	D_valP   	= 0x00000006
+
+EXECUTE:
+	E_icode  	= 0x0
+	E_ifun   	= 0x0
+	E_valC   	= 0x00000000
+	E_valA   	= 0x00000000
+	E_valB   	= 0x00000000
+	E_dstE   	= 0x8
+	E_dstM   	= 0x8
+	E_srcA   	= 0x8
+	E_srcB   	= 0x8
 

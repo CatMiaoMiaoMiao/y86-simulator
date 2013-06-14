@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Project SYSTEM "Project-4.6.dtd">
-<!-- eric4 project file for project y86 -->
-<!-- Saved: 2013-06-12, 00:29:16 -->
+<!-- eric4 project file for project Test -->
+<!-- Saved: 2013-06-12, 18:16:38 -->
 <!-- Copyright (C) 2013 ,  -->
 <Project version="4.6">
   <Language>en</Language>
@@ -12,12 +12,11 @@
   <Author></Author>
   <Email></Email>
   <Sources>
-    <Source>__init__.py</Source>
-    <Source>Ui_y86.py</Source>
-    <Source>y86.py</Source>
+    <Source>Ui_TextEditor.py</Source>
+    <Source>start.py</Source>
   </Sources>
   <Forms>
-    <Form>y86.ui</Form>
+    <Form>TextEditor.ui</Form>
   </Forms>
   <Translations>
   </Translations>
