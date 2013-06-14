@@ -6,7 +6,7 @@ import assemble, disassemble
 import codecs
 from highlighter import MyHighlighter1
 
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__)))+'\\gui')
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__)))+os.sep+'gui')
 import y86
 
 

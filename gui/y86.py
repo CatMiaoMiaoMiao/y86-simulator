@@ -13,10 +13,10 @@ from PyQt4.QtCore import *
 
 from Ui_y86 import Ui_Y86Simulator
 
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__)))+'\\compiler')
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__)))+os.sep+'compiler')
 import assemble, start
 
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__)))+'\\kernel')
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__)))+os.sep+'kernel')
 from Simulator import *
 
 QTextCodec.setCodecForTr(QTextCodec.codecForName("utf8"))
