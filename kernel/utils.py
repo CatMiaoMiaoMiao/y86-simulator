@@ -33,6 +33,11 @@ def hi4(p):
 def lo4(p):
     return p&0xf
 
+# take care, maybe wrong in different system?
+def extractBits(x, l, r):
+    mask = ((1<<(32-l-r))-1)<<r
+    return (x & mask)>>r
+
 def unsign(v):
     if v < 0:
         v += 2**32

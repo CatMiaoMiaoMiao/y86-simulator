@@ -14,7 +14,6 @@ from History import *
 class Simulator:
     def __init__(self):
         self.__ver__ = '0.0.1'
-        
     # Pipeline self.register F
         self.F_predPC = 0
         self.F_stat = 'BUB'
@@ -319,6 +318,7 @@ class Simulator:
 
     def stageF(self):
         f_pc = self.F_predPC
+
         if self.M_icode == IJXX and not self.M_Cnd:
             f_pc = self.M_valA
         elif self.W_icode == IRET:
@@ -326,7 +326,6 @@ class Simulator:
         old_pc = f_pc
         pcstart = f_pc * 2
         imem_error = False
-
         instr = self.memory.getByte(f_pc)
         imem_icode = hi4(instr)
         imem_ifun = lo4(instr)
@@ -611,7 +610,7 @@ class Simulator:
 
     def step(self):
         if self.maxCycle != 0 and self.cycle > self.maxCycle:
-            self.simLog('Reach Max Cycle', True)
+            self.simLog('Reach Max Cycle')
             self.cpustat = 'HLT'
             return       
         self.showStatTitle()
@@ -628,7 +627,6 @@ class Simulator:
         self.stageE()
         self.stageD()
         self.stageF()
-        
         self.showStat()
         self.history.record(self)
         self.cycle += 1

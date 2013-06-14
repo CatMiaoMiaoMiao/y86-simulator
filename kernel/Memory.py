@@ -1,22 +1,56 @@
 __author__ = 'rockyRocky'
 
 from utils import *
+from Cache import *
 
-CACHESIZE = 1000; # 1KB
-MEMSIZE = 32*1000; # 32KB
-VMSIZE = 1000*1000 # 1MB
+CACHESIZE = 1024; # 1KB
+MEMSIZE = 32*1024; # 32KB
+VMSIZE = 1024*1024 # 1MB
+
+# using write-back cache
 
 class Memory:
     def __init__(self, size=MEMSIZE):
+        self.size = size
         self.mem = [0]*size
-
+        self.cache = Cache()
+    
+    def setCache(self, S, E, B, m):
+        self.mem.extend([0]*((1>>m)-self.size))
+        self.cache.S = S
+        self.cache.E = E
+        self.cache.B = B
+        self.cache.m = m
+        
+    def handleCacheMiss(self, addr):   
+        blockOffset = self.cache.b # block offset
+        blockSize = self.cache.B
+        blockAddr = (addr >> blockOffset) << blockOffset
+        # try fetching old blockAddr
+        oldBlockAddr, oldBlock, isDirty = self.cache.setBlock(blockAddr, \
+                                    [self.mem[blockAddr+i] for i in range(blockSize)])
+        # if dirty
+        if isDirty:  
+            # get blockAddr, block, blockOffset, setOffset from line
+            for (i, byte) in enumerate(oldBlock):
+                self.mem[oldBlockAddr+i] = byte     
+        
 # api
 # getters
     def getByte(self, addr):
+        # bad access
         if addr<0 or addr>=len(self.mem):
             self.handleBadAccess()
-        else:
-            return self.mem[addr]
+            return False
+        byte, isHit = self.cache.getByte(addr)
+        # cache hit
+        if isHit:
+            return byte
+        # cache miss
+        self.handleCacheMiss(addr)
+            # if not dirty, simply return the byte    
+        byte, isHit = self.cache.getByte(addr)
+        return byte
 
     def getBytes(self, addr, length):
         return [self.getByte(addr+i) for i in range(length)]
@@ -24,12 +58,22 @@ class Memory:
     def getWord(self, addr):
         return bytes_to_int(self.getBytes(addr, 4))
 
+#############
+# strategy of setting byte is
+# to check it whether it is in cache
+# if it is, 1 modify it in the cache, 2 set the dirty flag
+# if not,  
+
 # setters
     def setByte(self, addr, byte):
         if addr<0 or addr>=len(self.mem):
             self.handleBadAccess()
-        else:
-            self.mem[addr] = byte
+            return False
+        isHit = self.cache.setByte(addr, byte)
+        if not isHit:
+            self.handleCacheMiss(addr)
+            self.cache.setByte(addr, byte)
+#        self.mem[addr] = byte
 
     def setBytes(self, addr, bytes):
         for (i, byte) in enumerate(bytes):
