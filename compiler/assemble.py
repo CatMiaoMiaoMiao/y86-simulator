@@ -233,7 +233,7 @@ def assemble(INFILE, OUTFILE):
         
     #write
     length = len(origline)
-    for lineno in range(1, length):
+    for lineno in range(1, length+1):
         line=''
         try:
             line += addconverthex(lineaddress[lineno])
