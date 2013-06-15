@@ -11,6 +11,7 @@ import os
 import sys
 import thread
 import termios
+import platform
 
 from kernel.Simulator import *
 
@@ -184,6 +185,9 @@ def runSimulator():
         pass
     
 def getkey():
+    if (platform.system()=='Windows'):
+        import msvcrt
+        return msvcrt.getch()
     term = open("/dev/tty", "r")
     fd = term.fileno()
     old = termios.tcgetattr(fd)

@@ -18,6 +18,7 @@ class Simulator:
         self.F_predPC = 0
         self.F_stat = 'BUB'
         self.F_stall = False
+        self.F_currentPC = -1
 
     # Intermediate Values in Fetch Stage
         self.f_icode = INOP
@@ -39,6 +40,7 @@ class Simulator:
         self.D_valC = 0x0
         self.D_bub = False
         self.D_stall = False
+        self.D_currentPC = -1
 
     # Intermediate Values in Decode Stage
         self.d_srcA = RNONE
@@ -60,6 +62,7 @@ class Simulator:
         self.E_dstE = RNONE
         self.E_dstM = RNONE
         self.E_bub = False
+        self.E_currentPC = -1
 
     # Intermediate Values in Execute Stage
         self.e_valE = 0x0
@@ -76,6 +79,7 @@ class Simulator:
         self.M_valE = 0x0
         self.M_dstM = RNONE
         self.M_Cnd = False
+        self.M_currentPC = -1
 
     # Intermediate Values in Memory Stage
         self.m_valM = 0x0
@@ -92,6 +96,7 @@ class Simulator:
         self.W_valE = 0x0
         self.W_dstM = RNONE
         self.W_valM = 0x0
+        self.W_currentPC = -1
 
     # self.registers
         self.register = {
@@ -142,6 +147,7 @@ class Simulator:
         self.F_predPC = tmp.F_predPC
         self.F_stat = tmp.F_stat
         self.F_stall = tmp.F_stall
+        self.F_currentPC = tmp.F_currentPC
 
     # Intermediate Values in Fetch Stage
         self.f_icode = tmp.f_icode
@@ -163,6 +169,7 @@ class Simulator:
         self.D_valC = tmp.D_valC
         self.D_bub = tmp.D_bub
         self.D_stall = tmp.D_stall
+        self.D_currentPC = tmp.D_currentPC
 
     # Intermediate Values in Decode Stage
         self.d_srcA = tmp.d_srcA
@@ -184,6 +191,7 @@ class Simulator:
         self.E_dstE = tmp.E_dstE
         self.E_dstM = tmp.E_dstM
         self.E_bub = tmp.E_bub
+        self.E_currentPC = tmp.E_currentPC
 
     # Intermediate Values in Execute Stage
         self.e_valE = tmp.e_valE
@@ -200,6 +208,7 @@ class Simulator:
         self.M_valE = tmp.M_valE
         self.M_dstM = tmp.M_dstM
         self.M_Cnd = tmp.M_Cnd
+        self.M_currentPC = tmp.M_currentPC
 
     # Intermediate Values in Memory Stage
         self.m_valM = tmp.m_valM
@@ -216,6 +225,7 @@ class Simulator:
         self.W_valE = tmp.W_valE
         self.W_dstM = tmp.W_dstM
         self.W_valM = tmp.W_valM
+        self.W_currentPC = tmp.W_currentPC
 
     # self.registers
         self.register = copy.copy(tmp.register)
@@ -313,6 +323,7 @@ class Simulator:
         if self.F_stall:
             self.F_stall = False
             return  # stall
+        self.F_currentPC = self.F_predPC
         self.F_predPC = self.f_predPC
         self.F_stat = 'AOK'
 
@@ -404,6 +415,7 @@ class Simulator:
         self.D_rB = self.f_rB
         self.D_valC = self.f_valC
         self.D_valP = self.f_valP
+        self.D_currentPC = self.F_currentPC
 
     def stageD(self):
         self.d_srcA = RNONE
@@ -477,6 +489,7 @@ class Simulator:
         self.E_dstM = self.d_dstM
         self.E_srcA = self.d_srcA
         self.E_srcB = self.d_srcB
+        self.E_currentPC = self.D_currentPC
 
     def stageE(self):
         aluA = 0
@@ -568,6 +581,7 @@ class Simulator:
         self.M_valA = self.E_valA
         self.M_dstE = self.e_dstE
         self.M_dstM = self.E_dstM
+        self.M_currentPC = self.E_currentPC
 
     def stageM(self):
         self.m_valM = 0
@@ -600,6 +614,7 @@ class Simulator:
         self.W_valM = self.m_valM
         self.W_dstE = self.M_dstE
         self.W_dstM = self.M_dstM
+        self.W_currentPC = self.M_currentPC
 
     def stageW(self):
         if self.W_dstE != RNONE:
@@ -702,6 +717,9 @@ class Simulator:
         
     def getMemory(self, addr):
         return self.memory.mem[addr]
+    
+    def getMemoryChange(self):
+        return self.memory.memChange    
             
     def getCache(self, setIndex, lineIndex):
         entrySize = self.memory.cache.E

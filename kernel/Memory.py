@@ -13,6 +13,7 @@ class Memory:
     def __init__(self, size=MEMSIZE):
         self.size = size
         self.mem = [0]*size
+        self.memChange = {}
         self.cache = Cache()
     
     def setCache(self, S, E, B, m):
@@ -34,7 +35,8 @@ class Memory:
         if isDirty:  
             # get blockAddr, block, blockOffset, setOffset from line
             for (i, byte) in enumerate(oldBlock):
-                self.mem[oldBlockAddr+i] = byte     
+                self.mem[oldBlockAddr+i] = byte  
+                self.memChange[oldBlockAddr+i] = byte   
         
 # api
 # getters
