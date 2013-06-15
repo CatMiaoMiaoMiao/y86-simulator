@@ -13,10 +13,10 @@ from PyQt4.QtCore import *
 
 from Ui_y86 import Ui_Y86Simulator
 
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__)))+os.sep+'compiler')
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__)))+'\\compiler')
 import assemble, start
 
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__)))+os.sep+'kernel')
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__)))+'\\kernel')
 from Simulator import *
 
 QTextCodec.setCodecForTr(QTextCodec.codecForName("utf8"))
@@ -67,11 +67,14 @@ class Dialog(QDialog, Ui_Y86Simulator):
         self.connect(self.backButton,SIGNAL("clicked()"),self.back)
         self.connect(self.resetButton,SIGNAL("clicked()"),self.reset)
         self.frequency.setText('1.0s')
-        self.Author.setText('Published by:     rockyRocky & Lumig & VV.\nVersion 1.0')
+        #self.Author.setText('Published by:     Rockeyrockey & Lumig & VV.\nVersion 1.0')
         
     
     def terminate(self):
         self.loadyet = False 
+        self.runButton.setEnabled(True)
+        self.stepButton.setEnabled(True)
+        self.backButton.setEnabled(True)
     
     def showerror(self, string):
         reply = QtGui.QMessageBox.warning(self, 'Error',string, QMessageBox.Ok)
@@ -175,9 +178,13 @@ class Dialog(QDialog, Ui_Y86Simulator):
         pos = self.Slider.value()/100.0
         self.thread1.render(self.simulator, pos)
         self.runButton.setEnabled(False)
+        self.stepButton.setEnabled(False)
+        self.backButton.setEnabled(False)
     
     def pause(self):
         self.runButton.setEnabled(True)
+        self.stepButton.setEnabled(True)
+        self.backButton.setEnabled(True)
         self.thread1.terminate()
 
 
@@ -224,14 +231,17 @@ class Dialog(QDialog, Ui_Y86Simulator):
 
     def on_Slider_sliderMoved(self):
         pos = self.Slider.value()/100.0
-        self.frequency.setText(str(pos) + 's')
+        self.frequency.setText(str(pos) + 'S')
         self.thread2.setslide(self.thread1, self.simulator, pos)
     
     def back(self):
+        if self.cycle == 0:
+            pass
         self.simulator.back()
         self.showtxt()
         
     def reset(self):
+        self.thread1.terminate()
         self.simulator=Simulator()
         self.loadFile()
         for item in [self.ZF, self.SF, self.OF, 
@@ -243,6 +253,8 @@ class Dialog(QDialog, Ui_Y86Simulator):
                 self.eax, self.ecx, self.edx, self.ebx, self.esp, self.ebp, self.esi, self.edi, self.cycle]:
             item.clear()
         self.runButton.setEnabled(True)
+        self.stepButton.setEnabled(True)
+        self.backButton.setEnabled(True)
 
 if __name__ == "__main__":    
     
