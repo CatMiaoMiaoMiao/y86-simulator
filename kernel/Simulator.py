@@ -708,7 +708,7 @@ class Simulator:
         line = self.memory.cache.set[setIndex*entrySize+lineIndex]
         return line.isValid, line.isDirty, line.tag, line.block
 
-    def setCache(self, S, E, B, m):
+    def setCacheParams(self, S, E, B, m):
         self.memory.setCache(S, E, B, m)
         
     '''''''''''''''''
