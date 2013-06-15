@@ -699,7 +699,18 @@ class Simulator:
             self.simLog('Error: bad input binary file')
             self.logfile.close()
             raise
+        
+    def getMemory(self, addr):
+        return self.memory.mem[addr]
+            
+    def getCache(self, setIndex, lineIndex):
+        entrySize = self.memory.cache.E
+        line = self.memory.cache.set[setIndex*entrySize+lineIndex]
+        return line.isValid, line.isDirty, line.tag, line.block
 
+    def setCache(self, S, E, B, m):
+        self.memory.setCache(S, E, B, m)
+        
     '''''''''''''''''
     '    trivial    '
     '''''''''''''''''        

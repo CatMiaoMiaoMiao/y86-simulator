@@ -17,10 +17,11 @@ class Memory:
     
     def setCache(self, S, E, B, m):
         self.mem.extend([0]*((1>>m)-self.size))
-        self.cache.S = S
-        self.cache.E = E
-        self.cache.B = B
-        self.cache.m = m
+#         self.cache.S = S
+#         self.cache.E = E
+#         self.cache.B = B
+#         self.cache.m = m
+        self.cache = Cache(S, E, B, m)
         
     def handleCacheMiss(self, addr):   
         blockOffset = self.cache.b # block offset
