@@ -42,6 +42,9 @@
        <height>41</height>
       </rect>
      </property>
+     <property name="cursor">
+      <cursorShape>PointingHandCursor</cursorShape>
+     </property>
      <property name="styleSheet">
       <string notr="true">QPushButton,
 QToolButton {
@@ -77,6 +80,9 @@ QToolButton:on {
        <width>75</width>
        <height>41</height>
       </rect>
+     </property>
+     <property name="cursor">
+      <cursorShape>PointingHandCursor</cursorShape>
      </property>
      <property name="styleSheet">
       <string notr="true">QPushButton,
@@ -114,6 +120,9 @@ QToolButton:on {
        <height>31</height>
       </rect>
      </property>
+     <property name="cursor">
+      <cursorShape>PointingHandCursor</cursorShape>
+     </property>
      <property name="styleSheet">
       <string notr="true">QPushButton,
 QToolButton {
@@ -150,6 +159,9 @@ QToolButton:on {
        <height>31</height>
       </rect>
      </property>
+     <property name="cursor">
+      <cursorShape>PointingHandCursor</cursorShape>
+     </property>
      <property name="styleSheet">
       <string notr="true">QPushButton,
 QToolButton {
@@ -185,6 +197,9 @@ QToolButton:on {
        <width>71</width>
        <height>23</height>
       </rect>
+     </property>
+     <property name="cursor">
+      <cursorShape>PointingHandCursor</cursorShape>
      </property>
      <property name="styleSheet">
       <string notr="true">QPushButton,
@@ -229,8 +244,9 @@ QToolButton:on {
     <property name="styleSheet">
      <string notr="true">QTextEdit {
 font-size : 15px;
-
-
+	font: 9pt &quot;宋体&quot;;
+background:none;
+border:none;
 }</string>
     </property>
     <property name="lineWrapMode">
@@ -249,8 +265,9 @@ font-size : 15px;
     <property name="styleSheet">
      <string notr="true">QTextEdit {
 font-size : 15px;
-
-
+	font: 9pt &quot;宋体&quot;;
+background:none;
+border:none;
 }</string>
     </property>
     <property name="lineWrapMode">
@@ -269,8 +286,9 @@ font-size : 15px;
     <property name="styleSheet">
      <string notr="true">QTextEdit {
 font-size : 15px;
-
-
+	font: 9pt &quot;宋体&quot;;
+background:none;
+border:none;
 }</string>
     </property>
     <property name="lineWrapMode">

@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'E:\github\y86-simulator\gui\y86.ui'
 #
-# Created: Sat Jun 15 22:04:12 2013
+# Created: Sat Jun 15 23:36:21 2013
 #      by: PyQt4 UI code generator 4.10.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -766,6 +766,7 @@ class Ui_Y86Simulator(object):
         self.Tab = QtGui.QTabWidget(Y86Simulator)
         self.Tab.setEnabled(True)
         self.Tab.setGeometry(QtCore.QRect(580, 420, 341, 211))
+        self.Tab.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.Tab.setStyleSheet(_fromUtf8("\n"
 "QTabWidget::tab-bar {\n"
 "border:rgb(243, 221, 255,0);\n"
@@ -800,25 +801,27 @@ class Ui_Y86Simulator(object):
         self.Memory.setGeometry(QtCore.QRect(0, 0, 351, 171))
         self.Memory.setStyleSheet(_fromUtf8("background:rgb(0,0,0,0%);\n"
 "background-color:rgb(0,0,0,0%);\n"
-"font: 15px;"))
+"font: 15px;\n"
+"font: 9pt \"å®‹ä½“\";"))
         self.Memory.setObjectName(_fromUtf8("Memory"))
         self.Tab.addTab(self.tab, _fromUtf8(""))
         self.tab_2 = QtGui.QWidget()
         self.tab_2.setObjectName(_fromUtf8("tab_2"))
         self.Cache = QtGui.QTextBrowser(self.tab_2)
         self.Cache.setGeometry(QtCore.QRect(0, 0, 341, 161))
-        self.Cache.setStyleSheet(_fromUtf8("font: 15px;"))
+        self.Cache.setStyleSheet(_fromUtf8("font: 15px;\n"
+"font: 9pt \"å®‹ä½“\";"))
         self.Cache.setObjectName(_fromUtf8("Cache"))
         self.Tab.addTab(self.tab_2, _fromUtf8(""))
         self.Code = QtGui.QTextBrowser(Y86Simulator)
         self.Code.setGeometry(QtCore.QRect(575, 211, 351, 181))
-        self.Code.setStyleSheet(_fromUtf8("\n"
+        self.Code.setStyleSheet(_fromUtf8("font: 9pt \"å®‹ä½“\";\n"
 "font: 15px;"))
         self.Code.setLineWrapMode(QtGui.QTextEdit.NoWrap)
         self.Code.setObjectName(_fromUtf8("Code"))
 
         self.retranslateUi(Y86Simulator)
-        self.Tab.setCurrentIndex(1)
+        self.Tab.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(Y86Simulator)
 
     def retranslateUi(self, Y86Simulator):

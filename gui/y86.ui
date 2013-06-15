@@ -1846,6 +1846,9 @@ font: 75 22pt &quot;Chiller&quot;;
      <height>211</height>
     </rect>
    </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
    <property name="styleSheet">
     <string notr="true">
 QTabWidget::tab-bar {
@@ -1879,7 +1882,7 @@ background-color:rgb(0,0,0,0%);
     <enum>QTabWidget::Rounded</enum>
    </property>
    <property name="currentIndex">
-    <number>1</number>
+    <number>0</number>
    </property>
    <property name="iconSize">
     <size>
@@ -1903,7 +1906,8 @@ background-color:rgb(0,0,0,0%);
      <property name="styleSheet">
       <string notr="true">background:rgb(0,0,0,0%);
 background-color:rgb(0,0,0,0%);
-font: 15px;</string>
+font: 15px;
+font: 9pt &quot;宋体&quot;;</string>
      </property>
     </widget>
    </widget>
@@ -1921,7 +1925,8 @@ font: 15px;</string>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">font: 15px;</string>
+      <string notr="true">font: 15px;
+font: 9pt &quot;宋体&quot;;</string>
      </property>
     </widget>
    </widget>
@@ -1936,7 +1941,7 @@ font: 15px;</string>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">
+    <string notr="true">font: 9pt &quot;宋体&quot;;
 font: 15px;</string>
    </property>
    <property name="lineWrapMode">

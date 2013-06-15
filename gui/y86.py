@@ -15,6 +15,7 @@ from Ui_y86 import Ui_Y86Simulator
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__)))+'\\compiler')
 import assemble, start
+from highlighter import MyHighlighter1
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__)))+'\\kernel')
 from Simulator import *
@@ -68,7 +69,7 @@ class Dialog(QDialog, Ui_Y86Simulator):
         self.connect(self.backButton,SIGNAL("clicked()"),self.back)
         self.connect(self.resetButton,SIGNAL("clicked()"),self.reset)
         self.frequency.setText('1.0s')
-        
+        MyHighlighter1( self.Code, "Classic" )
         #self.Author.setText('Published by:     Rockeyrockey & Lumig & VV.\nVersion 1.0')
         
     
@@ -98,6 +99,7 @@ class Dialog(QDialog, Ui_Y86Simulator):
         self.assemblewindow.ui.create(assemblefilename, self)
         self.assemblewindow.ui.compile()
         self.assemblewindow.ui.show()
+        
      
     def displayCode(self):
         text = self.displaytext.split('\n')
@@ -111,14 +113,17 @@ class Dialog(QDialog, Ui_Y86Simulator):
         return
     
     def displayMemory(self):
+        current_mem = self.simulator.getMemoryChange()
         displaytext = ''
-        for i in range(1,MEMSIZE ):
-            displaytext += str(self.simulator.getMemory(i))
-            displaytext += '\n'
-        self.Memory.setText(displaytext) 
+        for address in current_mem:
+            displaytext+='  '+str(address)
+            displaytext+=str(current_mem[address])
+            displaytext+='\n' 
+        self.Memory.setText(displaytext)
         return
         
     def displayCache(self):
+        isValid, isDirty, tag, block = self.simulator.getCache(1, 1)
         return
     
     def openFile(self):

@@ -30,11 +30,15 @@ class Start(QtGui.QMainWindow):
         QtCore.QObject.connect(self.ui.codein,QtCore.SIGNAL("textChanged()"),self.enable_save)
 
         MyHighlighter1( self.ui.codein, "Classic" )
+        MyHighlighter1( self.ui.codeout, "Classic" )
     
     def runfile(self):
         if self.callflag == True:
-            self.callerDia.opentxt = self.callfile.replace('.ys', '.yo') 
+            self.callerDia.opentxt = self.filename.replace('.ys', '.yo') 
             self.callerDia.loadFile()
+            self.callerDia.Code.setText('Now you can click run!Have fun!')
+            
+            
         else:
             try:
                 self.Dialog = QtGui.QDialog(self)
@@ -51,9 +55,9 @@ class Start(QtGui.QMainWindow):
                 self.showtext('Unable to run file')
     
     def create(self, filename, callerDia):
-        self.callfile = filename
+        self.filename = filename.replace('.yo', '.ys')
         self.callflag = True
-        text=codecs.open(self.callfile, 'r', 'utf-8').read()
+        text=codecs.open(self.filename, 'r', 'utf-8').read()
         self.ui.codein.setPlainText(text)
         self.ui.saveButton.setEnabled(False)
         self.callerDia = callerDia
@@ -110,9 +114,10 @@ class Start(QtGui.QMainWindow):
             self.ui.codeout.clear()
         else:
             self.ui.console.setPlainText('Compile success')
+            self.ui.runButton.setEnabled(True)
             text = outfile.read()
             self.ui.codeout.setPlainText(text)
-        self.ui.runButton.setEnabled(True)
+        
         return
     
     def disassemble(self):
