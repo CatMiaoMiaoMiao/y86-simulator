@@ -157,6 +157,12 @@ QSlider::handle:horizontal {
       <property name="styleSheet">
        <string notr="true"/>
       </property>
+      <property name="verticalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOff</enum>
+      </property>
+      <property name="horizontalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOff</enum>
+      </property>
      </widget>
     </item>
     <item row="0" column="2">
@@ -519,8 +525,7 @@ QSlider::handle:horizontal {
        </size>
       </property>
       <property name="styleSheet">
-       <string notr="true">
-</string>
+       <string notr="true"/>
       </property>
      </widget>
     </item>
@@ -649,6 +654,12 @@ QSlider::handle:horizontal {
       </property>
       <property name="styleSheet">
        <string notr="true"/>
+      </property>
+      <property name="verticalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOff</enum>
+      </property>
+      <property name="horizontalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOff</enum>
       </property>
      </widget>
     </item>
@@ -847,6 +858,12 @@ QSlider::handle:horizontal {
       <property name="styleSheet">
        <string notr="true"/>
       </property>
+      <property name="verticalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOff</enum>
+      </property>
+      <property name="horizontalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOff</enum>
+      </property>
      </widget>
     </item>
     <item row="0" column="3">
@@ -976,8 +993,7 @@ QSlider::handle:horizontal {
        </size>
       </property>
       <property name="styleSheet">
-       <string notr="true">
-</string>
+       <string notr="true"/>
       </property>
      </widget>
     </item>
@@ -1000,26 +1016,13 @@ QSlider::handle:horizontal {
     </rect>
    </property>
    <property name="cursor">
-    <cursorShape>OpenHandCursor</cursorShape>
+    <cursorShape>PointingHandCursor</cursorShape>
    </property>
    <property name="text">
     <string/>
    </property>
    <property name="default">
     <bool>false</bool>
-   </property>
-  </widget>
-  <widget class="QTextBrowser" name="Code">
-   <property name="geometry">
-    <rect>
-     <x>580</x>
-     <y>220</y>
-     <width>341</width>
-     <height>171</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">font: 15pt &quot;Adobe Arabic&quot;;</string>
    </property>
   </widget>
   <widget class="QLineEdit" name="frequency">
@@ -1048,7 +1051,7 @@ font: 75 22pt &quot;Chiller&quot;;
     </rect>
    </property>
    <property name="cursor">
-    <cursorShape>OpenHandCursor</cursorShape>
+    <cursorShape>PointingHandCursor</cursorShape>
    </property>
    <property name="text">
     <string/>
@@ -1152,8 +1155,7 @@ font: 75 22pt &quot;Chiller&quot;;
        </size>
       </property>
       <property name="styleSheet">
-       <string notr="true">
-</string>
+       <string notr="true"/>
       </property>
      </widget>
     </item>
@@ -1306,6 +1308,12 @@ font: 75 22pt &quot;Chiller&quot;;
       </property>
       <property name="styleSheet">
        <string notr="true"/>
+      </property>
+      <property name="verticalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOff</enum>
+      </property>
+      <property name="horizontalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOff</enum>
       </property>
      </widget>
     </item>
@@ -1624,6 +1632,12 @@ font: 75 22pt &quot;Chiller&quot;;
       <property name="styleSheet">
        <string notr="true"/>
       </property>
+      <property name="verticalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOff</enum>
+      </property>
+      <property name="horizontalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOff</enum>
+      </property>
      </widget>
     </item>
     <item row="1" column="2">
@@ -1654,7 +1668,7 @@ font: 75 22pt &quot;Chiller&quot;;
     </rect>
    </property>
    <property name="cursor">
-    <cursorShape>OpenHandCursor</cursorShape>
+    <cursorShape>PointingHandCursor</cursorShape>
    </property>
    <property name="text">
     <string/>
@@ -1670,7 +1684,7 @@ font: 75 22pt &quot;Chiller&quot;;
     </rect>
    </property>
    <property name="cursor">
-    <cursorShape>OpenHandCursor</cursorShape>
+    <cursorShape>PointingHandCursor</cursorShape>
    </property>
    <property name="text">
     <string/>
@@ -1686,7 +1700,7 @@ font: 75 22pt &quot;Chiller&quot;;
     </rect>
    </property>
    <property name="cursor">
-    <cursorShape>OpenHandCursor</cursorShape>
+    <cursorShape>PointingHandCursor</cursorShape>
    </property>
    <property name="text">
     <string/>
@@ -1702,7 +1716,7 @@ font: 75 22pt &quot;Chiller&quot;;
     </rect>
    </property>
    <property name="cursor">
-    <cursorShape>OpenHandCursor</cursorShape>
+    <cursorShape>PointingHandCursor</cursorShape>
    </property>
    <property name="text">
     <string/>
@@ -1718,7 +1732,7 @@ font: 75 22pt &quot;Chiller&quot;;
     </rect>
    </property>
    <property name="cursor">
-    <cursorShape>OpenHandCursor</cursorShape>
+    <cursorShape>PointingHandCursor</cursorShape>
    </property>
    <property name="text">
     <string/>
@@ -1736,6 +1750,9 @@ font: 75 22pt &quot;Chiller&quot;;
    <property name="styleSheet">
     <string notr="true">font: 15pt &quot;Chiller&quot;;</string>
    </property>
+   <property name="lineWrapMode">
+    <enum>QTextEdit::NoWrap</enum>
+   </property>
   </widget>
   <widget class="QTextBrowser" name="saveAdd">
    <property name="geometry">
@@ -1749,15 +1766,8 @@ font: 75 22pt &quot;Chiller&quot;;
    <property name="styleSheet">
     <string notr="true">font: 15pt &quot;Chiller&quot;;</string>
    </property>
-  </widget>
-  <widget class="QTextBrowser" name="Memory">
-   <property name="geometry">
-    <rect>
-     <x>580</x>
-     <y>450</y>
-     <width>341</width>
-     <height>171</height>
-    </rect>
+   <property name="lineWrapMode">
+    <enum>QTextEdit::NoWrap</enum>
    </property>
   </widget>
   <widget class="QLabel" name="label">
@@ -1776,7 +1786,7 @@ font: 75 22pt &quot;Chiller&quot;;
     <string>Published by: CatMiaoMiaoMiao</string>
    </property>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>390</x>
@@ -1800,7 +1810,7 @@ font: 75 22pt &quot;Chiller&quot;;
     </item>
    </layout>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>210</x>
@@ -1824,6 +1834,118 @@ font: 75 22pt &quot;Chiller&quot;;
     </item>
    </layout>
   </widget>
+  <widget class="QTabWidget" name="Tab">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>580</x>
+     <y>420</y>
+     <width>341</width>
+     <height>211</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">
+QTabWidget::tab-bar {
+border:rgb(243, 221, 255,0);
+background:rgb(0,0,0,0%);
+ }
+
+ QTabBar::tab {
+border:rgb(243, 221, 255,0);
+  background:rgb(0,0,0,0%);
+  color: rgb(0,0,0,0%);
+  padding: 19px;
+  min-width: 20ex;
+ }
+
+ QTabBar::tab:selected {
+  background:rgb(0,0,0,0%);
+ }
+
+QTabWidget::pane { 
+border:rgb(243, 221, 255,0);
+background:rgb(0,0,0,0%);
+background-color:rgb(0,0,0,0%);
+}
+</string>
+   </property>
+   <property name="tabPosition">
+    <enum>QTabWidget::North</enum>
+   </property>
+   <property name="tabShape">
+    <enum>QTabWidget::Rounded</enum>
+   </property>
+   <property name="currentIndex">
+    <number>1</number>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>30</width>
+     <height>20</height>
+    </size>
+   </property>
+   <widget class="QWidget" name="tab">
+    <attribute name="title">
+     <string>Tab 1</string>
+    </attribute>
+    <widget class="QTextBrowser" name="Memory">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>351</width>
+       <height>171</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background:rgb(0,0,0,0%);
+background-color:rgb(0,0,0,0%);
+font: 15px;</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="tab_2">
+    <attribute name="title">
+     <string>Tab 2</string>
+    </attribute>
+    <widget class="QTextBrowser" name="Cache">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>341</width>
+       <height>161</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 15px;</string>
+     </property>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QTextBrowser" name="Code">
+   <property name="geometry">
+    <rect>
+     <x>575</x>
+     <y>211</y>
+     <width>351</width>
+     <height>181</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">
+font: 15px;</string>
+   </property>
+   <property name="lineWrapMode">
+    <enum>QTextEdit::NoWrap</enum>
+   </property>
+  </widget>
+  <zorder>Tab</zorder>
+  <zorder>layoutWidget</zorder>
+  <zorder>layoutWidget</zorder>
   <zorder>layoutWidget</zorder>
   <zorder>layoutWidget</zorder>
   <zorder>Slider</zorder>
@@ -1831,16 +1953,8 @@ font: 75 22pt &quot;Chiller&quot;;
   <zorder>layoutWidget_4</zorder>
   <zorder>layoutWidget_5</zorder>
   <zorder>loadButton</zorder>
-  <zorder>Code</zorder>
   <zorder>frequency</zorder>
   <zorder>saveButton</zorder>
-  <zorder>ebx</zorder>
-  <zorder>ecx</zorder>
-  <zorder>edx</zorder>
-  <zorder>esi</zorder>
-  <zorder>edi</zorder>
-  <zorder>esp</zorder>
-  <zorder>ebp</zorder>
   <zorder>cycle</zorder>
   <zorder>runButton</zorder>
   <zorder>pauseButton</zorder>
@@ -1849,9 +1963,8 @@ font: 75 22pt &quot;Chiller&quot;;
   <zorder>resetButton</zorder>
   <zorder>loadAdd</zorder>
   <zorder>saveAdd</zorder>
-  <zorder>Memory</zorder>
   <zorder>label</zorder>
-  <zorder>ecx</zorder>
+  <zorder>Code</zorder>
  </widget>
  <resources/>
  <connections/>

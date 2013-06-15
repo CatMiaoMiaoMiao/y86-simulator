@@ -18,6 +18,7 @@ import assemble, start
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__)))+'\\kernel')
 from Simulator import *
+from Memory import CACHESIZE, MEMSIZE, VMSIZE
 
 QTextCodec.setCodecForTr(QTextCodec.codecForName("utf8"))
 
@@ -67,6 +68,7 @@ class Dialog(QDialog, Ui_Y86Simulator):
         self.connect(self.backButton,SIGNAL("clicked()"),self.back)
         self.connect(self.resetButton,SIGNAL("clicked()"),self.reset)
         self.frequency.setText('1.0s')
+        
         #self.Author.setText('Published by:     Rockeyrockey & Lumig & VV.\nVersion 1.0')
         
     
@@ -97,7 +99,7 @@ class Dialog(QDialog, Ui_Y86Simulator):
         self.assemblewindow.ui.compile()
         self.assemblewindow.ui.show()
      
-    def changedisplaytext(self):
+    def displayCode(self):
         text = self.displaytext.split('\n')
         text[:] = [line for line in text]
         
@@ -105,52 +107,62 @@ class Dialog(QDialog, Ui_Y86Simulator):
         for line in text:
             displaytext+=line
             displaytext+='\n'
-        self.Code.setText(displaytext)    
+        self.Code.setText(displaytext) 
+        return
+    
+    def displayMemory(self):
+        displaytext = ''
+        for i in range(1,MEMSIZE ):
+            displaytext += str(self.simulator.getMemory(i))
+            displaytext += '\n'
+        self.Memory.setText(displaytext) 
+        return
         
+    def displayCache(self):
+        return
     
     def openFile(self):
         self.opentxt=QFileDialog.getOpenFileName(self,"Open file","/")  
-        try:
-            self.loadAdd.setText(str(self.opentxt))
-        except UnicodeEncodeError:
-            self.showerror("invalid input file format")
-        path = os.path.splitext(str(self.opentxt))
-        try:
-            prefix = path[0]
-            suffix = path[1]
-            if suffix not in ('.yo', '.ys', '.ybo'):
+        if self.opentxt != None and self.opentxt != '':
+            try:
+                self.loadAdd.setText(str(self.opentxt))
+            except UnicodeEncodeError:
                 self.showerror("invalid input file format")
-        except:
-            self.showerror("invalid input file format")
-        
-        try:
-            file=open(str(self.opentxt))
-            if suffix == '.ys':
-                outputfilename = prefix+'.yo'
-                outputfile = open(outputfilename, 'w')
-                assemble.assemble(file,outputfile )
-                outputfile.close()
-                file = open(outputfilename, 'r')
-                if assemble.error != '':
-                    raise Exception('Assemble Failure')
-                self.opentxt = outputfilename
-                
-            self.displaytext=file.read()
-            self.Code.setText(self.displaytext)
-            file.close()
+            path = os.path.splitext(str(self.opentxt))
+            try:
+                prefix = path[0]
+                suffix = path[1]
+                if suffix not in ('.yo', '.ys', '.ybo'):
+                    self.showerror("invalid input file format")
+            except:
+                self.showerror("invalid input file format")
             
-        except IOError:
-            self.showerror("Cannot open file")
-        except:
-            self.assemblefailure(self.opentxt)
+            try:
+                file=open(str(self.opentxt))
+                if suffix == '.ys':
+                    outputfilename = prefix+'.yo'
+                    outputfile = open(outputfilename, 'w')
+                    assemble.assemble(file,outputfile )
+                    outputfile.close()
+                    file = open(outputfilename, 'r')
+                    if assemble.error != '':
+                        raise Exception('Assemble Failure')
+                    self.opentxt = outputfilename
+                    
+                self.displaytext=file.read()
+                self.Code.setText(self.displaytext)
+                file.close()
+                
+            except IOError:
+                self.showerror("Cannot open file")
+            except:
+                self.assemblefailure(self.opentxt)
 
     def saveFile(self):
         self.savetxt=QFileDialog.getSaveFileName(self,"Save file","/")  
         self.saveAdd.setText(str(self.savetxt))
 
-    def loadFile(self):
-       
-        
+    def loadFile(self):       
         try:
             infile=open(str(self.opentxt))
         except:
@@ -168,13 +180,14 @@ class Dialog(QDialog, Ui_Y86Simulator):
         except:
             self.showerror('Bad input file')
             
-        
+        self.loadyet = True
+        return
         
         
     def run(self):
         if self.loadyet == False:
             self.loadFile()
-            self.loadyet = True
+            
         pos = self.Slider.value()/100.0
         self.thread1.render(self.simulator, pos)
         self.runButton.setEnabled(False)
@@ -191,7 +204,7 @@ class Dialog(QDialog, Ui_Y86Simulator):
     def step(self):
         if self.loadyet == False:
             self.loadFile()
-            self.loadyet = True
+            
         if self.simulator.isTerminated == False:
             try:
                 self.simulator.step()
@@ -227,7 +240,9 @@ class Dialog(QDialog, Ui_Y86Simulator):
         for (myname, hisname) in zip(my, his):
             myname.setText(str(hisname))
             
-        self.changedisplaytext()
+        self.displayCode()
+        self.displayMemory()
+        self.displayCache()
 
     def on_Slider_sliderMoved(self):
         pos = self.Slider.value()/100.0

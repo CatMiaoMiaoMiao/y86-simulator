@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'E:\FDU\workspace\y86-simulator\gui\y86.ui'
+# Form implementation generated from reading ui file 'E:\github\y86-simulator\gui\y86.ui'
 #
-# Created: Sat Jun 15 19:52:38 2013
+# Created: Sat Jun 15 22:04:12 2013
 #      by: PyQt4 UI code generator 4.10.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -113,6 +113,8 @@ class Ui_Y86Simulator(object):
         self.E_icode.setMaximumSize(QtCore.QSize(20, 24))
         self.E_icode.setBaseSize(QtCore.QSize(70, 20))
         self.E_icode.setStyleSheet(_fromUtf8(""))
+        self.E_icode.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
+        self.E_icode.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
         self.E_icode.setObjectName(_fromUtf8("E_icode"))
         self.gridLayout_5.addWidget(self.E_icode, 1, 1, 1, 1)
         self.label_26 = QtGui.QLabel(self.layoutWidget_3)
@@ -256,8 +258,7 @@ class Ui_Y86Simulator(object):
         self.D_valP.setMinimumSize(QtCore.QSize(50, 35))
         self.D_valP.setMaximumSize(QtCore.QSize(70, 24))
         self.D_valP.setBaseSize(QtCore.QSize(70, 20))
-        self.D_valP.setStyleSheet(_fromUtf8("\n"
-""))
+        self.D_valP.setStyleSheet(_fromUtf8(""))
         self.D_valP.setObjectName(_fromUtf8("D_valP"))
         self.gridLayout_6.addWidget(self.D_valP, 1, 8, 1, 1)
         self.D_rA = QtGui.QTextBrowser(self.layoutWidget_4)
@@ -309,6 +310,8 @@ class Ui_Y86Simulator(object):
         self.D_icode.setMaximumSize(QtCore.QSize(20, 24))
         self.D_icode.setBaseSize(QtCore.QSize(70, 20))
         self.D_icode.setStyleSheet(_fromUtf8(""))
+        self.D_icode.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
+        self.D_icode.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
         self.D_icode.setObjectName(_fromUtf8("D_icode"))
         self.gridLayout_6.addWidget(self.D_icode, 1, 1, 1, 1)
         self.D_valC = QtGui.QTextBrowser(self.layoutWidget_4)
@@ -382,6 +385,8 @@ class Ui_Y86Simulator(object):
         self.F_stat.setMaximumSize(QtCore.QSize(40, 24))
         self.F_stat.setBaseSize(QtCore.QSize(70, 20))
         self.F_stat.setStyleSheet(_fromUtf8(""))
+        self.F_stat.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
+        self.F_stat.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
         self.F_stat.setObjectName(_fromUtf8("F_stat"))
         self.gridLayout_7.addWidget(self.F_stat, 0, 1, 1, 1)
         self.F_predPC = QtGui.QTextBrowser(self.layoutWidget_5)
@@ -432,8 +437,7 @@ class Ui_Y86Simulator(object):
         self.SF.setMinimumSize(QtCore.QSize(20, 35))
         self.SF.setMaximumSize(QtCore.QSize(20, 24))
         self.SF.setBaseSize(QtCore.QSize(70, 20))
-        self.SF.setStyleSheet(_fromUtf8("\n"
-""))
+        self.SF.setStyleSheet(_fromUtf8(""))
         self.SF.setObjectName(_fromUtf8("SF"))
         self.gridLayout_7.addWidget(self.SF, 0, 7, 1, 1)
         self.label_37 = QtGui.QLabel(self.layoutWidget_5)
@@ -441,14 +445,10 @@ class Ui_Y86Simulator(object):
         self.gridLayout_7.addWidget(self.label_37, 0, 8, 1, 1)
         self.loadButton = QtGui.QPushButton(Y86Simulator)
         self.loadButton.setGeometry(QtCore.QRect(570, 60, 61, 31))
-        self.loadButton.setCursor(QtGui.QCursor(QtCore.Qt.OpenHandCursor))
+        self.loadButton.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.loadButton.setText(_fromUtf8(""))
         self.loadButton.setDefault(False)
         self.loadButton.setObjectName(_fromUtf8("loadButton"))
-        self.Code = QtGui.QTextBrowser(Y86Simulator)
-        self.Code.setGeometry(QtCore.QRect(580, 220, 341, 171))
-        self.Code.setStyleSheet(_fromUtf8("font: 15pt \"Adobe Arabic\";"))
-        self.Code.setObjectName(_fromUtf8("Code"))
         self.frequency = QtGui.QLineEdit(Y86Simulator)
         self.frequency.setGeometry(QtCore.QRect(750, 150, 61, 21))
         self.frequency.setStyleSheet(_fromUtf8("border:white;\n"
@@ -458,7 +458,7 @@ class Ui_Y86Simulator(object):
         self.frequency.setObjectName(_fromUtf8("frequency"))
         self.saveButton = QtGui.QPushButton(Y86Simulator)
         self.saveButton.setGeometry(QtCore.QRect(560, 100, 61, 31))
-        self.saveButton.setCursor(QtGui.QCursor(QtCore.Qt.OpenHandCursor))
+        self.saveButton.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.saveButton.setText(_fromUtf8(""))
         self.saveButton.setObjectName(_fromUtf8("saveButton"))
         self.cycle = QtGui.QLineEdit(Y86Simulator)
@@ -501,8 +501,7 @@ class Ui_Y86Simulator(object):
         self.M_valA.setMinimumSize(QtCore.QSize(50, 35))
         self.M_valA.setMaximumSize(QtCore.QSize(70, 24))
         self.M_valA.setBaseSize(QtCore.QSize(70, 20))
-        self.M_valA.setStyleSheet(_fromUtf8("\n"
-""))
+        self.M_valA.setStyleSheet(_fromUtf8(""))
         self.M_valA.setObjectName(_fromUtf8("M_valA"))
         self.gridLayout_3.addWidget(self.M_valA, 1, 5, 1, 1)
         self.label_17 = QtGui.QLabel(self.layoutWidget)
@@ -563,6 +562,8 @@ class Ui_Y86Simulator(object):
         self.M_icode.setMaximumSize(QtCore.QSize(20, 24))
         self.M_icode.setBaseSize(QtCore.QSize(70, 20))
         self.M_icode.setStyleSheet(_fromUtf8(""))
+        self.M_icode.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
+        self.M_icode.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
         self.M_icode.setObjectName(_fromUtf8("M_icode"))
         self.gridLayout_3.addWidget(self.M_icode, 1, 1, 1, 1)
         self.label_42 = QtGui.QLabel(self.layoutWidget)
@@ -680,6 +681,8 @@ class Ui_Y86Simulator(object):
         self.W_icode.setMaximumSize(QtCore.QSize(20, 45))
         self.W_icode.setBaseSize(QtCore.QSize(70, 20))
         self.W_icode.setStyleSheet(_fromUtf8(""))
+        self.W_icode.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
+        self.W_icode.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
         self.W_icode.setObjectName(_fromUtf8("W_icode"))
         self.gridLayout.addWidget(self.W_icode, 1, 1, 1, 1)
         spacerItem5 = QtGui.QSpacerItem(38, 18, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
@@ -687,82 +690,135 @@ class Ui_Y86Simulator(object):
         self.runButton = QtGui.QPushButton(Y86Simulator)
         self.runButton.setEnabled(True)
         self.runButton.setGeometry(QtCore.QRect(90, 80, 71, 41))
-        self.runButton.setCursor(QtGui.QCursor(QtCore.Qt.OpenHandCursor))
+        self.runButton.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.runButton.setText(_fromUtf8(""))
         self.runButton.setObjectName(_fromUtf8("runButton"))
         self.pauseButton = QtGui.QPushButton(Y86Simulator)
         self.pauseButton.setGeometry(QtCore.QRect(170, 80, 71, 41))
-        self.pauseButton.setCursor(QtGui.QCursor(QtCore.Qt.OpenHandCursor))
+        self.pauseButton.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.pauseButton.setText(_fromUtf8(""))
         self.pauseButton.setObjectName(_fromUtf8("pauseButton"))
         self.stepButton = QtGui.QPushButton(Y86Simulator)
         self.stepButton.setGeometry(QtCore.QRect(260, 80, 71, 41))
-        self.stepButton.setCursor(QtGui.QCursor(QtCore.Qt.OpenHandCursor))
+        self.stepButton.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.stepButton.setText(_fromUtf8(""))
         self.stepButton.setObjectName(_fromUtf8("stepButton"))
         self.backButton = QtGui.QPushButton(Y86Simulator)
         self.backButton.setGeometry(QtCore.QRect(340, 80, 71, 41))
-        self.backButton.setCursor(QtGui.QCursor(QtCore.Qt.OpenHandCursor))
+        self.backButton.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.backButton.setText(_fromUtf8(""))
         self.backButton.setObjectName(_fromUtf8("backButton"))
         self.resetButton = QtGui.QPushButton(Y86Simulator)
         self.resetButton.setGeometry(QtCore.QRect(430, 80, 71, 41))
-        self.resetButton.setCursor(QtGui.QCursor(QtCore.Qt.OpenHandCursor))
+        self.resetButton.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.resetButton.setText(_fromUtf8(""))
         self.resetButton.setObjectName(_fromUtf8("resetButton"))
         self.loadAdd = QtGui.QTextBrowser(Y86Simulator)
         self.loadAdd.setGeometry(QtCore.QRect(650, 60, 251, 31))
         self.loadAdd.setStyleSheet(_fromUtf8("font: 15pt \"Chiller\";"))
+        self.loadAdd.setLineWrapMode(QtGui.QTextEdit.NoWrap)
         self.loadAdd.setObjectName(_fromUtf8("loadAdd"))
         self.saveAdd = QtGui.QTextBrowser(Y86Simulator)
         self.saveAdd.setGeometry(QtCore.QRect(650, 103, 251, 31))
         self.saveAdd.setStyleSheet(_fromUtf8("font: 15pt \"Chiller\";"))
+        self.saveAdd.setLineWrapMode(QtGui.QTextEdit.NoWrap)
         self.saveAdd.setObjectName(_fromUtf8("saveAdd"))
-        self.Memory = QtGui.QTextBrowser(Y86Simulator)
-        self.Memory.setGeometry(QtCore.QRect(580, 450, 341, 171))
-        self.Memory.setObjectName(_fromUtf8("Memory"))
         self.label = QtGui.QLabel(Y86Simulator)
         self.label.setGeometry(QtCore.QRect(660, 643, 261, 40))
         self.label.setStyleSheet(_fromUtf8("font: 75 18pt \"Chiller\";"))
         self.label.setObjectName(_fromUtf8("label"))
-        self.widget = QtGui.QWidget(Y86Simulator)
-        self.widget.setGeometry(QtCore.QRect(390, 560, 101, 120))
-        self.widget.setObjectName(_fromUtf8("widget"))
-        self.verticalLayout_2 = QtGui.QVBoxLayout(self.widget)
+        self.layoutWidget2 = QtGui.QWidget(Y86Simulator)
+        self.layoutWidget2.setGeometry(QtCore.QRect(390, 560, 101, 120))
+        self.layoutWidget2.setObjectName(_fromUtf8("layoutWidget2"))
+        self.verticalLayout_2 = QtGui.QVBoxLayout(self.layoutWidget2)
         self.verticalLayout_2.setMargin(0)
         self.verticalLayout_2.setObjectName(_fromUtf8("verticalLayout_2"))
-        self.esp = QtGui.QLineEdit(self.widget)
+        self.esp = QtGui.QLineEdit(self.layoutWidget2)
         self.esp.setObjectName(_fromUtf8("esp"))
         self.verticalLayout_2.addWidget(self.esp)
-        self.ebp = QtGui.QLineEdit(self.widget)
+        self.ebp = QtGui.QLineEdit(self.layoutWidget2)
         self.ebp.setObjectName(_fromUtf8("ebp"))
         self.verticalLayout_2.addWidget(self.ebp)
-        self.esi = QtGui.QLineEdit(self.widget)
+        self.esi = QtGui.QLineEdit(self.layoutWidget2)
         self.esi.setObjectName(_fromUtf8("esi"))
         self.verticalLayout_2.addWidget(self.esi)
-        self.edi = QtGui.QLineEdit(self.widget)
+        self.edi = QtGui.QLineEdit(self.layoutWidget2)
         self.edi.setObjectName(_fromUtf8("edi"))
         self.verticalLayout_2.addWidget(self.edi)
-        self.widget1 = QtGui.QWidget(Y86Simulator)
-        self.widget1.setGeometry(QtCore.QRect(210, 558, 101, 120))
-        self.widget1.setObjectName(_fromUtf8("widget1"))
-        self.verticalLayout = QtGui.QVBoxLayout(self.widget1)
+        self.layoutWidget3 = QtGui.QWidget(Y86Simulator)
+        self.layoutWidget3.setGeometry(QtCore.QRect(210, 558, 101, 120))
+        self.layoutWidget3.setObjectName(_fromUtf8("layoutWidget3"))
+        self.verticalLayout = QtGui.QVBoxLayout(self.layoutWidget3)
         self.verticalLayout.setMargin(0)
         self.verticalLayout.setObjectName(_fromUtf8("verticalLayout"))
-        self.eax = QtGui.QLineEdit(self.widget1)
+        self.eax = QtGui.QLineEdit(self.layoutWidget3)
         self.eax.setObjectName(_fromUtf8("eax"))
         self.verticalLayout.addWidget(self.eax)
-        self.ecx = QtGui.QLineEdit(self.widget1)
+        self.ecx = QtGui.QLineEdit(self.layoutWidget3)
         self.ecx.setObjectName(_fromUtf8("ecx"))
         self.verticalLayout.addWidget(self.ecx)
-        self.edx = QtGui.QLineEdit(self.widget1)
+        self.edx = QtGui.QLineEdit(self.layoutWidget3)
         self.edx.setObjectName(_fromUtf8("edx"))
         self.verticalLayout.addWidget(self.edx)
-        self.ebx = QtGui.QLineEdit(self.widget1)
+        self.ebx = QtGui.QLineEdit(self.layoutWidget3)
         self.ebx.setObjectName(_fromUtf8("ebx"))
         self.verticalLayout.addWidget(self.ebx)
+        self.Tab = QtGui.QTabWidget(Y86Simulator)
+        self.Tab.setEnabled(True)
+        self.Tab.setGeometry(QtCore.QRect(580, 420, 341, 211))
+        self.Tab.setStyleSheet(_fromUtf8("\n"
+"QTabWidget::tab-bar {\n"
+"border:rgb(243, 221, 255,0);\n"
+"background:rgb(0,0,0,0%);\n"
+" }\n"
+"\n"
+" QTabBar::tab {\n"
+"border:rgb(243, 221, 255,0);\n"
+"  background:rgb(0,0,0,0%);\n"
+"  color: rgb(0,0,0,0%);\n"
+"  padding: 19px;\n"
+"  min-width: 20ex;\n"
+" }\n"
+"\n"
+" QTabBar::tab:selected {\n"
+"  background:rgb(0,0,0,0%);\n"
+" }\n"
+"\n"
+"QTabWidget::pane { \n"
+"border:rgb(243, 221, 255,0);\n"
+"background:rgb(0,0,0,0%);\n"
+"background-color:rgb(0,0,0,0%);\n"
+"}\n"
+""))
+        self.Tab.setTabPosition(QtGui.QTabWidget.North)
+        self.Tab.setTabShape(QtGui.QTabWidget.Rounded)
+        self.Tab.setIconSize(QtCore.QSize(30, 20))
+        self.Tab.setObjectName(_fromUtf8("Tab"))
+        self.tab = QtGui.QWidget()
+        self.tab.setObjectName(_fromUtf8("tab"))
+        self.Memory = QtGui.QTextBrowser(self.tab)
+        self.Memory.setGeometry(QtCore.QRect(0, 0, 351, 171))
+        self.Memory.setStyleSheet(_fromUtf8("background:rgb(0,0,0,0%);\n"
+"background-color:rgb(0,0,0,0%);\n"
+"font: 15px;"))
+        self.Memory.setObjectName(_fromUtf8("Memory"))
+        self.Tab.addTab(self.tab, _fromUtf8(""))
+        self.tab_2 = QtGui.QWidget()
+        self.tab_2.setObjectName(_fromUtf8("tab_2"))
+        self.Cache = QtGui.QTextBrowser(self.tab_2)
+        self.Cache.setGeometry(QtCore.QRect(0, 0, 341, 161))
+        self.Cache.setStyleSheet(_fromUtf8("font: 15px;"))
+        self.Cache.setObjectName(_fromUtf8("Cache"))
+        self.Tab.addTab(self.tab_2, _fromUtf8(""))
+        self.Code = QtGui.QTextBrowser(Y86Simulator)
+        self.Code.setGeometry(QtCore.QRect(575, 211, 351, 181))
+        self.Code.setStyleSheet(_fromUtf8("\n"
+"font: 15px;"))
+        self.Code.setLineWrapMode(QtGui.QTextEdit.NoWrap)
+        self.Code.setObjectName(_fromUtf8("Code"))
 
         self.retranslateUi(Y86Simulator)
+        self.Tab.setCurrentIndex(1)
         QtCore.QMetaObject.connectSlotsByName(Y86Simulator)
 
     def retranslateUi(self, Y86Simulator):
@@ -803,6 +859,8 @@ class Ui_Y86Simulator(object):
         self.label_3.setText(_translate("Y86Simulator", "valE", None))
         self.label_41.setText(_translate("Y86Simulator", "W_stat", None))
         self.label.setText(_translate("Y86Simulator", "Published by: CatMiaoMiaoMiao", None))
+        self.Tab.setTabText(self.Tab.indexOf(self.tab), _translate("Y86Simulator", "Tab 1", None))
+        self.Tab.setTabText(self.Tab.indexOf(self.tab_2), _translate("Y86Simulator", "Tab 2", None))
 
 
 if __name__ == "__main__":
