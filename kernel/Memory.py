@@ -31,12 +31,14 @@ class Memory:
         # try fetching old blockAddr
         oldBlockAddr, oldBlock, isDirty = self.cache.setBlock(blockAddr, \
                                     [self.mem[blockAddr+i] for i in range(blockSize)])
+        # set memChange
+        for i in range(blockSize):
+            self.memChange[blockAddr+i] = self.mem[blockAddr+i]
         # if dirty
         if isDirty:  
             # get blockAddr, block, blockOffset, setOffset from line
             for (i, byte) in enumerate(oldBlock):
-                self.mem[oldBlockAddr+i] = byte  
-                self.memChange[oldBlockAddr+i] = byte   
+                self.mem[oldBlockAddr+i] = byte   
         
 # api
 # getters
