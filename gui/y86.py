@@ -67,7 +67,7 @@ class Dialog(QDialog, Ui_Y86Simulator):
         self.connect(self.backButton,SIGNAL("clicked()"),self.back)
         self.connect(self.resetButton,SIGNAL("clicked()"),self.reset)
         self.frequency.setText('1.0s')
-        self.Author.setText('Published by:     Rockeyrockey & Lumig & VV.\nVersion 1.0')
+        self.Author.setText('Published by:     rockyRocky & Lumig & VV.\nVersion 1.0')
         
     
     def terminate(self):

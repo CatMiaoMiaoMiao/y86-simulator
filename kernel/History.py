@@ -16,7 +16,11 @@ class History:
         
     def record(self, simulator):
         self.size += 1 if self.size<self.maxSize else 0
-        self.list[simulator.cycle % self.maxSize] = copy.copy(simulator)
+        tmp = copy.copy(simulator)
+        tmp.register = copy.copy(tmp.register)
+        tmp.memory.cache = copy.copy(tmp.memory.cache)
+        tmp.memory = copy.copy(tmp.memory)
+        self.list[simulator.cycle % self.maxSize] = tmp
         
     def back(self, current):
         if self.size>0:

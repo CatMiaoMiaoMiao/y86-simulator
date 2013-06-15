@@ -73,7 +73,6 @@ class Memory:
         if not isHit:
             self.handleCacheMiss(addr)
             self.cache.setByte(addr, byte)
-#        self.mem[addr] = byte
 
     def setBytes(self, addr, bytes):
         for (i, byte) in enumerate(bytes):
@@ -81,6 +80,18 @@ class Memory:
 
     def setWord(self, addr, word):
         self.setBytes(addr, int_to_4_bytes(word))
+
+#### no cache version ####
+       
+    def setByteThrough(self, addr, byte):
+        if addr<0 or addr>=len(self.mem):
+            self.handleBadAccess()
+            return False
+        self.mem[addr] = byte 
+        
+    def setBytesThrough(self, addr, bytes):
+        for (i, byte) in enumerate(bytes):
+            self.setByteThrough(addr+i, byte)
         
 # exception handler
     def handleBadAccess(self):

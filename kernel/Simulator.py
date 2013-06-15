@@ -643,6 +643,7 @@ class Simulator:
             self.simLog('out of history\'s reach')
             return
         else:
+            self.isTerminated = False
             self.copy(tmp)
             self.showStatTitle()
             self.showStat()
@@ -683,7 +684,7 @@ class Simulator:
             content_str = tokens[1].strip(' ')
             self.yasbin += content_str
             content_bytes = str_to_bytes(content_str)
-            self.memory.setBytes( addr, content_bytes)
+            self.memory.setBytesThrough( addr, content_bytes)
         self.binlen = len(self.yasbin)   
         
     def run(self):
