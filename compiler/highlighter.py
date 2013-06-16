@@ -118,6 +118,85 @@ class MyHighlighter1( QSyntaxHighlighter ):
                     index = text.indexOf( expression, index + length )
             self.setCurrentBlockState( 0 )
 
+			
+
+class CacheHighlighter( QSyntaxHighlighter ):
+        def __init__( self, parent, theme ):
+            QSyntaxHighlighter.__init__( self, parent )
+            self.parent = parent
+            Setindex = QTextCharFormat()
+            Lineindex = QTextCharFormat()
+            header = QTextCharFormat()
+
+            self.highlightingRules = []
+
+            # header
+            brush = QBrush( Qt.darkBlue, Qt.SolidPattern )
+            header.setForeground( brush )
+            header.setFontWeight( QFont.Bold )
+            keywords = QStringList( [ 'isValid', 'isDirty', 'Tag', 'Block'] )
+            for word in keywords:
+                pattern = QRegExp("\\b" + word + "\\b")
+                rule = HighlightingRule( pattern, header )
+                self.highlightingRules.append( rule )
+
+            
+            # Setindex
+            brush = QBrush( Qt.gray, Qt.SolidPattern )
+            pattern = QRegExp( "Set  [0-9]+\:" )
+            Setindex.setForeground( brush )
+            Setindex.setFontWeight( QFont.Bold )
+            rule = HighlightingRule( pattern, Setindex )
+            self.highlightingRules.append( rule )
+			
+			# Lineindex
+            brush = QBrush( Qt.gray, Qt.SolidPattern )
+            pattern = QRegExp( "Line  [0-9]+\." )
+            Lineindex.setForeground( brush )
+            
+            rule = HighlightingRule( pattern, Lineindex )
+            self.highlightingRules.append( rule )
+
+
+        def highlightBlock( self, text ):
+            for rule in self.highlightingRules:
+                expression = QRegExp( rule.pattern )
+                index = expression.indexIn( text )
+                while index >= 0:
+                    length = expression.matchedLength()
+                    self.setFormat( index, length, rule.format )
+                    index = text.indexOf( expression, index + length )
+            self.setCurrentBlockState( 0 )			
+
+class MemoryHighlighter( QSyntaxHighlighter ):
+        def __init__( self, parent, theme ):
+            QSyntaxHighlighter.__init__( self, parent )
+            self.parent = parent
+            address = QTextCharFormat()
+       
+
+            self.highlightingRules = []
+
+            
+            # address
+            brush = QBrush( Qt.gray, Qt.SolidPattern )
+            pattern = QRegExp( "0x[0-9,a,b,c,d,e,f]+\:" )
+            address.setForeground( brush )
+            address.setFontWeight( QFont.Bold )
+            rule = HighlightingRule( pattern, address )
+            self.highlightingRules.append( rule )
+
+        def highlightBlock( self, text ):
+            for rule in self.highlightingRules:
+                expression = QRegExp( rule.pattern )
+                index = expression.indexIn( text )
+                while index >= 0:
+                    length = expression.matchedLength()
+                    self.setFormat( index, length, rule.format )
+                    index = text.indexOf( expression, index + length )
+            self.setCurrentBlockState( 0 )	
+
+
 class HighlightingRule():
     def __init__( self, pattern, format ):
         self.pattern = pattern
