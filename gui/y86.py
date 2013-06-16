@@ -14,11 +14,11 @@ from PyQt4.QtCore import *
 from Ui_y86 import Ui_Y86Simulator
 from Ui_heijc import Ui_MainWindow
 
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(sys.argv[0])))+'\\compiler')
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(sys.argv[0])))+os.sep+'compiler')
 import assemble, start
 import highlighter 
 
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(sys.argv[0])))+'\\kernel')
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(sys.argv[0])))+os.sep+'kernel')
 from Simulator import *
 from Memory import CACHESIZE, MEMSIZE, VMSIZE
 

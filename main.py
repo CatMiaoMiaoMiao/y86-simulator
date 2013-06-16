@@ -10,7 +10,6 @@ import binascii
 import os
 import sys
 import thread
-import termios
 import platform
 
 from kernel.Simulator import *
@@ -89,7 +88,11 @@ def main():
                     print('Error: invalied cycle number')
                     sys.exit(1)
             if o in ("-g", "--guimode"):
+
                 simulator.isGuimode = True
+                print 'please open gui/y86.py'
+                sys.exit(1)
+
             if o in ("-n", "--nologfile"):
                 if simulator.logfile!=None:
                     print ('Switch conflict: want a logfile or not?')
@@ -188,6 +191,9 @@ def getkey():
     if (platform.system()=='Windows'):
         import msvcrt
         return msvcrt.getch()
+
+    import termios
+
     term = open("/dev/tty", "r")
     fd = term.fileno()
     old = termios.tcgetattr(fd)
