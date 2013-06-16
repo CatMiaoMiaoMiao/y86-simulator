@@ -92,7 +92,10 @@ def main():
                 simulator.isGuimode = True
                 print 'please open gui/y86.py'
                 sys.exit(1)
+<<<<<<< HEAD
 
+=======
+>>>>>>> aa315c4f692b508682250e0c808a57b994a2f693
             if o in ("-n", "--nologfile"):
                 if simulator.logfile!=None:
                     print ('Switch conflict: want a logfile or not?')
@@ -191,9 +194,13 @@ def getkey():
     if (platform.system()=='Windows'):
         import msvcrt
         return msvcrt.getch()
+<<<<<<< HEAD
 
     import termios
 
+=======
+    import termios
+>>>>>>> aa315c4f692b508682250e0c808a57b994a2f693
     term = open("/dev/tty", "r")
     fd = term.fileno()
     old = termios.tcgetattr(fd)
