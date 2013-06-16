@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'E:\github\y86-simulator\gui\y86.ui'
 #
-# Created: Sat Jun 15 22:04:12 2013
+# Created: Sun Jun 16 21:22:25 2013
 #      by: PyQt4 UI code generator 4.10.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -32,10 +32,11 @@ class Ui_Y86Simulator(object):
 "{\n"
 "border-image:url(\'ps8.jpg\');\n"
 "}\n"
-"QLabel\n"
+"QMessageBox\n"
 "{\n"
-"font: 18pt \"Chiller\";\n"
+"border-image:none;\n"
 "}\n"
+"\n"
 "QTextBrowser\n"
 "{\n"
 "background:rgb(243, 221, 255,0);\n"
@@ -47,22 +48,6 @@ class Ui_Y86Simulator(object):
 "background:rgb(243, 221, 255,0);\n"
 "border:rgb(243, 221, 255,0);\n"
 "font: 15pt \"Chiller\";\n"
-"}\n"
-"\n"
-"QPushButton {\n"
-"    selection-color: none;\n"
-"    background-color:none;\n"
-"    border-color:rgb(0, 0, 0);\n"
-"    border-radius: 3px;\n"
-"}\n"
-"\n"
-"QPushButton:hover{\n"
-"    background-color:rgb(255, 255, 255,50);\n"
-"    \"background: qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 rgb(222,222,222,5%), stop:1 rgb(222,222,222,10%));\"\n"
-"}\n"
-"\n"
-"QPushButton:pressed,QPushButton:on {\n"
-"    qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 rgb(0,0,0,18%), stop:1 rgb(0,0,0,25%));\n"
 "}\n"
 "\n"
 ""))
@@ -81,8 +66,9 @@ class Ui_Y86Simulator(object):
 "    margin: -2px 0;\n"
 "    border-radius: 3px;\n"
 "}"))
-        self.Slider.setMaximum(100)
-        self.Slider.setProperty("value", 100)
+        self.Slider.setMinimum(50)
+        self.Slider.setMaximum(200)
+        self.Slider.setProperty("value", 200)
         self.Slider.setOrientation(QtCore.Qt.Horizontal)
         self.Slider.setObjectName(_fromUtf8("Slider"))
         self.layoutWidget_3 = QtGui.QWidget(Y86Simulator)
@@ -92,15 +78,31 @@ class Ui_Y86Simulator(object):
         self.gridLayout_5.setMargin(0)
         self.gridLayout_5.setObjectName(_fromUtf8("gridLayout_5"))
         self.label_27 = QtGui.QLabel(self.layoutWidget_3)
+        self.label_27.setStyleSheet(_fromUtf8("QLabel\n"
+"{\n"
+"font: 18pt \"Chiller\";\n"
+"}"))
         self.label_27.setObjectName(_fromUtf8("label_27"))
         self.gridLayout_5.addWidget(self.label_27, 0, 5, 1, 1)
         self.label_32 = QtGui.QLabel(self.layoutWidget_3)
+        self.label_32.setStyleSheet(_fromUtf8("QLabel\n"
+"{\n"
+"font: 18pt \"Chiller\";\n"
+"}"))
         self.label_32.setObjectName(_fromUtf8("label_32"))
         self.gridLayout_5.addWidget(self.label_32, 0, 9, 1, 1)
         self.label_31 = QtGui.QLabel(self.layoutWidget_3)
+        self.label_31.setStyleSheet(_fromUtf8("QLabel\n"
+"{\n"
+"font: 18pt \"Chiller\";\n"
+"}"))
         self.label_31.setObjectName(_fromUtf8("label_31"))
         self.gridLayout_5.addWidget(self.label_31, 0, 4, 1, 1)
         self.label_30 = QtGui.QLabel(self.layoutWidget_3)
+        self.label_30.setStyleSheet(_fromUtf8("QLabel\n"
+"{\n"
+"font: 18pt \"Chiller\";\n"
+"}"))
         self.label_30.setObjectName(_fromUtf8("label_30"))
         self.gridLayout_5.addWidget(self.label_30, 0, 3, 1, 1)
         self.E_icode = QtGui.QTextBrowser(self.layoutWidget_3)
@@ -118,6 +120,10 @@ class Ui_Y86Simulator(object):
         self.E_icode.setObjectName(_fromUtf8("E_icode"))
         self.gridLayout_5.addWidget(self.E_icode, 1, 1, 1, 1)
         self.label_26 = QtGui.QLabel(self.layoutWidget_3)
+        self.label_26.setStyleSheet(_fromUtf8("QLabel\n"
+"{\n"
+"font: 18pt \"Chiller\";\n"
+"}"))
         self.label_26.setObjectName(_fromUtf8("label_26"))
         self.gridLayout_5.addWidget(self.label_26, 0, 2, 1, 1)
         self.E_dstM = QtGui.QTextBrowser(self.layoutWidget_3)
@@ -133,6 +139,10 @@ class Ui_Y86Simulator(object):
         self.E_dstM.setObjectName(_fromUtf8("E_dstM"))
         self.gridLayout_5.addWidget(self.E_dstM, 1, 8, 1, 1)
         self.label_29 = QtGui.QLabel(self.layoutWidget_3)
+        self.label_29.setStyleSheet(_fromUtf8("QLabel\n"
+"{\n"
+"font: 18pt \"Chiller\";\n"
+"}"))
         self.label_29.setObjectName(_fromUtf8("label_29"))
         self.gridLayout_5.addWidget(self.label_29, 0, 1, 1, 1)
         self.E_valB = QtGui.QTextBrowser(self.layoutWidget_3)
@@ -184,9 +194,17 @@ class Ui_Y86Simulator(object):
         self.E_srcB.setObjectName(_fromUtf8("E_srcB"))
         self.gridLayout_5.addWidget(self.E_srcB, 1, 10, 1, 1)
         self.label_33 = QtGui.QLabel(self.layoutWidget_3)
+        self.label_33.setStyleSheet(_fromUtf8("QLabel\n"
+"{\n"
+"font: 18pt \"Chiller\";\n"
+"}"))
         self.label_33.setObjectName(_fromUtf8("label_33"))
         self.gridLayout_5.addWidget(self.label_33, 0, 10, 1, 1)
         self.label_44 = QtGui.QLabel(self.layoutWidget_3)
+        self.label_44.setStyleSheet(_fromUtf8("QLabel\n"
+"{\n"
+"font: 18pt \"Chiller\";\n"
+"}"))
         self.label_44.setObjectName(_fromUtf8("label_44"))
         self.gridLayout_5.addWidget(self.label_44, 0, 0, 1, 1)
         self.E_stat = QtGui.QTextBrowser(self.layoutWidget_3)
@@ -214,6 +232,10 @@ class Ui_Y86Simulator(object):
         self.E_ifun.setObjectName(_fromUtf8("E_ifun"))
         self.gridLayout_5.addWidget(self.E_ifun, 1, 2, 1, 1)
         self.label_28 = QtGui.QLabel(self.layoutWidget_3)
+        self.label_28.setStyleSheet(_fromUtf8("QLabel\n"
+"{\n"
+"font: 18pt \"Chiller\";\n"
+"}"))
         self.label_28.setObjectName(_fromUtf8("label_28"))
         self.gridLayout_5.addWidget(self.label_28, 0, 7, 1, 1)
         self.E_dstE = QtGui.QTextBrowser(self.layoutWidget_3)
@@ -229,6 +251,10 @@ class Ui_Y86Simulator(object):
         self.E_dstE.setObjectName(_fromUtf8("E_dstE"))
         self.gridLayout_5.addWidget(self.E_dstE, 1, 7, 1, 1)
         self.label_25 = QtGui.QLabel(self.layoutWidget_3)
+        self.label_25.setStyleSheet(_fromUtf8("QLabel\n"
+"{\n"
+"font: 18pt \"Chiller\";\n"
+"}"))
         self.label_25.setObjectName(_fromUtf8("label_25"))
         self.gridLayout_5.addWidget(self.label_25, 0, 8, 1, 1)
         self.E_valC = QtGui.QTextBrowser(self.layoutWidget_3)
@@ -286,18 +312,38 @@ class Ui_Y86Simulator(object):
         self.D_rB.setObjectName(_fromUtf8("D_rB"))
         self.gridLayout_6.addWidget(self.D_rB, 1, 5, 1, 1)
         self.label_40 = QtGui.QLabel(self.layoutWidget_4)
+        self.label_40.setStyleSheet(_fromUtf8("QLabel\n"
+"{\n"
+"font: 18pt \"Chiller\";\n"
+"}"))
         self.label_40.setObjectName(_fromUtf8("label_40"))
         self.gridLayout_6.addWidget(self.label_40, 0, 5, 1, 1)
         self.label_36 = QtGui.QLabel(self.layoutWidget_4)
+        self.label_36.setStyleSheet(_fromUtf8("QLabel\n"
+"{\n"
+"font: 18pt \"Chiller\";\n"
+"}"))
         self.label_36.setObjectName(_fromUtf8("label_36"))
         self.gridLayout_6.addWidget(self.label_36, 0, 8, 1, 1)
         self.label_34 = QtGui.QLabel(self.layoutWidget_4)
+        self.label_34.setStyleSheet(_fromUtf8("QLabel\n"
+"{\n"
+"font: 18pt \"Chiller\";\n"
+"}"))
         self.label_34.setObjectName(_fromUtf8("label_34"))
         self.gridLayout_6.addWidget(self.label_34, 0, 1, 1, 1)
         self.label_39 = QtGui.QLabel(self.layoutWidget_4)
+        self.label_39.setStyleSheet(_fromUtf8("QLabel\n"
+"{\n"
+"font: 18pt \"Chiller\";\n"
+"}"))
         self.label_39.setObjectName(_fromUtf8("label_39"))
         self.gridLayout_6.addWidget(self.label_39, 0, 4, 1, 1)
         self.label_35 = QtGui.QLabel(self.layoutWidget_4)
+        self.label_35.setStyleSheet(_fromUtf8("QLabel\n"
+"{\n"
+"font: 18pt \"Chiller\";\n"
+"}"))
         self.label_35.setObjectName(_fromUtf8("label_35"))
         self.gridLayout_6.addWidget(self.label_35, 0, 7, 1, 1)
         self.D_icode = QtGui.QTextBrowser(self.layoutWidget_4)
@@ -327,9 +373,17 @@ class Ui_Y86Simulator(object):
         self.D_valC.setObjectName(_fromUtf8("D_valC"))
         self.gridLayout_6.addWidget(self.D_valC, 1, 7, 1, 1)
         self.label_38 = QtGui.QLabel(self.layoutWidget_4)
+        self.label_38.setStyleSheet(_fromUtf8("QLabel\n"
+"{\n"
+"font: 18pt \"Chiller\";\n"
+"}"))
         self.label_38.setObjectName(_fromUtf8("label_38"))
         self.gridLayout_6.addWidget(self.label_38, 0, 2, 1, 1)
         self.label_45 = QtGui.QLabel(self.layoutWidget_4)
+        self.label_45.setStyleSheet(_fromUtf8("QLabel\n"
+"{\n"
+"font: 18pt \"Chiller\";\n"
+"}"))
         self.label_45.setObjectName(_fromUtf8("label_45"))
         self.gridLayout_6.addWidget(self.label_45, 0, 0, 1, 1)
         self.D_ifun = QtGui.QTextBrowser(self.layoutWidget_4)
@@ -367,12 +421,24 @@ class Ui_Y86Simulator(object):
         self.gridLayout_7.setMargin(0)
         self.gridLayout_7.setObjectName(_fromUtf8("gridLayout_7"))
         self.label_43 = QtGui.QLabel(self.layoutWidget_5)
+        self.label_43.setStyleSheet(_fromUtf8("QLabel\n"
+"{\n"
+"font: 18pt \"Chiller\";\n"
+"}"))
         self.label_43.setObjectName(_fromUtf8("label_43"))
         self.gridLayout_7.addWidget(self.label_43, 0, 2, 1, 1)
         self.label_46 = QtGui.QLabel(self.layoutWidget_5)
+        self.label_46.setStyleSheet(_fromUtf8("QLabel\n"
+"{\n"
+"font: 18pt \"Chiller\";\n"
+"}"))
         self.label_46.setObjectName(_fromUtf8("label_46"))
         self.gridLayout_7.addWidget(self.label_46, 0, 0, 1, 1)
         self.label_23 = QtGui.QLabel(self.layoutWidget_5)
+        self.label_23.setStyleSheet(_fromUtf8("QLabel\n"
+"{\n"
+"font: 18pt \"Chiller\";\n"
+"}"))
         self.label_23.setObjectName(_fromUtf8("label_23"))
         self.gridLayout_7.addWidget(self.label_23, 0, 4, 1, 1)
         self.F_stat = QtGui.QTextBrowser(self.layoutWidget_5)
@@ -426,6 +492,10 @@ class Ui_Y86Simulator(object):
         self.OF.setObjectName(_fromUtf8("OF"))
         self.gridLayout_7.addWidget(self.OF, 0, 9, 1, 1)
         self.label_24 = QtGui.QLabel(self.layoutWidget_5)
+        self.label_24.setStyleSheet(_fromUtf8("QLabel\n"
+"{\n"
+"font: 18pt \"Chiller\";\n"
+"}"))
         self.label_24.setObjectName(_fromUtf8("label_24"))
         self.gridLayout_7.addWidget(self.label_24, 0, 6, 1, 1)
         self.SF = QtGui.QTextBrowser(self.layoutWidget_5)
@@ -441,11 +511,32 @@ class Ui_Y86Simulator(object):
         self.SF.setObjectName(_fromUtf8("SF"))
         self.gridLayout_7.addWidget(self.SF, 0, 7, 1, 1)
         self.label_37 = QtGui.QLabel(self.layoutWidget_5)
+        self.label_37.setStyleSheet(_fromUtf8("QLabel\n"
+"{\n"
+"font: 18pt \"Chiller\";\n"
+"}"))
         self.label_37.setObjectName(_fromUtf8("label_37"))
         self.gridLayout_7.addWidget(self.label_37, 0, 8, 1, 1)
         self.loadButton = QtGui.QPushButton(Y86Simulator)
         self.loadButton.setGeometry(QtCore.QRect(570, 60, 61, 31))
         self.loadButton.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.loadButton.setStyleSheet(_fromUtf8("\n"
+"QPushButton {\n"
+"    selection-color: none;\n"
+"    background-color:none;\n"
+"    border-color:rgb(0, 0, 0);\n"
+"    border-radius: 3px;\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"    background-color:rgb(255, 255, 255,50);\n"
+"    \"background: qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 rgb(222,222,222,10%), stop:1 rgb(222,222,222,20%));\"\n"
+"}\n"
+"\n"
+"QPushButton:pressed,QPushButton:on {\n"
+"    qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 rgb(0,0,0,18%), stop:1 rgb(0,0,0,25%));\n"
+"}\n"
+""))
         self.loadButton.setText(_fromUtf8(""))
         self.loadButton.setDefault(False)
         self.loadButton.setObjectName(_fromUtf8("loadButton"))
@@ -459,6 +550,23 @@ class Ui_Y86Simulator(object):
         self.saveButton = QtGui.QPushButton(Y86Simulator)
         self.saveButton.setGeometry(QtCore.QRect(560, 100, 61, 31))
         self.saveButton.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.saveButton.setStyleSheet(_fromUtf8("\n"
+"QPushButton {\n"
+"    selection-color: none;\n"
+"    background-color:none;\n"
+"    border-color:rgb(0, 0, 0);\n"
+"    border-radius: 3px;\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"    background-color:rgb(255, 255, 255,50);\n"
+"    \"background: qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 rgb(222,222,222,10%), stop:1 rgb(222,222,222,20%));\"\n"
+"}\n"
+"\n"
+"QPushButton:pressed,QPushButton:on {\n"
+"    qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 rgb(0,0,0,18%), stop:1 rgb(0,0,0,25%));\n"
+"}\n"
+""))
         self.saveButton.setText(_fromUtf8(""))
         self.saveButton.setObjectName(_fromUtf8("saveButton"))
         self.cycle = QtGui.QLineEdit(Y86Simulator)
@@ -475,6 +583,10 @@ class Ui_Y86Simulator(object):
         self.gridLayout_3.setMargin(0)
         self.gridLayout_3.setObjectName(_fromUtf8("gridLayout_3"))
         self.label_16 = QtGui.QLabel(self.layoutWidget)
+        self.label_16.setStyleSheet(_fromUtf8("QLabel\n"
+"{\n"
+"font: 18pt \"Chiller\";\n"
+"}"))
         self.label_16.setObjectName(_fromUtf8("label_16"))
         self.gridLayout_3.addWidget(self.label_16, 0, 4, 1, 1)
         self.M_valE = QtGui.QTextBrowser(self.layoutWidget)
@@ -490,6 +602,10 @@ class Ui_Y86Simulator(object):
         self.M_valE.setObjectName(_fromUtf8("M_valE"))
         self.gridLayout_3.addWidget(self.M_valE, 1, 4, 1, 1)
         self.label_15 = QtGui.QLabel(self.layoutWidget)
+        self.label_15.setStyleSheet(_fromUtf8("QLabel\n"
+"{\n"
+"font: 18pt \"Chiller\";\n"
+"}"))
         self.label_15.setObjectName(_fromUtf8("label_15"))
         self.gridLayout_3.addWidget(self.label_15, 0, 8, 1, 1)
         self.M_valA = QtGui.QTextBrowser(self.layoutWidget)
@@ -505,9 +621,17 @@ class Ui_Y86Simulator(object):
         self.M_valA.setObjectName(_fromUtf8("M_valA"))
         self.gridLayout_3.addWidget(self.M_valA, 1, 5, 1, 1)
         self.label_17 = QtGui.QLabel(self.layoutWidget)
+        self.label_17.setStyleSheet(_fromUtf8("QLabel\n"
+"{\n"
+"font: 18pt \"Chiller\";\n"
+"}"))
         self.label_17.setObjectName(_fromUtf8("label_17"))
         self.gridLayout_3.addWidget(self.label_17, 0, 2, 1, 1)
         self.label_12 = QtGui.QLabel(self.layoutWidget)
+        self.label_12.setStyleSheet(_fromUtf8("QLabel\n"
+"{\n"
+"font: 18pt \"Chiller\";\n"
+"}"))
         self.label_12.setObjectName(_fromUtf8("label_12"))
         self.gridLayout_3.addWidget(self.label_12, 0, 5, 1, 1)
         self.M_dstE = QtGui.QTextBrowser(self.layoutWidget)
@@ -523,9 +647,17 @@ class Ui_Y86Simulator(object):
         self.M_dstE.setObjectName(_fromUtf8("M_dstE"))
         self.gridLayout_3.addWidget(self.M_dstE, 1, 7, 1, 1)
         self.label_14 = QtGui.QLabel(self.layoutWidget)
+        self.label_14.setStyleSheet(_fromUtf8("QLabel\n"
+"{\n"
+"font: 18pt \"Chiller\";\n"
+"}"))
         self.label_14.setObjectName(_fromUtf8("label_14"))
         self.gridLayout_3.addWidget(self.label_14, 0, 7, 1, 1)
         self.label_13 = QtGui.QLabel(self.layoutWidget)
+        self.label_13.setStyleSheet(_fromUtf8("QLabel\n"
+"{\n"
+"font: 18pt \"Chiller\";\n"
+"}"))
         self.label_13.setObjectName(_fromUtf8("label_13"))
         self.gridLayout_3.addWidget(self.label_13, 0, 1, 1, 1)
         self.M_bch = QtGui.QTextBrowser(self.layoutWidget)
@@ -567,6 +699,10 @@ class Ui_Y86Simulator(object):
         self.M_icode.setObjectName(_fromUtf8("M_icode"))
         self.gridLayout_3.addWidget(self.M_icode, 1, 1, 1, 1)
         self.label_42 = QtGui.QLabel(self.layoutWidget)
+        self.label_42.setStyleSheet(_fromUtf8("QLabel\n"
+"{\n"
+"font: 18pt \"Chiller\";\n"
+"}"))
         self.label_42.setObjectName(_fromUtf8("label_42"))
         self.gridLayout_3.addWidget(self.label_42, 0, 0, 1, 1)
         self.M_stat = QtGui.QTextBrowser(self.layoutWidget)
@@ -616,20 +752,40 @@ class Ui_Y86Simulator(object):
         self.W_valE.setObjectName(_fromUtf8("W_valE"))
         self.gridLayout.addWidget(self.W_valE, 1, 3, 1, 1)
         self.label_2 = QtGui.QLabel(self.layoutWidget1)
+        self.label_2.setStyleSheet(_fromUtf8("QLabel\n"
+"{\n"
+"font: 18pt \"Chiller\";\n"
+"}"))
         self.label_2.setObjectName(_fromUtf8("label_2"))
         self.gridLayout.addWidget(self.label_2, 0, 1, 1, 1)
         self.label_4 = QtGui.QLabel(self.layoutWidget1)
+        self.label_4.setStyleSheet(_fromUtf8("QLabel\n"
+"{\n"
+"font: 18pt \"Chiller\";\n"
+"}"))
         self.label_4.setObjectName(_fromUtf8("label_4"))
         self.gridLayout.addWidget(self.label_4, 0, 4, 1, 1)
         spacerItem4 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
         self.gridLayout.addItem(spacerItem4, 1, 5, 1, 1)
         self.label_5 = QtGui.QLabel(self.layoutWidget1)
+        self.label_5.setStyleSheet(_fromUtf8("QLabel\n"
+"{\n"
+"font: 18pt \"Chiller\";\n"
+"}"))
         self.label_5.setObjectName(_fromUtf8("label_5"))
         self.gridLayout.addWidget(self.label_5, 0, 6, 1, 1)
         self.label_6 = QtGui.QLabel(self.layoutWidget1)
+        self.label_6.setStyleSheet(_fromUtf8("QLabel\n"
+"{\n"
+"font: 18pt \"Chiller\";\n"
+"}"))
         self.label_6.setObjectName(_fromUtf8("label_6"))
         self.gridLayout.addWidget(self.label_6, 0, 7, 1, 1)
         self.label_3 = QtGui.QLabel(self.layoutWidget1)
+        self.label_3.setStyleSheet(_fromUtf8("QLabel\n"
+"{\n"
+"font: 18pt \"Chiller\";\n"
+"}"))
         self.label_3.setObjectName(_fromUtf8("label_3"))
         self.gridLayout.addWidget(self.label_3, 0, 3, 1, 1)
         self.W_dstM = QtGui.QTextBrowser(self.layoutWidget1)
@@ -657,6 +813,10 @@ class Ui_Y86Simulator(object):
         self.W_dstE.setObjectName(_fromUtf8("W_dstE"))
         self.gridLayout.addWidget(self.W_dstE, 1, 6, 1, 1)
         self.label_41 = QtGui.QLabel(self.layoutWidget1)
+        self.label_41.setStyleSheet(_fromUtf8("QLabel\n"
+"{\n"
+"font: 18pt \"Chiller\";\n"
+"}"))
         self.label_41.setObjectName(_fromUtf8("label_41"))
         self.gridLayout.addWidget(self.label_41, 0, 0, 1, 1)
         self.W_stat = QtGui.QTextBrowser(self.layoutWidget1)
@@ -691,36 +851,125 @@ class Ui_Y86Simulator(object):
         self.runButton.setEnabled(True)
         self.runButton.setGeometry(QtCore.QRect(90, 80, 71, 41))
         self.runButton.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.runButton.setStyleSheet(_fromUtf8("\n"
+"QPushButton {\n"
+"    selection-color: none;\n"
+"    background-color:none;\n"
+"    border-color:rgb(0, 0, 0);\n"
+"    border-radius: 3px;\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"    background-color:rgb(255, 255, 255,50);\n"
+"    \"background: qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 rgb(222,222,222,10%), stop:1 rgb(222,222,222,20%));\"\n"
+"}\n"
+"\n"
+"QPushButton:pressed,QPushButton:on {\n"
+"    qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 rgb(0,0,0,18%), stop:1 rgb(0,0,0,25%));\n"
+"}\n"
+""))
         self.runButton.setText(_fromUtf8(""))
         self.runButton.setObjectName(_fromUtf8("runButton"))
         self.pauseButton = QtGui.QPushButton(Y86Simulator)
         self.pauseButton.setGeometry(QtCore.QRect(170, 80, 71, 41))
         self.pauseButton.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.pauseButton.setStyleSheet(_fromUtf8("\n"
+"QPushButton {\n"
+"    selection-color: none;\n"
+"    background-color:none;\n"
+"    border-color:rgb(0, 0, 0);\n"
+"    border-radius: 3px;\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"    background-color:rgb(255, 255, 255,50);\n"
+"    \"background: qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 rgb(222,222,222,10%), stop:1 rgb(222,222,222,20%));\"\n"
+"}\n"
+"\n"
+"QPushButton:pressed,QPushButton:on {\n"
+"    qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 rgb(0,0,0,18%), stop:1 rgb(0,0,0,25%));\n"
+"}\n"
+""))
         self.pauseButton.setText(_fromUtf8(""))
         self.pauseButton.setObjectName(_fromUtf8("pauseButton"))
         self.stepButton = QtGui.QPushButton(Y86Simulator)
         self.stepButton.setGeometry(QtCore.QRect(260, 80, 71, 41))
         self.stepButton.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.stepButton.setStyleSheet(_fromUtf8("\n"
+"QPushButton {\n"
+"    selection-color: none;\n"
+"    background-color:none;\n"
+"    border-color:rgb(0, 0, 0);\n"
+"    border-radius: 3px;\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"    background-color:rgb(255, 255, 255,50);\n"
+"    \"background: qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 rgb(222,222,222,10%), stop:1 rgb(222,222,222,20%));\"\n"
+"}\n"
+"\n"
+"QPushButton:pressed,QPushButton:on {\n"
+"    qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 rgb(0,0,0,18%), stop:1 rgb(0,0,0,25%));\n"
+"}\n"
+""))
         self.stepButton.setText(_fromUtf8(""))
         self.stepButton.setObjectName(_fromUtf8("stepButton"))
         self.backButton = QtGui.QPushButton(Y86Simulator)
         self.backButton.setGeometry(QtCore.QRect(340, 80, 71, 41))
         self.backButton.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.backButton.setStyleSheet(_fromUtf8("\n"
+"QPushButton {\n"
+"    selection-color: none;\n"
+"    background-color:none;\n"
+"    border-color:rgb(0, 0, 0);\n"
+"    border-radius: 3px;\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"    background-color:rgb(255, 255, 255,50);\n"
+"    \"background: qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 rgb(222,222,222,10%), stop:1 rgb(222,222,222,20%));\"\n"
+"}\n"
+"\n"
+"QPushButton:pressed,QPushButton:on {\n"
+"    qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 rgb(0,0,0,18%), stop:1 rgb(0,0,0,25%));\n"
+"}\n"
+""))
         self.backButton.setText(_fromUtf8(""))
         self.backButton.setObjectName(_fromUtf8("backButton"))
         self.resetButton = QtGui.QPushButton(Y86Simulator)
         self.resetButton.setGeometry(QtCore.QRect(430, 80, 71, 41))
         self.resetButton.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.resetButton.setStyleSheet(_fromUtf8("\n"
+"QPushButton {\n"
+"    selection-color: none;\n"
+"    background-color:none;\n"
+"    border-color:rgb(0, 0, 0);\n"
+"    border-radius: 3px;\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"    background-color:rgb(255, 255, 255,50);\n"
+"    \"background: qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 rgb(222,222,222,10%), stop:1 rgb(222,222,222,20%));\"\n"
+"}\n"
+"\n"
+"QPushButton:pressed,QPushButton:on {\n"
+"    qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 rgb(0,0,0,18%), stop:1 rgb(0,0,0,25%));\n"
+"}\n"
+""))
         self.resetButton.setText(_fromUtf8(""))
         self.resetButton.setObjectName(_fromUtf8("resetButton"))
         self.loadAdd = QtGui.QTextBrowser(Y86Simulator)
         self.loadAdd.setGeometry(QtCore.QRect(650, 60, 251, 31))
         self.loadAdd.setStyleSheet(_fromUtf8("font: 15pt \"Chiller\";"))
+        self.loadAdd.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
+        self.loadAdd.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
         self.loadAdd.setLineWrapMode(QtGui.QTextEdit.NoWrap)
         self.loadAdd.setObjectName(_fromUtf8("loadAdd"))
         self.saveAdd = QtGui.QTextBrowser(Y86Simulator)
         self.saveAdd.setGeometry(QtCore.QRect(650, 103, 251, 31))
         self.saveAdd.setStyleSheet(_fromUtf8("font: 15pt \"Chiller\";"))
+        self.saveAdd.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
+        self.saveAdd.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
         self.saveAdd.setLineWrapMode(QtGui.QTextEdit.NoWrap)
         self.saveAdd.setObjectName(_fromUtf8("saveAdd"))
         self.label = QtGui.QLabel(Y86Simulator)
@@ -766,6 +1015,7 @@ class Ui_Y86Simulator(object):
         self.Tab = QtGui.QTabWidget(Y86Simulator)
         self.Tab.setEnabled(True)
         self.Tab.setGeometry(QtCore.QRect(580, 420, 341, 211))
+        self.Tab.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.Tab.setStyleSheet(_fromUtf8("\n"
 "QTabWidget::tab-bar {\n"
 "border:rgb(243, 221, 255,0);\n"
@@ -776,8 +1026,8 @@ class Ui_Y86Simulator(object):
 "border:rgb(243, 221, 255,0);\n"
 "  background:rgb(0,0,0,0%);\n"
 "  color: rgb(0,0,0,0%);\n"
-"  padding: 19px;\n"
-"  min-width: 20ex;\n"
+"  padding: 16px;\n"
+"  width: 20ex;\n"
 " }\n"
 "\n"
 " QTabBar::tab:selected {\n"
@@ -800,25 +1050,29 @@ class Ui_Y86Simulator(object):
         self.Memory.setGeometry(QtCore.QRect(0, 0, 351, 171))
         self.Memory.setStyleSheet(_fromUtf8("background:rgb(0,0,0,0%);\n"
 "background-color:rgb(0,0,0,0%);\n"
-"font: 15px;"))
+"font: 15px;\n"
+"font: 9pt \"å®‹ä½“\";"))
+        self.Memory.setLineWrapMode(QtGui.QTextEdit.NoWrap)
         self.Memory.setObjectName(_fromUtf8("Memory"))
         self.Tab.addTab(self.tab, _fromUtf8(""))
         self.tab_2 = QtGui.QWidget()
         self.tab_2.setObjectName(_fromUtf8("tab_2"))
         self.Cache = QtGui.QTextBrowser(self.tab_2)
         self.Cache.setGeometry(QtCore.QRect(0, 0, 341, 161))
-        self.Cache.setStyleSheet(_fromUtf8("font: 15px;"))
+        self.Cache.setStyleSheet(_fromUtf8("font: 15px;\n"
+"font: 9pt \"å®‹ä½“\";"))
+        self.Cache.setLineWrapMode(QtGui.QTextEdit.NoWrap)
         self.Cache.setObjectName(_fromUtf8("Cache"))
         self.Tab.addTab(self.tab_2, _fromUtf8(""))
         self.Code = QtGui.QTextBrowser(Y86Simulator)
-        self.Code.setGeometry(QtCore.QRect(575, 211, 351, 181))
-        self.Code.setStyleSheet(_fromUtf8("\n"
+        self.Code.setGeometry(QtCore.QRect(560, 211, 361, 181))
+        self.Code.setStyleSheet(_fromUtf8("font: 9pt \"å®‹ä½“\";\n"
 "font: 15px;"))
         self.Code.setLineWrapMode(QtGui.QTextEdit.NoWrap)
         self.Code.setObjectName(_fromUtf8("Code"))
 
         self.retranslateUi(Y86Simulator)
-        self.Tab.setCurrentIndex(1)
+        self.Tab.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(Y86Simulator)
 
     def retranslateUi(self, Y86Simulator):

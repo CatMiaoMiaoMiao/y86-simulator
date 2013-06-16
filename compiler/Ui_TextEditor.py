@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'E:\github\y86-simulator\compiler\TextEditor.ui'
 #
-# Created: Fri Jun 14 19:59:26 2013
+# Created: Sat Jun 15 23:22:39 2013
 #      by: PyQt4 UI code generator 4.10.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -38,6 +38,7 @@ class Ui_MainWindow(object):
         self.frame.setObjectName(_fromUtf8("frame"))
         self.openButton = QtGui.QPushButton(self.frame)
         self.openButton.setGeometry(QtCore.QRect(70, 72, 81, 41))
+        self.openButton.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.openButton.setStyleSheet(_fromUtf8("QPushButton,\n"
 "QToolButton {\n"
 "    selection-color: none;\n"
@@ -63,6 +64,7 @@ class Ui_MainWindow(object):
         self.openButton.setObjectName(_fromUtf8("openButton"))
         self.saveButton = QtGui.QPushButton(self.frame)
         self.saveButton.setGeometry(QtCore.QRect(250, 72, 75, 41))
+        self.saveButton.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.saveButton.setStyleSheet(_fromUtf8("QPushButton,\n"
 "QToolButton {\n"
 "    selection-color: none;\n"
@@ -88,6 +90,7 @@ class Ui_MainWindow(object):
         self.saveButton.setObjectName(_fromUtf8("saveButton"))
         self.pushButton = QtGui.QPushButton(self.frame)
         self.pushButton.setGeometry(QtCore.QRect(410, 70, 111, 31))
+        self.pushButton.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.pushButton.setStyleSheet(_fromUtf8("QPushButton,\n"
 "QToolButton {\n"
 "    selection-color: none;\n"
@@ -113,6 +116,7 @@ class Ui_MainWindow(object):
         self.pushButton.setObjectName(_fromUtf8("pushButton"))
         self.pushButton_2 = QtGui.QPushButton(self.frame)
         self.pushButton_2.setGeometry(QtCore.QRect(600, 70, 141, 31))
+        self.pushButton_2.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.pushButton_2.setStyleSheet(_fromUtf8("QPushButton,\n"
 "QToolButton {\n"
 "    selection-color: none;\n"
@@ -138,6 +142,7 @@ class Ui_MainWindow(object):
         self.pushButton_2.setObjectName(_fromUtf8("pushButton_2"))
         self.runButton = QtGui.QPushButton(self.frame)
         self.runButton.setGeometry(QtCore.QRect(804, 80, 71, 23))
+        self.runButton.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.runButton.setStyleSheet(_fromUtf8("QPushButton,\n"
 "QToolButton {\n"
 "    selection-color: none;\n"
@@ -166,8 +171,9 @@ class Ui_MainWindow(object):
         self.codeout.setAutoFillBackground(False)
         self.codeout.setStyleSheet(_fromUtf8("QTextEdit {\n"
 "font-size : 15px;\n"
-"\n"
-"\n"
+"    font: 9pt \"å®‹ä½“\";\n"
+"background:none;\n"
+"border:none;\n"
 "}"))
         self.codeout.setLineWrapMode(QtGui.QTextEdit.NoWrap)
         self.codeout.setObjectName(_fromUtf8("codeout"))
@@ -175,8 +181,9 @@ class Ui_MainWindow(object):
         self.codein.setGeometry(QtCore.QRect(70, 140, 411, 241))
         self.codein.setStyleSheet(_fromUtf8("QTextEdit {\n"
 "font-size : 15px;\n"
-"\n"
-"\n"
+"    font: 9pt \"å®‹ä½“\";\n"
+"background:none;\n"
+"border:none;\n"
 "}"))
         self.codein.setLineWrapMode(QtGui.QTextEdit.NoWrap)
         self.codein.setObjectName(_fromUtf8("codein"))
@@ -184,8 +191,9 @@ class Ui_MainWindow(object):
         self.console.setGeometry(QtCore.QRect(70, 460, 831, 111))
         self.console.setStyleSheet(_fromUtf8("QTextEdit {\n"
 "font-size : 15px;\n"
-"\n"
-"\n"
+"    font: 9pt \"å®‹ä½“\";\n"
+"background:none;\n"
+"border:none;\n"
 "}"))
         self.console.setLineWrapMode(QtGui.QTextEdit.NoWrap)
         self.console.setObjectName(_fromUtf8("console"))

@@ -12,11 +12,13 @@ from PyQt4.QtGui import *
 from PyQt4.QtCore import *
 
 from Ui_y86 import Ui_Y86Simulator
+from Ui_heijc import Ui_MainWindow
 
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__)))+'\\compiler')
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(sys.argv[0])))+'\\compiler')
 import assemble, start
+import highlighter 
 
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__)))+'\\kernel')
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(sys.argv[0])))+'\\kernel')
 from Simulator import *
 from Memory import CACHESIZE, MEMSIZE, VMSIZE
 
@@ -41,6 +43,7 @@ class Thread(QtCore.QThread):
             self.emit(QtCore.SIGNAL("next()"))
             time.sleep(self.interval)
         self.emit(QtCore.SIGNAL("terminate()"))
+        
     
     def setslide(self,thread1,  sim, interval = 0.1):
         thread1.interval=interval
@@ -57,8 +60,9 @@ class Dialog(QDialog, Ui_Y86Simulator):
         self.opentxt=None
         self.savetxt=None
         self.loadyet = False
+        self.terminateFlag = False
         self.connect(self.thread1, SIGNAL("next()"), self.step)
-        self.connect(self.thread1, SIGNAL("terminate"), self.terminate)
+        self.connect(self.thread1, SIGNAL("terminate()"), self.terminate)
         self.connect(self.loadButton,SIGNAL("clicked()"),self.openFile)
         self.connect(self.saveButton,SIGNAL("clicked()"),self.saveFile)
         self.connect(self.runButton,SIGNAL("clicked()"),self.run)
@@ -67,16 +71,34 @@ class Dialog(QDialog, Ui_Y86Simulator):
         self.connect(self.stepButton,SIGNAL("clicked()"),self.step)
         self.connect(self.backButton,SIGNAL("clicked()"),self.back)
         self.connect(self.resetButton,SIGNAL("clicked()"),self.reset)
-        self.frequency.setText('1.0s')
-        
-        #self.Author.setText('Published by:     Rockeyrockey & Lumig & VV.\nVersion 1.0')
+        self.frequency.setText('2.0s')
+        highlighter.MyHighlighter1( self.Code, 'Classic' )
+        highlighter.MemoryHighlighter( self.Memory, 'Classic' )
+        highlighter.CacheHighlighter(self.Cache, 'Classic')
         
     
     def terminate(self):
         self.loadyet = False 
         self.runButton.setEnabled(True)
-        self.stepButton.setEnabled(True)
+        self.stepButton.setEnabled(False)
         self.backButton.setEnabled(True)
+        if self.terminateFlag == False:
+            self.terminateFlag = True
+            self.terminateShow()
+            
+    
+    def terminateShow(self):
+        reply = QtGui.QMessageBox.information(self, 'Congratulation','The program has finished,\n\
+        Thank you for using our software. Special bless for you!', QMessageBox.Yes,QMessageBox.No )
+        if reply == QtGui.QMessageBox.Yes:
+            self.heijcwindow = QtGui.QMainWindow(self)
+            self.heijcwindow.ui = Ui_MainWindow()
+            self.heijcwindow.ui.setupUi(self.heijcwindow)
+            self.heijcwindow.show()    
+        else:
+            pass
+        return
+        
     
     def showerror(self, string):
         reply = QtGui.QMessageBox.warning(self, 'Error',string, QMessageBox.Ok)
@@ -84,6 +106,7 @@ class Dialog(QDialog, Ui_Y86Simulator):
             self.openFile()
         return
         
+   
     def assemblefailure(self, assemblefilename):
         reply = QtGui.QMessageBox.question(self, 'Compile failure','Do you want to modify the code in our compiler?', QMessageBox.Yes,QMessageBox.No )
         if reply == QtGui.QMessageBox.Yes:
@@ -94,10 +117,11 @@ class Dialog(QDialog, Ui_Y86Simulator):
     
     def runassembleGUI(self, assemblefilename):
         self.assemblewindow = QtGui.QMainWindow(self)
-        self.assemblewindow.ui = start.Start(self) # caller=self, just if you wanted to call main dialog from the sub-dialog.
+        self.assemblewindow.ui = start.Start(self) 
         self.assemblewindow.ui.create(assemblefilename, self)
         self.assemblewindow.ui.compile()
         self.assemblewindow.ui.show()
+        
      
     def displayCode(self):
         text = self.displaytext.split('\n')
@@ -111,14 +135,30 @@ class Dialog(QDialog, Ui_Y86Simulator):
         return
     
     def displayMemory(self):
+        current_mem = self.simulator.getMemoryChange()
         displaytext = ''
-        for i in range(1,MEMSIZE ):
-            displaytext += str(self.simulator.getMemory(i))
-            displaytext += '\n'
-        self.Memory.setText(displaytext) 
+        for address in current_mem:
+            add = '0x%4x'%(address)
+            displaytext+='  '+add.replace(' ', '0')+': '
+            displaytext+=' 0x%x'%(current_mem[address])
+            displaytext+='\n' 
+        self.Memory.setText(displaytext)
         return
         
     def displayCache(self):
+        displaytext = '%s    isValid   isDirty      Tag         Block\n'%(' '*13)
+        for SetIndex in range(0, 64):
+            displaytext+='Set %2d:' %(SetIndex)
+            for LineIndex in range(0, 1):
+                if LineIndex != 0:
+                    displaytext+='        '
+                isValid, isDirty, tag, block = self.simulator.getCache(SetIndex, LineIndex)
+                displaytext += 'Line%2d.%5d%10d   %10d       ['%(LineIndex, isValid, isDirty, tag)
+                for byte in block:
+                    displaytext+='%5d'%byte
+                displaytext+='   ]\n'
+        self.Cache.setText(displaytext)
+        
         return
     
     def openFile(self):
@@ -157,6 +197,7 @@ class Dialog(QDialog, Ui_Y86Simulator):
                 self.showerror("Cannot open file")
             except:
                 self.assemblefailure(self.opentxt)
+        return
 
     def saveFile(self):
         self.savetxt=QFileDialog.getSaveFileName(self,"Save file","/")  
@@ -187,7 +228,8 @@ class Dialog(QDialog, Ui_Y86Simulator):
     def run(self):
         if self.loadyet == False:
             self.loadFile()
-            
+        if self.loadyet == False:
+            return
         pos = self.Slider.value()/100.0
         self.thread1.render(self.simulator, pos)
         self.runButton.setEnabled(False)
@@ -211,6 +253,8 @@ class Dialog(QDialog, Ui_Y86Simulator):
             except:
                 self.showerror()
             self.showtxt()
+        else:
+            self.terminate()
         
 
     def showtxt(self):
@@ -250,9 +294,10 @@ class Dialog(QDialog, Ui_Y86Simulator):
         self.thread2.setslide(self.thread1, self.simulator, pos)
     
     def back(self):
-        if self.cycle == 0:
-            pass
+        if self.simulator.cycle == 1:
+            return
         self.simulator.back()
+        self.stepButton.setEnabled(True)
         self.showtxt()
         
     def reset(self):
