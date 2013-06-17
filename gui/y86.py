@@ -131,7 +131,9 @@ class Dialog(QDialog, Ui_Y86Simulator):
         for line in text:
             displaytext+=line
             displaytext+='\n'
-        self.Code.setText(displaytext) 
+        displaytext+='hei'
+        self.Code.setText(displaytext)
+        self.Code.scrollToAnchor('hei') 
         return
     
     def displayMemory(self):

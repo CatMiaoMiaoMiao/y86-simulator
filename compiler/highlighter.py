@@ -148,8 +148,8 @@ class CacheHighlighter( QSyntaxHighlighter ):
             Setindex.setFontWeight( QFont.Bold )
             rule = HighlightingRule( pattern, Setindex )
             self.highlightingRules.append( rule )
-			
-			# Lineindex
+            
+            # Lineindex
             brush = QBrush( Qt.gray, Qt.SolidPattern )
             pattern = QRegExp( "Line  [0-9]+\." )
             Lineindex.setForeground( brush )

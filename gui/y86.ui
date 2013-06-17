@@ -2271,7 +2271,7 @@ font: 9pt &quot;宋体&quot;;</string>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">font: 15px;
+      <string notr="true">font: 9px;
 font: 9pt &quot;宋体&quot;;</string>
      </property>
      <property name="lineWrapMode">
@@ -2291,7 +2291,7 @@ font: 9pt &quot;宋体&quot;;</string>
    </property>
    <property name="styleSheet">
     <string notr="true">font: 9pt &quot;宋体&quot;;
-font: 15px;</string>
+font: 12px;</string>
    </property>
    <property name="lineWrapMode">
     <enum>QTextEdit::NoWrap</enum>

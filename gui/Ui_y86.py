@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'E:\github\y86-simulator\gui\y86.ui'
 #
-# Created: Sun Jun 16 21:22:25 2013
+# Created: Mon Jun 17 01:14:00 2013
 #      by: PyQt4 UI code generator 4.10.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -1059,7 +1059,7 @@ class Ui_Y86Simulator(object):
         self.tab_2.setObjectName(_fromUtf8("tab_2"))
         self.Cache = QtGui.QTextBrowser(self.tab_2)
         self.Cache.setGeometry(QtCore.QRect(0, 0, 341, 161))
-        self.Cache.setStyleSheet(_fromUtf8("font: 15px;\n"
+        self.Cache.setStyleSheet(_fromUtf8("font: 9px;\n"
 "font: 9pt \"å®‹ä½“\";"))
         self.Cache.setLineWrapMode(QtGui.QTextEdit.NoWrap)
         self.Cache.setObjectName(_fromUtf8("Cache"))
@@ -1067,7 +1067,7 @@ class Ui_Y86Simulator(object):
         self.Code = QtGui.QTextBrowser(Y86Simulator)
         self.Code.setGeometry(QtCore.QRect(560, 211, 361, 181))
         self.Code.setStyleSheet(_fromUtf8("font: 9pt \"å®‹ä½“\";\n"
-"font: 15px;"))
+"font: 12px;"))
         self.Code.setLineWrapMode(QtGui.QTextEdit.NoWrap)
         self.Code.setObjectName(_fromUtf8("Code"))
 
