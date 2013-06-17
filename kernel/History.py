@@ -6,27 +6,20 @@ Created on 2013-6-10
 
 import copy
 
-from Simulator import *
+from Sim import *
 
 class History:
     def __init__(self, maxSize=100):
         self.maxSize = maxSize
-        self.list = [None]*maxSize
+        self.list = []      
+        for i in range(maxSize):  
+            self.list.append(Sim())
         self.size = 0
         
-    def record(self, simulator):
+    def record(self, simulator):       
         self.size += 1 if self.size<self.maxSize else 0
-        tmp = copy.copy(simulator)
-        tmp.register = copy.copy(tmp.register)
-        
-        for i in range(tmp.memory.cache.E*tmp.memory.cache.S):
-            tmp.memory.cache.set[i].block = copy.copy(tmp.memory.cache.set[i].block)
-        tmp.memory.cache.set = copy.copy(tmp.memory.cache.set)
-        tmp.memory.cache = copy.copy(tmp.memory.cache)
-        
-        tmp.memory.mem = copy.copy(tmp.memory.mem)
-        tmp.memory.memChange = copy.copy(tmp.memory.memChange)
-        tmp.memory = copy.copy(tmp.memory)
+        tmp = Sim()
+        tmp.copy(simulator)
         self.list[simulator.cycle % self.maxSize] = tmp
         
     def back(self, current):
