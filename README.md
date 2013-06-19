@@ -16,9 +16,13 @@ Pipelined Y86 Simulator:
 The commandline version can be called by python main.py in the root directory. Type -h to see the help text of it. Only .yo standard input files are supported. To use the GUI version of the simulator, try switching to the GUI directory and run python y86.py. Both .ys and .yo files are supported. If an invalid .ys file is loaded, the program will automatically called the GUI version of the assembler to help you fix the problems.
 
 Features:
+
 1.Support all the instuctions described in CMU CSAPP 1st edition. iaddl and leave instrucions are extended as described in lab4 of the book.
+
 2.In the command lines, you can get into the debug mode with -d option to enjoy the ydb tool. It is sometimes sensitive to the ketboard
+
 3.The memory and cache system are used in the simulator and are presented in the GUI mode.
+
 4.Other amazing fuctions.
 
 Assemble/Disassemble Environment
