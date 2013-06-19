@@ -1,7 +1,8 @@
 y86-simulator
 =============
 
-Copyright (c) 2013 rockyRocky,LumiG,vv. 
+Copyright (c) 2013 rockyRocky,LumiG,vv.
+
 ics 2012-2 Final Project 
 Presented by CatMiaoMiaoMiao,FDU
 version 1.0  
