@@ -88,7 +88,18 @@ def noconverthex(instruction):  #convert jump/call address to hex to display
     for i in reversed(range(0,8,2)):
         result = result + add[i:i+2] 
     return result
-
+    
+def labelconverthex(la):
+    raw = '%x' %(la)
+    while len(raw) < 8:
+        raw = '0' + raw
+    result = ''
+    for i in reversed(range(0,8,2)):
+            result = result + raw[i:i+2] 
+    return result 
+    
+    
+    
 def assemble(INFILE, OUTFILE):
     global error
     error=''
@@ -163,8 +174,15 @@ def assemble(INFILE, OUTFILE):
         print('Error: assembly failed:\n%s' % error)
         return
     
+    
+    
+    
+    
+    
+    
     #convert
     allbinline={}
+    specialline=[]
     for line in strippedline:
         binline=''
         linepos = int(line)
@@ -182,7 +200,13 @@ def assemble(INFILE, OUTFILE):
                     if alignment != 0:
                         length = alignment
                     else:
-                        length = bytelen[label]                    
+                        length = bytelen[label] 
+                    if align in labels:
+                        binline = labelconverthex(labels[align])
+                        specialline.append(linepos)
+                    else:
+                        binline = labelconverthex(align)
+                        
                 elif label != '.pos':
                     error += 'Line %d: invalid align label\n' % (linepos)
             else:
@@ -234,14 +258,17 @@ def assemble(INFILE, OUTFILE):
     #write
     length = len(origline)
     for lineno in range(1, length+1):
-        line=''
+        line=''        
         try:
             line += addconverthex(lineaddress[lineno])
             line += ' : '
         except:
             pass
         try:
-            line += instrconverthex(allbinline[lineno])
+            if lineno in specialline:
+                line += allbinline[lineno]
+            else:    
+                line += instrconverthex(allbinline[lineno])
         except:
             pass
         while len(line) < 30:
