@@ -187,9 +187,11 @@ def runSimulator():
         pass
     
 def getkey():
+    # windows
     if (platform.system()=='Windows'):
         import msvcrt
         return msvcrt.getch()
+    # unix like
     import termios
     term = open("/dev/tty", "r")
     fd = term.fileno()
